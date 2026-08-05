@@ -1,0 +1,21 @@
+using System.Text.Json.Serialization;
+
+namespace Verizon.Models;
+
+/// <summary>
+/// Response in case of any errors.
+/// </summary>
+public record FotaV1Result
+{
+    /// <summary>
+    /// Error response code.
+    /// </summary>
+    [JsonPropertyName("errorCode")]
+    public required string ErrorCode { get; init; }
+
+    /// <summary>
+    /// Description of the error.
+    /// </summary>
+    [JsonPropertyName("errorMessage")]
+    public required string ErrorMessage { get; init; }
+}

@@ -1,0 +1,115 @@
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Verizon.Models.AnyOf;
+using Verizon.Models.Enums;
+
+namespace Verizon.Models;
+
+public record V2TriggersRequest
+{
+    /// <summary>
+    /// The user defined name of the trigger
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("triggerName")]
+    public string? TriggerName { get; init; }
+
+    /// <summary>
+    /// The Enterprise Customer Profile Database ID
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("ecpdId")]
+    public string? EcpdId { get; init; }
+
+    /// <summary>
+    /// The type of trigger being created or modified
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("triggerCategory")]
+    public TriggerCategory? TriggerCategory { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("dataTrigger")]
+    public DataTrigger4? DataTrigger { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("notification")]
+    public Notificationarray? Notification { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("notificationType")]
+    public string? NotificationType { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("callback")]
+    public bool? Callback { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("emailNotification")]
+    public bool? EmailNotification { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("notificationGroupName")]
+    public string? NotificationGroupName { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("notificationFrequencyFactor")]
+    public int? NotificationFrequencyFactor { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("notificationFrequencyInterval")]
+    public string? NotificationFrequencyInterval { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("externalEmailRecipients")]
+    public string? ExternalEmailRecipients { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("smsNotification")]
+    public bool? SmsNotification { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("smsNumbers")]
+    public IReadOnlyList<SmsNumberModel>? SmsNumbers { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("reminder")]
+    public bool? Reminder { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("severity")]
+    public string? Severity { get; init; }
+
+    /// <summary>
+    /// A flag to indicate of the trigger is active, true, or not, false
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("active")]
+    public Active? Active { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("filterCriteria")]
+    public AccountLevelFilter? FilterCriteria { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("condition")]
+    public AccountLevelObjectcondition? Condition { get; init; }
+
+    /// <summary>
+    /// The action taken when trigger conditions are met
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("action")]
+    public AccountLevelAction? Action { get; init; }
+
+    /// <summary>
+    /// The numeric name of the account and must include leading zeroes
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("accountName")]
+    public string? AccountName { get; init; }
+
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("pricePlanTrigger")]
+    public PricePlanTrigger1? PricePlanTrigger { get; init; }
+}

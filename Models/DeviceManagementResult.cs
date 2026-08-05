@@ -1,0 +1,16 @@
+using System.Text.Json.Serialization;
+
+namespace Verizon.Models;
+
+/// <summary>
+/// Response to activate service for one or more devices so that they can send and receive data.
+/// </summary>
+public record DeviceManagementResult
+{
+    /// <summary>
+    /// A unique string that associates the request with the results that are sent via a callback service.
+    /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+    [JsonPropertyName("requestId")]
+    public string? RequestId { get; init; }
+}
