@@ -16,6 +16,7 @@ public record CustomFields
     /// <summary>
     /// The value of an extended attribute.
     /// </summary>
+    [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("value")]
-    public required string Value { get; init; }
+    public string? Value { get; init; }
 }
