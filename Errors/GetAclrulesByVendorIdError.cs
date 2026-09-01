@@ -6,24 +6,24 @@ using Verizon.Core.Models;
 
 namespace Verizon.Errors;
 
-public sealed class GetAclrulesByVendorIdError : ApiError
+public sealed class GetAclRulesByVendorIdError : ApiError
 {
     private readonly Optional<string> _stringValue;
 
-    private GetAclrulesByVendorIdError(Optional<string> stringValue, Optional<RawError> fallback) : base(fallback)
+    private GetAclRulesByVendorIdError(Optional<string> stringValue, Optional<RawError> fallback) : base(fallback)
     {
         _stringValue = stringValue;
     }
 
-    private static GetAclrulesByVendorIdError AsString(string value) =>
+    private static GetAclRulesByVendorIdError AsString(string value) =>
         new(Optional<string>.Some(value), default);
 
-    private static GetAclrulesByVendorIdError AsFallback(RawError value) =>
+    private static GetAclRulesByVendorIdError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
     public bool TryGetString(out string value) => _stringValue.TryGetValue(out value);
 
-    internal static Task<GetAclrulesByVendorIdError> Create(HttpResponseMessage response, CancellationToken ct) =>
+    internal static Task<GetAclRulesByVendorIdError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
             400 or 401 or 403 or 406 or 429 => FromScalar(response, ct, s => s).As(AsString),
@@ -31,14 +31,14 @@ public sealed class GetAclrulesByVendorIdError : ApiError
         };
 }
 
-internal sealed class GetAclrulesByVendorIdErrorResponse : IErrorResponse<GetAclrulesByVendorIdError>
+internal sealed class GetAclRulesByVendorIdErrorResponse : IErrorResponse<GetAclRulesByVendorIdError>
 {
-    public static GetAclrulesByVendorIdErrorResponse Instance { get; } = new();
+    public static GetAclRulesByVendorIdErrorResponse Instance { get; } = new();
 
-    private GetAclrulesByVendorIdErrorResponse()
+    private GetAclRulesByVendorIdErrorResponse()
     {
     }
 
-    public Task<GetAclrulesByVendorIdError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        GetAclrulesByVendorIdError.Create(response, ct);
+    public Task<GetAclRulesByVendorIdError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        GetAclRulesByVendorIdError.Create(response, ct);
 }

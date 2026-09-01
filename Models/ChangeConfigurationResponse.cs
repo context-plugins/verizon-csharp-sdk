@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -90,4 +91,7 @@ public record ChangeConfigurationResponse
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("version")]
     public string? Version { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

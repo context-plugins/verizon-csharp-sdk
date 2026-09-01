@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -25,4 +26,7 @@ public record HistorySearchFilter
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("attributes")]
     public HistorySearchFilterAttributes? Attributes { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

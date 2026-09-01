@@ -36,7 +36,7 @@ public record GetAccountInformationResponseforplanner
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("ipPools")]
     [MaxLength(50)]
-    public IReadOnlyList<Ippoolforplanner>? IpPools { get; init; }
+    public IReadOnlyList<IpPoolforplanner>? IpPools { get; init; }
 
     /// <summary>
     /// A flag indicating if provisioning is allowed (true) or provisioning is locked (false).

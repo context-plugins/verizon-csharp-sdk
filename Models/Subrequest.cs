@@ -7,7 +7,7 @@ public record Subrequest
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("ids")]
-    public GiodeviceId? Ids { get; init; }
+    public GioDeviceId? Ids { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("status")]

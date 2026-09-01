@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.Enums;
 
 namespace Verizon.Models;
@@ -20,4 +21,7 @@ public record Polygon
     [MinLength(1)]
     [MaxLength(1)]
     public required IReadOnlyList<IReadOnlyList<IReadOnlyList<double>>> Coordinates { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

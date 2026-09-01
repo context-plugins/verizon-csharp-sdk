@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
 /// <summary>
 /// A success response includes an array of all matching events. Each event includes the full event resource definition.
 /// </summary>
-public record CreateIoTapplicationResponse
+public record CreateIoTApplicationResponse
 {
     /// <summary>
     /// An application will be created under the user's Azure subscription with this name and of type IOT central.
@@ -27,4 +28,7 @@ public record CreateIoTapplicationResponse
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("url")]
     public string? Url { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

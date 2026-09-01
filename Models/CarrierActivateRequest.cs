@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -95,4 +96,7 @@ public record CarrierActivateRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("skuNumber")]
     public string? SkuNumber { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

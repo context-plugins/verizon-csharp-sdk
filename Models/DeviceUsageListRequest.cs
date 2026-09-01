@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -29,4 +30,7 @@ public record DeviceUsageListRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("label")]
     public Label? Label { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

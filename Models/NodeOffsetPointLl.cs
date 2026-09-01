@@ -11,5 +11,5 @@ public record NodeOffsetPointLl
     /// A 64-bit node type with lat-long values expressed in standard SAE 1/10th of a microdegree.
     /// </summary>
     [JsonPropertyName("node-LatLon")]
-    public required NodeLlmD64B NodeLatLon { get; init; }
+    public required NodeLLmD64B NodeLatLon { get; init; }
 }

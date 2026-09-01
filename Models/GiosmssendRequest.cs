@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record GiosmssendRequest
+public record GiosmsSendRequest
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountName")]
@@ -37,7 +37,7 @@ public record GiosmssendRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deviceIds")]
     [MaxLength(100)]
-    public IReadOnlyList<GiodeviceId>? DeviceIds { get; init; }
+    public IReadOnlyList<GioDeviceId>? DeviceIds { get; init; }
 
     [JsonPropertyName("smsMessage")]
     public required string SmsMessage { get; init; }

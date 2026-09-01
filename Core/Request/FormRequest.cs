@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -11,76 +10,54 @@ namespace Verizon.Core.Request;
 
 internal sealed class FormRequest : IRequest
 {
-    private readonly IReadOnlyCollection<MultipartParam> _params;
+    private readonly IReadOnlyCollection<MultipartParam> _parts;
 
-    private FormRequest(IReadOnlyCollection<MultipartParam> @params) => _params = @params;
+    private FormRequest(IReadOnlyCollection<MultipartParam> parts) => _parts = parts;
 
     public HttpContent Get()
     {
         var multipart = new MultipartFormDataContent();
-        foreach (var param in _params)
-            AddPart(multipart, param);
+        foreach (var part in _parts)
+            multipart.AddPart(part);
         return multipart;
     }
 
-    public bool CanRetry => !_params.Any(p => p.Value is BinaryContent or IEnumerable<BinaryContent>);
+    public bool CanRetry => !_parts.Any(p => p.Value is BinaryContent or IEnumerable<BinaryContent>);
 
-    public static FormRequest Create(IReadOnlyCollection<MultipartParam> @params) => new(@params);
-
-    private static void AddPart(MultipartFormDataContent multipart, MultipartParam param)
-    {
-        var (name, value, contentType) = param;
-
-        switch (value)
-        {
-            case null:
-                return;
-            case BinaryContent file:
-                multipart.AddFilePart(name, file);
-                return;
-            case IEnumerable<BinaryContent> files:
-            {
-                foreach (var item in files)
-                    multipart.AddFilePart(name, item);
-                return;
-            }
-        }
-
-        if (TryGetJsonMediaType(contentType, out var jsonMediaType))
-        {
-            multipart.AddJsonPart(name, value, jsonMediaType);
-            return;
-        }
-
-        foreach (var pair in ParameterFlattener.Flatten(new Param(name, value)))
-            multipart.AddStringPart(pair.Key, pair.Value);
-    }
-
-    private static bool TryGetJsonMediaType(string? contentType,
-        [NotNullWhen(true)] out MediaTypeHeaderValue? mediaType)
-    {
-        mediaType = null;
-
-        if (!MediaTypeHeaderValue.TryParse(contentType, out var parsed)
-            || parsed.MediaType is not { } mediaTypeName)
-            return false;
-
-        var isJson = string.Equals(mediaTypeName, "application/json", StringComparison.OrdinalIgnoreCase)
-            || mediaTypeName.EndsWith("+json", StringComparison.OrdinalIgnoreCase);
-        if (!isJson)
-            return false;
-
-        parsed.CharSet = null;
-        mediaType = parsed;
-        return true;
-    }
+    public static FormRequest Create(params IReadOnlyCollection<MultipartParam> parts) => new(parts);
 }
 
 file static class MultipartFormDataContentExtensions
 {
     extension(MultipartFormDataContent multipart)
     {
-        public void AddFilePart(string name, BinaryContent file)
+        public void AddPart(MultipartParam part)
+        {
+            switch (part)
+            {
+                case { Key: null }:
+                    multipart.AddTextParts(new Param(part.Value));
+                    break;
+                case { Value: null }:
+                    break;
+                case { Key: { } key, Value: BinaryContent file }:
+                    multipart.AddFilePart(key, file);
+                    break;
+                case { Key: { } key, Value: IEnumerable<BinaryContent> files }:
+                    foreach (var file in files)
+                        multipart.AddFilePart(key, file);
+                    break;
+                case { Key: { } key, Value: { } value }
+                    when part.ContentType.ToJsonMediaType() is { } mediaType:
+                    multipart.AddJsonPart(key, value, mediaType);
+                    break;
+                case { Key: { } key, Value: { } value }:
+                    multipart.AddTextParts(new Param(key, value));
+                    break;
+            }
+        }
+
+        private void AddFilePart(string name, BinaryContent file)
         {
             var fileContent = new StreamContent(new NonDisposingStream(file.Stream));
             fileContent.Headers.ContentType = file.ContentType;
@@ -90,19 +67,43 @@ file static class MultipartFormDataContentExtensions
                 multipart.Add(fileContent, name);
         }
 
-        public void AddJsonPart(string name, object value, MediaTypeHeaderValue mediaType)
+        private void AddJsonPart(string name, object value, MediaTypeHeaderValue mediaType)
         {
             var json = JsonContent.Create(value, value.GetType());
             json.Headers.ContentType = mediaType;
             multipart.Add(json, name);
         }
 
-        public void AddStringPart(string name, string text)
+        private void AddTextParts(Param param)
+        {
+            foreach (var pair in ParameterFlattener.Flatten(param))
+                multipart.AddTextPart(pair.Key, pair.Value);
+        }
+
+        private void AddTextPart(string name, string text)
         {
             var content = new StringContent(text);
             if (content.Headers.ContentType is { } contentType)
                 contentType.CharSet = null;
             multipart.Add(content, name);
+        }
+    }
+
+    extension(string? contentType)
+    {
+        private MediaTypeHeaderValue? ToJsonMediaType()
+        {
+            if (!MediaTypeHeaderValue.TryParse(contentType, out var parsed)
+                || parsed.MediaType is not { } mediaTypeName)
+                return null;
+
+            var isJson = string.Equals(mediaTypeName, "application/json", StringComparison.OrdinalIgnoreCase)
+                         || mediaTypeName.EndsWith("+json", StringComparison.OrdinalIgnoreCase);
+            if (!isJson)
+                return null;
+
+            parsed.CharSet = null;
+            return parsed;
         }
     }
 }

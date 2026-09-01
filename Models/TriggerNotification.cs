@@ -71,7 +71,7 @@ public record TriggerNotification
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("smsNumbers")]
     [MaxLength(10)]
-    public IReadOnlyList<Smsnumber>? SmsNumbers { get; init; }
+    public IReadOnlyList<SmsNumber>? SmsNumbers { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("reminder")]

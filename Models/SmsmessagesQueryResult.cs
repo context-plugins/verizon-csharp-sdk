@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
 /// <summary>
 /// Response to SMS messages sent by all M2M devices associated with a billing account.
 /// </summary>
-public record SmsmessagesQueryResult
+public record SmsMessagesQueryResult
 {
     /// <summary>
     /// False for a status 200 response.True for a status 202 response, indicating that there is more data to be retrieved.
@@ -20,5 +21,8 @@ public record SmsmessagesQueryResult
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("messages")]
-    public IReadOnlyList<Smsmessage>? Messages { get; init; }
+    public IReadOnlyList<SmsMessage>? Messages { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

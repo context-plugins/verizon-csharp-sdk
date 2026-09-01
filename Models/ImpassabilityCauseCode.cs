@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Core.Validation.Attributes;
 
 namespace Verizon.Models;
@@ -34,4 +35,7 @@ public record ImpassabilityCauseCode
     [Minimum(0)]
     [Maximum(255)]
     public required int Impassability5 { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

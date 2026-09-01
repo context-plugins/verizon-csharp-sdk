@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -19,4 +20,7 @@ public record BullseyeServiceRequest
     /// </summary>
     [JsonPropertyName("accountNumber")]
     public required string AccountNumber { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

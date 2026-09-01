@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.Enums;
 
 namespace Verizon.Models;
@@ -6,7 +7,7 @@ namespace Verizon.Models;
 /// <summary>
 /// Error message.
 /// </summary>
-public record IerrorMessage
+public record IErrorMessage
 {
     /// <summary>
     /// Error Code.
@@ -35,4 +36,7 @@ public record IerrorMessage
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("detailErrorMessage")]
     public string? DetailErrorMessage { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

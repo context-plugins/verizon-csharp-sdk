@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using Verizon.Models.AnyOf;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -12,5 +12,8 @@ public record GbideviceDetailsresponse5
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("devices")]
-    public IReadOnlyList<Device1>? Devices { get; init; }
+    public IReadOnlyList<GbiaccountNameobject5>? Devices { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

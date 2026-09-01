@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -9,4 +10,7 @@ public record DescriptionOfRoadSurfacePortlandCement
     /// </summary>
     [JsonPropertyName("portlandCement")]
     public required PortlandCement PortlandCement { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

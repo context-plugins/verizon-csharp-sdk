@@ -2,15 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
-public record GiosmsMessage
+public record GioSmsMessage
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deviceIds")]
     [MaxLength(100)]
-    public IReadOnlyList<GiodeviceId>? DeviceIds { get; init; }
+    public IReadOnlyList<GioDeviceId>? DeviceIds { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("message")]
@@ -21,4 +22,7 @@ public record GiosmsMessage
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("timestamp")]
     public DateTimeOffset? Timestamp { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

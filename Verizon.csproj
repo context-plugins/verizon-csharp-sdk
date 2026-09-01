@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <LangVersion>14</LangVersion>
         <ImplicitUsings>disable</ImplicitUsings>
+        <NoWarn>$(NoWarn);649</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -19,6 +20,7 @@
         </PackageReference>
         <PackageReference Include="System.Net.Http.Json" Version="10.0.8" />
         <PackageReference Include="System.Net.ServerSentEvents" Version="10.0.8" />
+        <PackageReference Include="System.Text.Json" Version="10.0.8" />
     </ItemGroup>
 
 </Project>

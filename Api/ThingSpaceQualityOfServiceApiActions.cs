@@ -39,7 +39,7 @@ public sealed class ThingSpaceQualityOfServiceApiActions
     /// <remarks>
     /// Creates a QoS elevation subscription ID and activates the subscription.
     /// </remarks>
-    public Task<Success201> CreateAthingSpaceQualityOfServiceApisubscription(SubscribeRequest body,
+    public Task<Success201> CreateAThingSpaceQualityOfServiceApiSubscription(SubscribeRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/actions/enhanceQoS"),
@@ -66,7 +66,7 @@ public sealed class ThingSpaceQualityOfServiceApiActions
     /// <remarks>
     /// Stops an active ThingSpace Quality of Service API subscription using the account name and the subscription ID.
     /// </remarks>
-    public Task<Success201> StopAthingSpaceQualityOfServiceApisubscription(string accountName,
+    public Task<Success201> StopAThingSpaceQualityOfServiceApiSubscription(string accountName,
         string qosSubscriptionId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>

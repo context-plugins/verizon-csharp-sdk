@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -15,4 +16,7 @@ public record GenericMessage
     /// </summary>
     [JsonPropertyName("generic")]
     public required GenericPayload Generic { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

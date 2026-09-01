@@ -1,4 +1,5 @@
 using System.Net.Http;
+using Verizon.Core.Extensions;
 
 namespace Verizon.Core.Request;
 
@@ -8,10 +9,7 @@ internal sealed class EmptyBody : IRequest
 
     private EmptyBody() { }
 
-    // No content at all — a zero-length StringContent would make .NET Framework's
-    // HttpClientHandler throw ProtocolViolationException on GET ("Cannot send a
-    // content-body with this verb-type").
-    public HttpContent Get() => null!;
+    public HttpContent Get() => HttpContent.None;
 
     public bool CanRetry => true;
 }

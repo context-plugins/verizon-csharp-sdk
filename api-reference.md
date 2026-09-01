@@ -234,9 +234,9 @@ try
 }
 catch (SdkException<GetAccountDeviceInformationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountDeviceInformationError
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -304,9 +304,9 @@ try
 }
 catch (SdkException<ListAccountDevicesInformationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type ListAccountDevicesInformationError
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -377,9 +377,9 @@ try
 }
 catch (SdkException<GetCurrentAsynchronousRequestStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type GetCurrentAsynchronousRequestStatusError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -450,9 +450,9 @@ try
 }
 catch (SdkException<GetAccountInformationUsingGetError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponseforplanner(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountInformationUsingGetError
+        // TODO: Handle 'error' of type RestErrorResponseforplanner
     }
 }
 ```
@@ -522,9 +522,9 @@ try
 }
 catch (SdkException<ListAccountSubscriptionsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetSecurityResult(out var error))
     {
-        // TODO: Handle 'error' of type ListAccountSubscriptionsError
+        // TODO: Handle 'error' of type SecurityResult
     }
 }
 ```
@@ -595,9 +595,9 @@ try
 }
 catch (SdkException<GetAccountInformationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountInformationError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -663,9 +663,9 @@ try
 }
 catch (SdkException<ListAccountLeadsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListAccountLeadsError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -732,9 +732,9 @@ try
 }
 catch (SdkException<ListAccountStatesAndServicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListAccountStatesAndServicesError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -1003,9 +1003,9 @@ try
 }
 catch (SdkException<CreateAnomalyDetectionTriggerError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetIntelligenceResult(out var error))
     {
-        // TODO: Handle 'error' of type CreateAnomalyDetectionTriggerError
+        // TODO: Handle 'error' of type IntelligenceResult
     }
 }
 ```
@@ -1136,9 +1136,9 @@ try
 }
 catch (SdkException<ListAnomalyDetectionTriggerSettingsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetIntelligenceResult(out var error))
     {
-        // TODO: Handle 'error' of type ListAnomalyDetectionTriggerSettingsError
+        // TODO: Handle 'error' of type IntelligenceResult
     }
 }
 ```
@@ -1204,9 +1204,9 @@ try
 }
 catch (SdkException<ListAnomalyDetectionTriggersError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetIntelligenceResult(out var error))
     {
-        // TODO: Handle 'error' of type ListAnomalyDetectionTriggersError
+        // TODO: Handle 'error' of type IntelligenceResult
     }
 }
 ```
@@ -1260,9 +1260,9 @@ try
 }
 catch (SdkException<UpdateAnomalyDetectionTriggerError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetIntelligenceResult(out var error))
     {
-        // TODO: Handle 'error' of type UpdateAnomalyDetectionTriggerError
+        // TODO: Handle 'error' of type IntelligenceResult
     }
 }
 ```
@@ -1346,7 +1346,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>IReadOnlyList&lt;[CreateTriggerRequestOptions](Models/CreateTriggerRequestOptions.cs)&gt;</code> | - |
+| <code>body</code> | <code>IReadOnlyList&lt;[CreateTriggerRequestOptions](Models/AnyOf/CreateTriggerRequestOptions.cs)&gt;</code> | - |
 
 </dd>
 </dl>
@@ -1476,7 +1476,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>IReadOnlyList&lt;[UpdateTriggerRequestOptions](Models/UpdateTriggerRequestOptions.cs)&gt;</code> | - |
+| <code>body</code> | <code>IReadOnlyList&lt;[UpdateTriggerRequestOptions](Models/AnyOf/UpdateTriggerRequestOptions.cs)&gt;</code> | - |
 
 </dd>
 </dl>
@@ -1532,9 +1532,9 @@ try
 }
 catch (SdkException<AddAccountError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type AddAccountError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -1600,9 +1600,9 @@ try
 }
 catch (SdkException<CancelManagedAccountActionError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type CancelManagedAccountActionError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -1668,9 +1668,9 @@ try
 }
 catch (SdkException<ListManagedAccountError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type ListManagedAccountError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -1737,9 +1737,9 @@ try
 }
 catch (SdkException<ManagedAccountActionError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type ManagedAccountActionError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -1809,9 +1809,9 @@ try
 }
 catch (SdkException<CancelCampaignError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type CancelCampaignError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -1878,9 +1878,9 @@ try
 }
 catch (SdkException<GetCampaignInformationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type GetCampaignInformationError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -1947,9 +1947,9 @@ try
 }
 catch (SdkException<ScheduleCampaignFirmwareUpgradeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type ScheduleCampaignFirmwareUpgradeError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -2015,9 +2015,9 @@ try
 }
 catch (SdkException<ScheduleFileUpgradeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type ScheduleFileUpgradeError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -2056,7 +2056,7 @@ catch (SdkException<ScheduleFileUpgradeError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;UploadAndScheduleFileResponse&gt; ScheduleSwupgradeHttpDevices(string acc, SchedulesSoftwareUpgradeRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;UploadAndScheduleFileResponse&gt; ScheduleSwUpgradeHttpDevices(string acc, SchedulesSoftwareUpgradeRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -2079,14 +2079,14 @@ Campaign time windows for downloading and installing software are available as l
 ```csharp
 try
 {
-    var response = await client.CampaignsV2.ScheduleSwupgradeHttpDevices(acc, body);
+    var response = await client.CampaignsV2.ScheduleSwUpgradeHttpDevices(acc, body);
     // TODO: Handle 'response' of type UploadAndScheduleFileResponse
 }
-catch (SdkException<ScheduleSwupgradeHttpDevicesError> ex)
+catch (SdkException<ScheduleSwUpgradeHttpDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type ScheduleSwupgradeHttpDevicesError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -2114,7 +2114,7 @@ catch (SdkException<ScheduleSwupgradeHttpDevicesError> ex)
 
 **OnSuccess**: <code>[UploadAndScheduleFileResponse](Models/UploadAndScheduleFileResponse.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[ScheduleSwupgradeHttpDevicesError](Errors/ScheduleSwupgradeHttpDevicesError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[ScheduleSwUpgradeHttpDevicesError](Errors/ScheduleSwUpgradeHttpDevicesError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -2153,9 +2153,9 @@ try
 }
 catch (SdkException<UpdateCampaignDatesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type UpdateCampaignDatesError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -2222,9 +2222,9 @@ try
 }
 catch (SdkException<UpdateCampaignFirmwareDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type UpdateCampaignFirmwareDevicesError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -2295,9 +2295,9 @@ try
 }
 catch (SdkException<CancelCampaign2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type CancelCampaign2Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -2364,9 +2364,9 @@ try
 }
 catch (SdkException<GetCampaignInformation2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type GetCampaignInformation2Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -2433,9 +2433,9 @@ try
 }
 catch (SdkException<ScheduleCampaignFirmwareUpgrade2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type ScheduleCampaignFirmwareUpgrade2Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -2502,9 +2502,9 @@ try
 }
 catch (SdkException<UpdateCampaignDates2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type UpdateCampaignDates2Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -2572,9 +2572,9 @@ try
 }
 catch (SdkException<UpdateCampaignFirmwareDevices2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type UpdateCampaignFirmwareDevices2Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -2645,9 +2645,9 @@ try
 }
 catch (SdkException<DisableDeviceLoggingError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type DisableDeviceLoggingError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -2713,9 +2713,9 @@ try
 }
 catch (SdkException<DisableLoggingForDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type DisableLoggingForDevicesError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -2782,9 +2782,9 @@ try
 }
 catch (SdkException<EnableDeviceLoggingError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type EnableDeviceLoggingError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -2851,9 +2851,9 @@ try
 }
 catch (SdkException<EnableLoggingForDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type EnableLoggingForDevicesError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -2919,9 +2919,9 @@ try
 }
 catch (SdkException<ListDeviceLogsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type ListDeviceLogsError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -2988,9 +2988,9 @@ try
 }
 catch (SdkException<ListDevicesWithLoggingEnabledError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type ListDevicesWithLoggingEnabledError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -3652,9 +3652,9 @@ try
 }
 catch (SdkException<GetListOfFilesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type GetListOfFilesError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -3726,9 +3726,9 @@ try
 }
 catch (SdkException<UploadConfigFileError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type UploadConfigFileError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -3803,9 +3803,9 @@ try
 }
 catch (SdkException<DeregisterCallbackError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type DeregisterCallbackError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -3872,9 +3872,9 @@ try
 }
 catch (SdkException<ListRegisteredCallbacksError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListRegisteredCallbacksError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -3940,9 +3940,9 @@ try
 }
 catch (SdkException<RegisterCallbackError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type RegisterCallbackError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -4027,7 +4027,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[V2TriggersRequest](Models/V2TriggersRequest.cs)</code> | - |
+| <code>body</code> | <code>[V2TriggersRequest](Models/AnyOf/V2TriggersRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -4119,7 +4119,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; AggregateUsage(AggregateUsage body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; AggregateUsage(AggregateUsage body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -4143,7 +4143,7 @@ Retrieve the aggregate usage for a device or a number of devices.
 try
 {
     var response = await client.DeviceActions.AggregateUsage(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -4171,7 +4171,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -4315,7 +4315,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; RetrieveDeviceProvisioningHistory(ProvhistoryRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; RetrieveDeviceProvisioningHistory(ProvhistoryRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -4339,7 +4339,7 @@ Retrieve the provisioning history of a specific device or devices.
 try
 {
     var response = await client.DeviceActions.RetrieveDeviceProvisioningHistory(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -4367,7 +4367,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -4380,7 +4380,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; RetrieveTheGlobalDeviceList(GetDeviceListWithProfilesRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; RetrieveTheGlobalDeviceList(GetDeviceListWithProfilesRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -4404,7 +4404,7 @@ Allows the profile to fetch the complete device list. This works with Verizon US
 try
 {
     var response = await client.DeviceActions.RetrieveTheGlobalDeviceList(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -4432,7 +4432,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -4532,9 +4532,9 @@ try
 }
 catch (SdkException<DropCredentialsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type DropCredentialsError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -4590,9 +4590,9 @@ try
 }
 catch (SdkException<GenerateCredentialsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type GenerateCredentialsError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -4648,9 +4648,9 @@ try
 }
 catch (SdkException<ResetCredentialsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type ResetCredentialsError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -4706,9 +4706,9 @@ try
 }
 catch (SdkException<RetrieveCredentialsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetErrorResponseModel(out var error))
     {
-        // TODO: Handle 'error' of type RetrieveCredentialsError
+        // TODO: Handle 'error' of type ErrorResponseModel
     }
 }
 ```
@@ -4778,9 +4778,9 @@ try
 }
 catch (SdkException<DeviceReachabilityStatusUsingPostError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type DeviceReachabilityStatusUsingPostError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -4846,9 +4846,9 @@ try
 }
 catch (SdkException<RetrieveActiveMonitorsUsingPostError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type RetrieveActiveMonitorsUsingPostError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -4918,9 +4918,9 @@ try
 }
 catch (SdkException<CreateDeviceGroupError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type CreateDeviceGroupError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -4986,9 +4986,9 @@ try
 }
 catch (SdkException<DeleteDeviceGroupError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type DeleteDeviceGroupError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -5055,9 +5055,9 @@ try
 }
 catch (SdkException<GetDeviceGroupInformationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type GetDeviceGroupInformationError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -5125,9 +5125,9 @@ try
 }
 catch (SdkException<ListDeviceGroupsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListDeviceGroupsError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -5193,9 +5193,9 @@ try
 }
 catch (SdkException<UpdateDeviceGroupError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type UpdateDeviceGroupError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -5333,9 +5333,9 @@ try
 }
 catch (SdkException<DeregisterCallback2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type DeregisterCallback2Error
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -5402,9 +5402,9 @@ try
 }
 catch (SdkException<ListRegisteredCallbacks2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type ListRegisteredCallbacks2Error
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -5470,9 +5470,9 @@ try
 }
 catch (SdkException<RegisterCallback2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type RegisterCallback2Error
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -5542,9 +5542,9 @@ try
 }
 catch (SdkException<ActivateServiceForDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ActivateServiceForDevicesError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -5610,9 +5610,9 @@ try
 }
 catch (SdkException<AddDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type AddDevicesError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -5678,9 +5678,9 @@ try
 }
 catch (SdkException<BilledUsageInfoError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type BilledUsageInfoError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -5746,9 +5746,9 @@ try
 }
 catch (SdkException<ChangeDevicesServicePlanError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ChangeDevicesServicePlanError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -5814,9 +5814,9 @@ try
 }
 catch (SdkException<CheckDevicesAvailabilityForActivationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type CheckDevicesAvailabilityForActivationError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -5882,9 +5882,9 @@ try
 }
 catch (SdkException<DeactivateServiceForDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type DeactivateServiceForDevicesError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -5950,9 +5950,9 @@ try
 }
 catch (SdkException<DeleteDeactivatedDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type DeleteDeactivatedDevicesError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6018,9 +6018,9 @@ try
 }
 catch (SdkException<DeviceUploadError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type DeviceUploadError
+        // TODO: Handle 'error' of type RestErrorResponse
     }
 }
 ```
@@ -6086,9 +6086,9 @@ try
 }
 catch (SdkException<DeviceUploadStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type DeviceUploadStatusError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6154,9 +6154,9 @@ try
 }
 catch (SdkException<GetDeviceExtendedDiagnosticInformationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type GetDeviceExtendedDiagnosticInformationError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6222,9 +6222,9 @@ try
 }
 catch (SdkException<GetDeviceServiceSuspensionStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type GetDeviceServiceSuspensionStatusError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6262,7 +6262,7 @@ catch (SdkException<GetDeviceServiceSuspensionStatusError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;DeviceManagementResult&gt; ListCurrentDevicesPrlversion(DevicePrlListRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;DeviceManagementResult&gt; ListCurrentDevicesPrlVersion(DevicePrlListRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -6285,14 +6285,14 @@ catch (SdkException<GetDeviceServiceSuspensionStatusError> ex)
 ```csharp
 try
 {
-    var response = await client.DeviceManagement.ListCurrentDevicesPrlversion(body);
+    var response = await client.DeviceManagement.ListCurrentDevicesPrlVersion(body);
     // TODO: Handle 'response' of type DeviceManagementResult
 }
-catch (SdkException<ListCurrentDevicesPrlversionError> ex)
+catch (SdkException<ListCurrentDevicesPrlVersionError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListCurrentDevicesPrlversionError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6319,7 +6319,7 @@ catch (SdkException<ListCurrentDevicesPrlversionError> ex)
 
 **OnSuccess**: <code>[DeviceManagementResult](Models/DeviceManagementResult.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[ListCurrentDevicesPrlversionError](Errors/ListCurrentDevicesPrlversionError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[ListCurrentDevicesPrlVersionError](Errors/ListCurrentDevicesPrlVersionError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -6358,9 +6358,9 @@ try
 }
 catch (SdkException<ListDevicesInformationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListDevicesInformationError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6426,9 +6426,9 @@ try
 }
 catch (SdkException<ListDevicesProvisioningHistoryError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListDevicesProvisioningHistoryError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6494,9 +6494,9 @@ try
 }
 catch (SdkException<ListDevicesUsageHistoryError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListDevicesUsageHistoryError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6562,9 +6562,9 @@ try
 }
 catch (SdkException<ListDevicesWithImeiIccidMismatchError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListDevicesWithImeiIccidMismatchError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6630,9 +6630,9 @@ try
 }
 catch (SdkException<MoveDevicesWithinAccountsOfProfileError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type MoveDevicesWithinAccountsOfProfileError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6698,9 +6698,9 @@ try
 }
 catch (SdkException<RestoreServiceForSuspendedDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type RestoreServiceForSuspendedDevicesError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6766,9 +6766,9 @@ try
 }
 catch (SdkException<RetrieveAggregateDeviceUsageHistoryError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type RetrieveAggregateDeviceUsageHistoryError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6834,9 +6834,9 @@ try
 }
 catch (SdkException<RetrieveDeviceConnectionHistoryError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type RetrieveDeviceConnectionHistoryError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6902,9 +6902,9 @@ try
 }
 catch (SdkException<SuspendServiceForDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type SuspendServiceForDevicesError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -6970,9 +6970,9 @@ try
 }
 catch (SdkException<UpdateDeviceIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type UpdateDeviceIdError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -7039,9 +7039,9 @@ try
 }
 catch (SdkException<UpdateDevicesContactInformationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type UpdateDevicesContactInformationError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -7107,9 +7107,9 @@ try
 }
 catch (SdkException<UpdateDevicesCostCenterCodeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type UpdateDevicesCostCenterCodeError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -7175,9 +7175,9 @@ try
 }
 catch (SdkException<UpdateDevicesCustomFieldsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type UpdateDevicesCustomFieldsError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -7243,9 +7243,9 @@ try
 }
 catch (SdkException<UpdateDevicesStateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type UpdateDevicesStateError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -7311,9 +7311,9 @@ try
 }
 catch (SdkException<UploadActivateDeviceError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type UploadActivateDeviceError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -7379,9 +7379,9 @@ try
 }
 catch (SdkException<UsageSegmentationLabelAssociationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type UsageSegmentationLabelAssociationError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -7447,9 +7447,9 @@ try
 }
 catch (SdkException<UsageSegmentationLabelDeletionError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type UsageSegmentationLabelDeletionError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -7510,9 +7510,9 @@ try
 }
 catch (SdkException<DeviceReachabilityError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type DeviceReachabilityError
+        // TODO: Handle 'error' of type RestErrorResponse
     }
 }
 ```
@@ -7568,9 +7568,9 @@ try
 }
 catch (SdkException<StopDeviceReachabilityError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type StopDeviceReachabilityError
+        // TODO: Handle 'error' of type RestErrorResponse
     }
 }
 ```
@@ -7640,9 +7640,9 @@ try
 }
 catch (SdkException<ActivateDeviceThroughProfileError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type ActivateDeviceThroughProfileError
+        // TODO: Handle 'error' of type RestErrorResponse
     }
 }
 ```
@@ -7708,9 +7708,9 @@ try
 }
 catch (SdkException<ProfileToActivateDeviceError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type ProfileToActivateDeviceError
+        // TODO: Handle 'error' of type RestErrorResponse
     }
 }
 ```
@@ -7776,9 +7776,9 @@ try
 }
 catch (SdkException<ProfileToDeactivateDeviceError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type ProfileToDeactivateDeviceError
+        // TODO: Handle 'error' of type RestErrorResponse
     }
 }
 ```
@@ -7844,9 +7844,9 @@ try
 }
 catch (SdkException<ProfileToSetFallbackAttributeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type ProfileToSetFallbackAttributeError
+        // TODO: Handle 'error' of type RestErrorResponse
     }
 }
 ```
@@ -7916,9 +7916,9 @@ try
 }
 catch (SdkException<CalculateAggregatedReportAsynchronousError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetHyperPreciseLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type CalculateAggregatedReportAsynchronousError
+        // TODO: Handle 'error' of type HyperPreciseLocationResult
     }
 }
 ```
@@ -7984,9 +7984,9 @@ try
 }
 catch (SdkException<CalculateAggregatedReportSynchronousError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetHyperPreciseLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type CalculateAggregatedReportSynchronousError
+        // TODO: Handle 'error' of type HyperPreciseLocationResult
     }
 }
 ```
@@ -8052,9 +8052,9 @@ try
 }
 catch (SdkException<GetSessionsReportError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetHyperPreciseLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type GetSessionsReportError
+        // TODO: Handle 'error' of type HyperPreciseLocationResult
     }
 }
 ```
@@ -8162,7 +8162,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; ListSmsMessageHistory(SmseventHistoryRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; ListSmsMessageHistory(SmsEventHistoryRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -8186,7 +8186,7 @@ Returns a list of sms history for a given device during a specified time frame.
 try
 {
     var response = await client.DeviceSmsMessaging.ListSmsMessageHistory(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -8204,7 +8204,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[SmseventHistoryRequest](Models/SmseventHistoryRequest.cs)</code> | - |
+| <code>body</code> | <code>[SmsEventHistoryRequest](Models/SmsEventHistoryRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -8214,7 +8214,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -8227,7 +8227,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; SendAnSmsMessage(GiosmssendRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; SendAnSmsMessage(GiosmsSendRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -8251,7 +8251,7 @@ Sends an SMS message to one device. Messages are queued on the M2M MC Platform a
 try
 {
     var response = await client.DeviceSmsMessaging.SendAnSmsMessage(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -8269,7 +8269,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[GiosmssendRequest](Models/GiosmssendRequest.cs)</code> | - |
+| <code>body</code> | <code>[GiosmsSendRequest](Models/GiosmsSendRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -8279,7 +8279,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -8389,9 +8389,9 @@ try
 }
 catch (SdkException<GetDeviceHyperPreciseStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetHyperPreciseLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type GetDeviceHyperPreciseStatusError
+        // TODO: Handle 'error' of type HyperPreciseLocationResult
     }
 }
 ```
@@ -8458,9 +8458,9 @@ try
 }
 catch (SdkException<UpdateDeviceHyperPreciseStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetHyperPreciseLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type UpdateDeviceHyperPreciseStatusError
+        // TODO: Handle 'error' of type HyperPreciseLocationResult
     }
 }
 ```
@@ -8530,9 +8530,9 @@ try
 }
 catch (SdkException<GetLocationServiceSubscriptionStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type GetLocationServiceSubscriptionStatusError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -8598,9 +8598,9 @@ try
 }
 catch (SdkException<GetLocationServiceUsageError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type GetLocationServiceUsageError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -9032,9 +9032,9 @@ try
 }
 catch (SdkException<GetDiagnosticsSubscriptionCallbackInfoError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceDiagnosticsResult(out var error))
     {
-        // TODO: Handle 'error' of type GetDiagnosticsSubscriptionCallbackInfoError
+        // TODO: Handle 'error' of type DeviceDiagnosticsResult
     }
 }
 ```
@@ -9100,9 +9100,9 @@ try
 }
 catch (SdkException<RegisterDiagnosticsCallbackUrlError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceDiagnosticsResult(out var error))
     {
-        // TODO: Handle 'error' of type RegisterDiagnosticsCallbackUrlError
+        // TODO: Handle 'error' of type DeviceDiagnosticsResult
     }
 }
 ```
@@ -9156,9 +9156,9 @@ try
 }
 catch (SdkException<UnregisterDiagnosticsCallbackError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceDiagnosticsResult(out var error))
     {
-        // TODO: Handle 'error' of type UnregisterDiagnosticsCallbackError
+        // TODO: Handle 'error' of type DeviceDiagnosticsResult
     }
 }
 ```
@@ -9584,9 +9584,9 @@ catch (SdkException<RawError> ex)
 
 </details>
 
-## EtxappConfiguration
+## EtxAppConfiguration
 
-> Source: [EtxappConfiguration](Api/EtxappConfiguration.cs)
+> Source: [EtxAppConfiguration](Api/EtxAppConfiguration.cs)
 
 <details>
 <summary><code>Task&lt;GeoFenceConfigurationResponse&gt; CreateConfiguration(string vendorId, GeoFenceConfigurationRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
@@ -9615,14 +9615,14 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    var response = await client.EtxappConfiguration.CreateConfiguration(vendorId, body);
+    var response = await client.EtxAppConfiguration.CreateConfiguration(vendorId, body);
     // TODO: Handle 'response' of type GeoFenceConfigurationResponse
 }
 catch (SdkException<CreateConfigurationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetResponseError(out var error))
     {
-        // TODO: Handle 'error' of type CreateConfigurationError
+        // TODO: Handle 'error' of type ResponseError
     }
 }
 ```
@@ -9687,13 +9687,13 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    await client.EtxappConfiguration.DeleteConfiguration(id, vendorId);
+    await client.EtxAppConfiguration.DeleteConfiguration(id, vendorId);
 }
 catch (SdkException<DeleteConfigurationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetResponseError(out var error))
     {
-        // TODO: Handle 'error' of type DeleteConfigurationError
+        // TODO: Handle 'error' of type ResponseError
     }
 }
 ```
@@ -9758,14 +9758,14 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    var response = await client.EtxappConfiguration.GetConfiguration(id, vendorId);
+    var response = await client.EtxAppConfiguration.GetConfiguration(id, vendorId);
     // TODO: Handle 'response' of type GeoFenceConfigurationResponse
 }
 catch (SdkException<GetConfigurationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetResponseError(out var error))
     {
-        // TODO: Handle 'error' of type GetConfigurationError
+        // TODO: Handle 'error' of type ResponseError
     }
 }
 ```
@@ -9830,14 +9830,14 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    var response = await client.EtxappConfiguration.GetConfigurationList(vendorId);
+    var response = await client.EtxAppConfiguration.GetConfigurationList(vendorId);
     // TODO: Handle 'response' of type IReadOnlyList<ConfigurationListItem>
 }
 catch (SdkException<GetConfigurationListError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetResponseError(out var error))
     {
-        // TODO: Handle 'error' of type GetConfigurationListError
+        // TODO: Handle 'error' of type ResponseError
     }
 }
 ```
@@ -9901,13 +9901,13 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    await client.EtxappConfiguration.UpdateConfiguration(id, vendorId, body);
+    await client.EtxAppConfiguration.UpdateConfiguration(id, vendorId, body);
 }
 catch (SdkException<UpdateConfigurationError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetResponseError(out var error))
     {
-        // TODO: Handle 'error' of type UpdateConfigurationError
+        // TODO: Handle 'error' of type ResponseError
     }
 }
 ```
@@ -9946,12 +9946,12 @@ catch (SdkException<UpdateConfigurationError> ex)
 
 </details>
 
-## Etxregistration
+## EtxRegistration
 
-> Source: [Etxregistration](Api/Etxregistration.cs)
+> Source: [EtxRegistration](Api/EtxRegistration.cs)
 
 <details>
-<summary><code>Task&lt;ClientPersistenceResponse&gt; GetEtxclientCertificate(EtxclientIdlookup id, string vendorId, Guid? xTransactionId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ClientPersistenceResponse&gt; GetEtxClientCertificate(EtxClientIdLookup id, string vendorId, Guid? xTransactionId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -9977,14 +9977,14 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    var response = await client.Etxregistration.GetEtxclientCertificate(id, vendorId, xTransactionId);
+    var response = await client.EtxRegistration.GetEtxClientCertificate(id, vendorId, xTransactionId);
     // TODO: Handle 'response' of type ClientPersistenceResponse
 }
-catch (SdkException<GetEtxclientCertificateError> ex)
+catch (SdkException<GetEtxClientCertificateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetEtxRespondingError(out var error))
     {
-        // TODO: Handle 'error' of type GetEtxclientCertificateError
+        // TODO: Handle 'error' of type EtxRespondingError
     }
 }
 ```
@@ -9999,7 +9999,7 @@ catch (SdkException<GetEtxclientCertificateError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>[EtxclientIdlookup](Models/EtxclientIdlookup.cs)</code> | One of the following IDs is required- DeviceID, IMEI, ICCID, IMSI. If more than one ID is provided, the API will return the certificate for the first ID found. The IDs are evaluated in the following order: DeviceID, IMEI, ICCID, IMSI. If the first provided ID is not found, the API will return an error. |
+| <code>id</code> | <code>[EtxClientIdLookup](Models/EtxClientIdLookup.cs)</code> | One of the following IDs is required- DeviceID, IMEI, ICCID, IMSI. If more than one ID is provided, the API will return the certificate for the first ID found. The IDs are evaluated in the following order: DeviceID, IMEI, ICCID, IMSI. If the first provided ID is not found, the API will return an error. |
 | <code>vendorId</code> | <code>string</code> | The VendorID set during the Vendor registration call. |
 | <code>xTransactionId</code> | <code>Guid?</code> | Optional transaction identifier for tracing requests. If not provided, the application will generate one. |
 
@@ -10013,7 +10013,7 @@ catch (SdkException<GetEtxclientCertificateError> ex)
 
 **OnSuccess**: <code>[ClientPersistenceResponse](Models/ClientPersistenceResponse.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetEtxclientCertificateError](Errors/GetEtxclientCertificateError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetEtxClientCertificateError](Errors/GetEtxClientCertificateError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -10024,7 +10024,7 @@ catch (SdkException<GetEtxclientCertificateError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ConnectionResponse&gt; GetEtxconnectionUrl(string vendorId, Guid? xTransactionId, ConnectionRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ConnectionResponse&gt; GetEtxConnectionUrl(string vendorId, Guid? xTransactionId, ConnectionRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -10050,14 +10050,14 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    var response = await client.Etxregistration.GetEtxconnectionUrl(vendorId, xTransactionId, body);
+    var response = await client.EtxRegistration.GetEtxConnectionUrl(vendorId, xTransactionId, body);
     // TODO: Handle 'response' of type ConnectionResponse
 }
-catch (SdkException<GetEtxconnectionUrlError> ex)
+catch (SdkException<GetEtxConnectionUrlError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetEtxRespondingError(out var error))
     {
-        // TODO: Handle 'error' of type GetEtxconnectionUrlError
+        // TODO: Handle 'error' of type EtxRespondingError
     }
 }
 ```
@@ -10086,7 +10086,7 @@ catch (SdkException<GetEtxconnectionUrlError> ex)
 
 **OnSuccess**: <code>[ConnectionResponse](Models/ConnectionResponse.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetEtxconnectionUrlError](Errors/GetEtxconnectionUrlError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetEtxConnectionUrlError](Errors/GetEtxConnectionUrlError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -10097,7 +10097,7 @@ catch (SdkException<GetEtxconnectionUrlError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ConnectionResponseV3&gt; GetEtxconnectionUrlMultiMec(string vendorId, Guid? xTransactionId, ConnectionRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ConnectionResponseV3&gt; GetEtxConnectionUrlMultiMec(string vendorId, Guid? xTransactionId, ConnectionRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -10125,14 +10125,14 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    var response = await client.Etxregistration.GetEtxconnectionUrlMultiMec(vendorId, xTransactionId, body);
+    var response = await client.EtxRegistration.GetEtxConnectionUrlMultiMec(vendorId, xTransactionId, body);
     // TODO: Handle 'response' of type ConnectionResponseV3
 }
-catch (SdkException<GetEtxconnectionUrlMultiMecError> ex)
+catch (SdkException<GetEtxConnectionUrlMultiMecError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetEtxRespondingError(out var error))
     {
-        // TODO: Handle 'error' of type GetEtxconnectionUrlMultiMecError
+        // TODO: Handle 'error' of type EtxRespondingError
     }
 }
 ```
@@ -10161,7 +10161,7 @@ catch (SdkException<GetEtxconnectionUrlMultiMecError> ex)
 
 **OnSuccess**: <code>[ConnectionResponseV3](Models/ConnectionResponseV3.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetEtxconnectionUrlMultiMecError](Errors/GetEtxconnectionUrlMultiMecError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetEtxConnectionUrlMultiMecError](Errors/GetEtxConnectionUrlMultiMecError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -10172,7 +10172,7 @@ catch (SdkException<GetEtxconnectionUrlMultiMecError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;IReadOnlyList&lt;DevicesResponse&gt;&gt; QueryEtxdevices(Guid? xTransactionId, DevicesRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;IReadOnlyList&lt;DevicesResponse&gt;&gt; QueryEtxDevices(Guid? xTransactionId, DevicesRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -10196,14 +10196,14 @@ This API allows retrieving devices by vendor ID and optional filters. The reques
 ```csharp
 try
 {
-    var response = await client.Etxregistration.QueryEtxdevices(xTransactionId, body);
+    var response = await client.EtxRegistration.QueryEtxDevices(xTransactionId, body);
     // TODO: Handle 'response' of type IReadOnlyList<DevicesResponse>
 }
-catch (SdkException<QueryEtxdevicesError> ex)
+catch (SdkException<QueryEtxDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetEtxRespondingError(out var error))
     {
-        // TODO: Handle 'error' of type QueryEtxdevicesError
+        // TODO: Handle 'error' of type EtxRespondingError
     }
 }
 ```
@@ -10231,7 +10231,7 @@ catch (SdkException<QueryEtxdevicesError> ex)
 
 **OnSuccess**: <code>IReadOnlyList&lt;[DevicesResponse](Models/DevicesResponse.cs)&gt;</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[QueryEtxdevicesError](Errors/QueryEtxdevicesError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[QueryEtxDevicesError](Errors/QueryEtxDevicesError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -10242,7 +10242,7 @@ catch (SdkException<QueryEtxdevicesError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ClientRegistrationResponse&gt; RegisterEtxclient(Guid? xTransactionId, ClientRegistrationRequestV2 body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ClientRegistrationResponse&gt; RegisterEtxClient(Guid? xTransactionId, ClientRegistrationRequestV2 body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -10272,14 +10272,14 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    var response = await client.Etxregistration.RegisterEtxclient(xTransactionId, body);
+    var response = await client.EtxRegistration.RegisterEtxClient(xTransactionId, body);
     // TODO: Handle 'response' of type ClientRegistrationResponse
 }
-catch (SdkException<RegisterEtxclientError> ex)
+catch (SdkException<RegisterEtxClientError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetEtxRespondingError(out var error))
     {
-        // TODO: Handle 'error' of type RegisterEtxclientError
+        // TODO: Handle 'error' of type EtxRespondingError
     }
 }
 ```
@@ -10307,7 +10307,7 @@ catch (SdkException<RegisterEtxclientError> ex)
 
 **OnSuccess**: <code>[ClientRegistrationResponse](Models/ClientRegistrationResponse.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RegisterEtxclientError](Errors/RegisterEtxclientError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RegisterEtxClientError](Errors/RegisterEtxClientError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -10318,7 +10318,7 @@ catch (SdkException<RegisterEtxclientError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ClientRegistrationResponse&gt; RenewEtxclientCertificate(Guid deviceId, string vendorId, Guid? xTransactionId, object? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ClientRegistrationResponse&gt; RenewEtxClientCertificate(Guid deviceId, string vendorId, Guid? xTransactionId, object? body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -10346,14 +10346,14 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    var response = await client.Etxregistration.RenewEtxclientCertificate(deviceId, vendorId, xTransactionId, body);
+    var response = await client.EtxRegistration.RenewEtxClientCertificate(deviceId, vendorId, xTransactionId, body);
     // TODO: Handle 'response' of type ClientRegistrationResponse
 }
-catch (SdkException<RenewEtxclientCertificateError> ex)
+catch (SdkException<RenewEtxClientCertificateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetEtxRespondingError(out var error))
     {
-        // TODO: Handle 'error' of type RenewEtxclientCertificateError
+        // TODO: Handle 'error' of type EtxRespondingError
     }
 }
 ```
@@ -10383,7 +10383,7 @@ catch (SdkException<RenewEtxclientCertificateError> ex)
 
 **OnSuccess**: <code>[ClientRegistrationResponse](Models/ClientRegistrationResponse.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RenewEtxclientCertificateError](Errors/RenewEtxclientCertificateError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RenewEtxClientCertificateError](Errors/RenewEtxClientCertificateError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -10394,7 +10394,7 @@ catch (SdkException<RenewEtxclientCertificateError> ex)
 </details>
 
 <details>
-<summary><code>Task UnregisterEtxclients(IReadOnlyList&lt;Guid&gt; deviceIds, string vendorId, Guid? xTransactionId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task UnregisterEtxClients(IReadOnlyList&lt;Guid&gt; deviceIDs, string vendorId, Guid? xTransactionId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -10420,13 +10420,13 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    await client.Etxregistration.UnregisterEtxclients(deviceIds, vendorId, xTransactionId);
+    await client.EtxRegistration.UnregisterEtxClients(deviceIDs, vendorId, xTransactionId);
 }
-catch (SdkException<UnregisterEtxclientsError> ex)
+catch (SdkException<UnregisterEtxClientsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetEtxRespondingError(out var error))
     {
-        // TODO: Handle 'error' of type UnregisterEtxclientsError
+        // TODO: Handle 'error' of type EtxRespondingError
     }
 }
 ```
@@ -10441,7 +10441,7 @@ catch (SdkException<UnregisterEtxclientsError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>deviceIds</code> | <code>IReadOnlyList&lt;Guid&gt;</code> | The list of device IDs and software service IDs to be unregistered |
+| <code>deviceIDs</code> | <code>IReadOnlyList&lt;Guid&gt;</code> | The list of device IDs and software service IDs to be unregistered |
 | <code>vendorId</code> | <code>string</code> | The VendorID set during the Vendor registration call. |
 | <code>xTransactionId</code> | <code>Guid?</code> | Optional transaction identifier for tracing requests. If not provided, the application will generate one. |
 
@@ -10455,7 +10455,7 @@ catch (SdkException<UnregisterEtxclientsError> ex)
 
 **OnSuccess**: No content
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[UnregisterEtxclientsError](Errors/UnregisterEtxclientsError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[UnregisterEtxClientsError](Errors/UnregisterEtxClientsError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -10694,9 +10694,9 @@ try
 }
 catch (SdkException<ExcludeDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type ExcludeDevicesError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -10750,9 +10750,9 @@ try
 }
 catch (SdkException<ListExcludedDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type ListExcludedDevicesError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -10819,9 +10819,9 @@ try
 }
 catch (SdkException<RemoveDevicesFromExclusionListError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type RemoveDevicesFromExclusionListError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -10892,9 +10892,9 @@ try
 }
 catch (SdkException<CancelScheduledFirmwareUpgradeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type CancelScheduledFirmwareUpgradeError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -10961,9 +10961,9 @@ try
 }
 catch (SdkException<ListAvailableFirmwareError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type ListAvailableFirmwareError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -11029,9 +11029,9 @@ try
 }
 catch (SdkException<ListFirmwareUpgradeDetailsError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type ListFirmwareUpgradeDetailsError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -11098,9 +11098,9 @@ try
 }
 catch (SdkException<ScheduleFirmwareUpgradeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type ScheduleFirmwareUpgradeError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -11166,9 +11166,9 @@ try
 }
 catch (SdkException<UpdateFirmwareUpgradeDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type UpdateFirmwareUpgradeDevicesError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -11239,9 +11239,9 @@ try
 }
 catch (SdkException<ListAvailableFirmware2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type ListAvailableFirmware2Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -11308,9 +11308,9 @@ try
 }
 catch (SdkException<ReportDeviceFirmwareError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type ReportDeviceFirmwareError
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -11377,9 +11377,9 @@ try
 }
 catch (SdkException<SynchronizeDeviceFirmwareError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type SynchronizeDeviceFirmwareError
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -11422,7 +11422,7 @@ catch (SdkException<SynchronizeDeviceFirmwareError> ex)
 > Source: [GlobalReporting](Api/GlobalReporting.cs)
 
 <details>
-<summary><code>Task&lt;ESimrequestResponse&gt; RetrieveGlobalList(ESimglobalDeviceList body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ESimRequestResponse&gt; RetrieveGlobalList(ESimGlobalDeviceList body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -11446,13 +11446,13 @@ Retrieve a list of all devices associated with an account.
 try
 {
     var response = await client.GlobalReporting.RetrieveGlobalList(body);
-    // TODO: Handle 'response' of type ESimrequestResponse
+    // TODO: Handle 'response' of type ESimRequestResponse
 }
 catch (SdkException<RetrieveGlobalListError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetESimRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type RetrieveGlobalListError
+        // TODO: Handle 'error' of type ESimRestErrorResponse
     }
 }
 ```
@@ -11467,7 +11467,7 @@ catch (SdkException<RetrieveGlobalListError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[ESimglobalDeviceList](Models/ESimglobalDeviceList.cs)</code> | - |
+| <code>body</code> | <code>[ESimGlobalDeviceList](Models/ESimGlobalDeviceList.cs)</code> | - |
 
 </dd>
 </dl>
@@ -11477,7 +11477,7 @@ catch (SdkException<RetrieveGlobalListError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ESimrequestResponse](Models/ESimrequestResponse.cs)</code>
+**OnSuccess**: <code>[ESimRequestResponse](Models/ESimRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RetrieveGlobalListError](Errors/RetrieveGlobalListError.cs)&gt;</code>
 
@@ -11490,7 +11490,7 @@ catch (SdkException<RetrieveGlobalListError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ESimrequestResponse&gt; DeviceprovhistoryUsingPost(ESimprovhistoryRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ESimRequestResponse&gt; DeviceprovhistoryUsingPost(ESimProvhistoryRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -11514,13 +11514,13 @@ Retrieve the provisioning history of a specific device or devices.
 try
 {
     var response = await client.GlobalReporting.DeviceprovhistoryUsingPost(body);
-    // TODO: Handle 'response' of type ESimrequestResponse
+    // TODO: Handle 'response' of type ESimRequestResponse
 }
 catch (SdkException<DeviceprovhistoryUsingPostError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetESimRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type DeviceprovhistoryUsingPostError
+        // TODO: Handle 'error' of type ESimRestErrorResponse
     }
 }
 ```
@@ -11535,7 +11535,7 @@ catch (SdkException<DeviceprovhistoryUsingPostError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[ESimprovhistoryRequest](Models/ESimprovhistoryRequest.cs)</code> | - |
+| <code>body</code> | <code>[ESimProvhistoryRequest](Models/ESimProvhistoryRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -11545,7 +11545,7 @@ catch (SdkException<DeviceprovhistoryUsingPostError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ESimrequestResponse](Models/ESimrequestResponse.cs)</code>
+**OnSuccess**: <code>[ESimRequestResponse](Models/ESimRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[DeviceprovhistoryUsingPostError](Errors/DeviceprovhistoryUsingPostError.cs)&gt;</code>
 
@@ -11590,9 +11590,9 @@ try
 }
 catch (SdkException<AddDevicesHyperPreciseError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetHyperPreciseLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type AddDevicesHyperPreciseError
+        // TODO: Handle 'error' of type HyperPreciseLocationResult
     }
 }
 ```
@@ -11661,9 +11661,9 @@ try
 }
 catch (SdkException<DeregisterCallback6Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetHyperPreciseLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type DeregisterCallback6Error
+        // TODO: Handle 'error' of type HyperPreciseLocationResult
     }
 }
 ```
@@ -11730,9 +11730,9 @@ try
 }
 catch (SdkException<ListRegisteredCallbacks6Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetHyperPreciseLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type ListRegisteredCallbacks6Error
+        // TODO: Handle 'error' of type HyperPreciseLocationResult
     }
 }
 ```
@@ -11798,9 +11798,9 @@ try
 }
 catch (SdkException<RegisterCallback6Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetHyperPreciseLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type RegisterCallback6Error
+        // TODO: Handle 'error' of type HyperPreciseLocationResult
     }
 }
 ```
@@ -11871,9 +11871,9 @@ try
 }
 catch (SdkException<SetConnectionPlannerError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponseforplanner(out var error))
     {
-        // TODO: Handle 'error' of type SetConnectionPlannerError
+        // TODO: Handle 'error' of type RestErrorResponseforplanner
     }
 }
 ```
@@ -11939,9 +11939,9 @@ try
 }
 catch (SdkException<StatusConnectionPlannerError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponseforplanner(out var error))
     {
-        // TODO: Handle 'error' of type StatusConnectionPlannerError
+        // TODO: Handle 'error' of type RestErrorResponseforplanner
     }
 }
 ```
@@ -11983,7 +11983,7 @@ catch (SdkException<StatusConnectionPlannerError> ex)
 > Source: [ManagingESimProfiles](Api/ManagingESimProfiles.cs)
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; ActivateAdeviceProfile(GioprofileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; ActivateADeviceProfile(GioProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12006,8 +12006,8 @@ Activate a device with either a lead or local profile.
 ```csharp
 try
 {
-    var response = await client.ManagingESimProfiles.ActivateAdeviceProfile(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    var response = await client.ManagingESimProfiles.ActivateADeviceProfile(body);
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12025,7 +12025,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[GioprofileRequest](Models/GioprofileRequest.cs)</code> | - |
+| <code>body</code> | <code>[GioProfileRequest](Models/GioProfileRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -12035,7 +12035,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12048,7 +12048,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; DeactivateAdeviceProfile(GiodeactivateDeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; DeactivateADeviceProfile(GioDeactivateDeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12071,8 +12071,8 @@ Deactivate the lead or local profile. **Note:** to reactivate the profile, use t
 ```csharp
 try
 {
-    var response = await client.ManagingESimProfiles.DeactivateAdeviceProfile(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    var response = await client.ManagingESimProfiles.DeactivateADeviceProfile(body);
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12090,7 +12090,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[GiodeactivateDeviceProfileRequest](Models/GiodeactivateDeviceProfileRequest.cs)</code> | - |
+| <code>body</code> | <code>[GioDeactivateDeviceProfileRequest](Models/GioDeactivateDeviceProfileRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -12100,7 +12100,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12113,7 +12113,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; DeleteAdeviceProfile(DeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; DeleteADeviceProfile(DeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12136,8 +12136,8 @@ Delete a device profile for Global IoT Orchestration. **Note:** the profile must
 ```csharp
 try
 {
-    var response = await client.ManagingESimProfiles.DeleteAdeviceProfile(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    var response = await client.ManagingESimProfiles.DeleteADeviceProfile(body);
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12165,7 +12165,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12178,7 +12178,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; DeviceSuspend(GioprofileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; DeviceSuspend(GioProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12202,7 +12202,7 @@ Suspend all service to an eUICC device, including the lead and local profile.
 try
 {
     var response = await client.ManagingESimProfiles.DeviceSuspend(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12220,7 +12220,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[GioprofileRequest](Models/GioprofileRequest.cs)</code> | - |
+| <code>body</code> | <code>[GioProfileRequest](Models/GioProfileRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -12230,7 +12230,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12243,7 +12243,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; DownloadAdeviceProfile(DeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; DownloadADeviceProfile(DeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12266,8 +12266,8 @@ Download a Global IoT Orchestration device profile.
 ```csharp
 try
 {
-    var response = await client.ManagingESimProfiles.DownloadAdeviceProfile(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    var response = await client.ManagingESimProfiles.DownloadADeviceProfile(body);
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12295,7 +12295,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12308,7 +12308,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; EnableAdeviceProfile(DeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; EnableADeviceProfile(DeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12331,8 +12331,8 @@ Enable a device lead or local profile.
 ```csharp
 try
 {
-    var response = await client.ManagingESimProfiles.EnableAdeviceProfile(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    var response = await client.ManagingESimProfiles.EnableADeviceProfile(body);
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12360,7 +12360,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12373,7 +12373,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; EnableAdeviceProfileForDownload(DeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; EnableADeviceProfileForDownload(DeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12396,8 +12396,8 @@ Enable the Global IoT Orchestration device profile for download.
 ```csharp
 try
 {
-    var response = await client.ManagingESimProfiles.EnableAdeviceProfileForDownload(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    var response = await client.ManagingESimProfiles.EnableADeviceProfileForDownload(body);
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12425,7 +12425,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12438,7 +12438,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; ProfileSuspend(GioprofileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; ProfileSuspend(GioProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12462,7 +12462,7 @@ Suspend a device's Global profile.
 try
 {
     var response = await client.ManagingESimProfiles.ProfileSuspend(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12480,7 +12480,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[GioprofileRequest](Models/GioprofileRequest.cs)</code> | - |
+| <code>body</code> | <code>[GioProfileRequest](Models/GioProfileRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -12490,7 +12490,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12503,7 +12503,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; ResumeProfile(GioprofileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; ResumeProfile(GioProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12527,7 +12527,7 @@ Resume service to a device with either a lead or local profile.
 try
 {
     var response = await client.ManagingESimProfiles.ResumeProfile(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12545,7 +12545,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[GioprofileRequest](Models/GioprofileRequest.cs)</code> | - |
+| <code>body</code> | <code>[GioProfileRequest](Models/GioProfileRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -12555,7 +12555,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12568,7 +12568,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GiorequestResponse&gt; SetFallback(FallBack body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GioRequestResponse&gt; SetFallback(FallBack body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12592,7 +12592,7 @@ Enable a fallback profile to be set.
 try
 {
     var response = await client.ManagingESimProfiles.SetFallback(body);
-    // TODO: Handle 'response' of type GiorequestResponse
+    // TODO: Handle 'response' of type GioRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12620,7 +12620,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GiorequestResponse](Models/GiorequestResponse.cs)</code>
+**OnSuccess**: <code>[GioRequestResponse](Models/GioRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12637,7 +12637,7 @@ catch (SdkException<RawError> ex)
 > Source: [Pwn](Api/Pwn.cs)
 
 <details>
-<summary><code>Task&lt;ChangePwndeviceIpaddressResponse&gt; ChangePwndeviceIpaddress(ChangePwndeviceIpaddressRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ChangePwnDeviceIpAddressResponse&gt; ChangePwnDeviceIPaddress(ChangePwnDeviceIPaddressRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12650,8 +12650,8 @@ catch (SdkException<RawError> ex)
 ```csharp
 try
 {
-    var response = await client.Pwn.ChangePwndeviceIpaddress(body);
-    // TODO: Handle 'response' of type ChangePwndeviceIpaddressResponse
+    var response = await client.Pwn.ChangePwnDeviceIPaddress(body);
+    // TODO: Handle 'response' of type ChangePwnDeviceIpAddressResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12669,7 +12669,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[ChangePwndeviceIpaddressRequest](Models/ChangePwndeviceIpaddressRequest.cs)</code> | - |
+| <code>body</code> | <code>[ChangePwnDeviceIPaddressRequest](Models/ChangePwnDeviceIPaddressRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -12679,7 +12679,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ChangePwndeviceIpaddressResponse](Models/ChangePwndeviceIpaddressResponse.cs)</code>
+**OnSuccess**: <code>[ChangePwnDeviceIpAddressResponse](Models/ChangePwnDeviceIpAddressResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12692,7 +12692,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ChangePwndeviceProfileResponse&gt; ChangePwndeviceProfile(ChangePwndeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ChangePwnDeviceProfileResponse&gt; ChangePwnDeviceProfile(ChangePwnDeviceProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12705,8 +12705,8 @@ catch (SdkException<RawError> ex)
 ```csharp
 try
 {
-    var response = await client.Pwn.ChangePwndeviceProfile(body);
-    // TODO: Handle 'response' of type ChangePwndeviceProfileResponse
+    var response = await client.Pwn.ChangePwnDeviceProfile(body);
+    // TODO: Handle 'response' of type ChangePwnDeviceProfileResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12724,7 +12724,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[ChangePwndeviceProfileRequest](Models/ChangePwndeviceProfileRequest.cs)</code> | - |
+| <code>body</code> | <code>[ChangePwnDeviceProfileRequest](Models/ChangePwnDeviceProfileRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -12734,7 +12734,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ChangePwndeviceProfileResponse](Models/ChangePwndeviceProfileResponse.cs)</code>
+**OnSuccess**: <code>[ChangePwnDeviceProfileResponse](Models/ChangePwnDeviceProfileResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12747,7 +12747,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ChangePwndeviceStateResponse&gt; ChangePwndeviceStateActivate(ChangePwndeviceStateActivateRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ChangePwnDeviceStateResponse&gt; ChangePwnDeviceStateActivate(ChangePwnDeviceStateActivateRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12760,8 +12760,8 @@ catch (SdkException<RawError> ex)
 ```csharp
 try
 {
-    var response = await client.Pwn.ChangePwndeviceStateActivate(body);
-    // TODO: Handle 'response' of type ChangePwndeviceStateResponse
+    var response = await client.Pwn.ChangePwnDeviceStateActivate(body);
+    // TODO: Handle 'response' of type ChangePwnDeviceStateResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12779,7 +12779,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[ChangePwndeviceStateActivateRequest](Models/ChangePwndeviceStateActivateRequest.cs)</code> | - |
+| <code>body</code> | <code>[ChangePwnDeviceStateActivateRequest](Models/ChangePwnDeviceStateActivateRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -12789,7 +12789,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ChangePwndeviceStateResponse](Models/ChangePwndeviceStateResponse.cs)</code>
+**OnSuccess**: <code>[ChangePwnDeviceStateResponse](Models/ChangePwnDeviceStateResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12802,7 +12802,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ChangePwndeviceStateResponse&gt; ChangePwndeviceStateDeactivate(ChangePwndeviceStateDeactivateRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ChangePwnDeviceStateResponse&gt; ChangePwnDeviceStateDeactivate(ChangePwnDeviceStateDeactivateRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12815,8 +12815,8 @@ catch (SdkException<RawError> ex)
 ```csharp
 try
 {
-    var response = await client.Pwn.ChangePwndeviceStateDeactivate(body);
-    // TODO: Handle 'response' of type ChangePwndeviceStateResponse
+    var response = await client.Pwn.ChangePwnDeviceStateDeactivate(body);
+    // TODO: Handle 'response' of type ChangePwnDeviceStateResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12834,7 +12834,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[ChangePwndeviceStateDeactivateRequest](Models/ChangePwndeviceStateDeactivateRequest.cs)</code> | - |
+| <code>body</code> | <code>[ChangePwnDeviceStateDeactivateRequest](Models/ChangePwnDeviceStateDeactivateRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -12844,7 +12844,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ChangePwndeviceStateResponse](Models/ChangePwndeviceStateResponse.cs)</code>
+**OnSuccess**: <code>[ChangePwnDeviceStateResponse](Models/ChangePwnDeviceStateResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12857,7 +12857,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GetPwnperformanceConsentResponse&gt; GetPwnperformanceConsent(string aname, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GetPwnPerformanceConsentResponse&gt; GetPwnPerformanceConsent(string aname, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12870,8 +12870,8 @@ catch (SdkException<RawError> ex)
 ```csharp
 try
 {
-    var response = await client.Pwn.GetPwnperformanceConsent(aname);
-    // TODO: Handle 'response' of type GetPwnperformanceConsentResponse
+    var response = await client.Pwn.GetPwnPerformanceConsent(aname);
+    // TODO: Handle 'response' of type GetPwnPerformanceConsentResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -12899,7 +12899,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GetPwnperformanceConsentResponse](Models/GetPwnperformanceConsentResponse.cs)</code>
+**OnSuccess**: <code>[GetPwnPerformanceConsentResponse](Models/GetPwnPerformanceConsentResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12912,7 +12912,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;PwnprofileList&gt; GetProfileList(string aname, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;PwnProfileList&gt; GetProfileList(string aname, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12926,7 +12926,7 @@ catch (SdkException<RawError> ex)
 try
 {
     var response = await client.Pwn.GetProfileList(aname);
-    // TODO: Handle 'response' of type PwnprofileList
+    // TODO: Handle 'response' of type PwnProfileList
 }
 catch (SdkException<RawError> ex)
 {
@@ -12954,7 +12954,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[PwnprofileList](Models/PwnprofileList.cs)</code>
+**OnSuccess**: <code>[PwnProfileList](Models/PwnProfileList.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -12967,7 +12967,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;KpiinfoList&gt; Kpilist(string aname, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;KpiInfoList&gt; KpiList(string aname, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -12980,8 +12980,8 @@ catch (SdkException<RawError> ex)
 ```csharp
 try
 {
-    var response = await client.Pwn.Kpilist(aname);
-    // TODO: Handle 'response' of type KpiinfoList
+    var response = await client.Pwn.KpiList(aname);
+    // TODO: Handle 'response' of type KpiInfoList
 }
 catch (SdkException<RawError> ex)
 {
@@ -13009,7 +13009,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[KpiinfoList](Models/KpiinfoList.cs)</code>
+**OnSuccess**: <code>[KpiInfoList](Models/KpiInfoList.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -13469,7 +13469,7 @@ catch (SdkException<RawError> ex)
 > Source: [SimActions](Api/SimActions.cs)
 
 <details>
-<summary><code>Task&lt;ESimrequestResponse&gt; Newactivatecode(ESimprofileRequest2 body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ESimRequestResponse&gt; Newactivatecode(ESimProfileRequest2 body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -13493,13 +13493,13 @@ System assign a new activation code to reactivate a deactivated device. **Note:*
 try
 {
     var response = await client.SimActions.Newactivatecode(body);
-    // TODO: Handle 'response' of type ESimrequestResponse
+    // TODO: Handle 'response' of type ESimRequestResponse
 }
 catch (SdkException<NewactivatecodeError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetESimRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type NewactivatecodeError
+        // TODO: Handle 'error' of type ESimRestErrorResponse
     }
 }
 ```
@@ -13514,7 +13514,7 @@ catch (SdkException<NewactivatecodeError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[ESimprofileRequest2](Models/ESimprofileRequest2.cs)</code> | - |
+| <code>body</code> | <code>[ESimProfileRequest2](Models/ESimProfileRequest2.cs)</code> | - |
 
 </dd>
 </dl>
@@ -13524,7 +13524,7 @@ catch (SdkException<NewactivatecodeError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ESimrequestResponse](Models/ESimrequestResponse.cs)</code>
+**OnSuccess**: <code>[ESimRequestResponse](Models/ESimRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[NewactivatecodeError](Errors/NewactivatecodeError.cs)&gt;</code>
 
@@ -13537,7 +13537,7 @@ catch (SdkException<NewactivatecodeError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ESimrequestResponse&gt; SetactivateUsingPost(ESimprofileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ESimRequestResponse&gt; SetactivateUsingPost(ESimProfileRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -13561,13 +13561,13 @@ Uses the profile to activate the SIM.
 try
 {
     var response = await client.SimActions.SetactivateUsingPost(body);
-    // TODO: Handle 'response' of type ESimrequestResponse
+    // TODO: Handle 'response' of type ESimRequestResponse
 }
 catch (SdkException<SetactivateUsingPostError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetESimRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type SetactivateUsingPostError
+        // TODO: Handle 'error' of type ESimRestErrorResponse
     }
 }
 ```
@@ -13582,7 +13582,7 @@ catch (SdkException<SetactivateUsingPostError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[ESimprofileRequest](Models/ESimprofileRequest.cs)</code> | - |
+| <code>body</code> | <code>[ESimProfileRequest](Models/ESimProfileRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -13592,7 +13592,7 @@ catch (SdkException<SetactivateUsingPostError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ESimrequestResponse](Models/ESimrequestResponse.cs)</code>
+**OnSuccess**: <code>[ESimRequestResponse](Models/ESimRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[SetactivateUsingPostError](Errors/SetactivateUsingPostError.cs)&gt;</code>
 
@@ -13605,7 +13605,7 @@ catch (SdkException<SetactivateUsingPostError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ESimrequestResponse&gt; SetdeactivateUsingPost(ProfileRequest2 body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ESimRequestResponse&gt; SetdeactivateUsingPost(ProfileRequest2 body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -13629,13 +13629,13 @@ Uses the profile to deactivate the SIM.
 try
 {
     var response = await client.SimActions.SetdeactivateUsingPost(body);
-    // TODO: Handle 'response' of type ESimrequestResponse
+    // TODO: Handle 'response' of type ESimRequestResponse
 }
 catch (SdkException<SetdeactivateUsingPostError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetESimRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type SetdeactivateUsingPostError
+        // TODO: Handle 'error' of type ESimRestErrorResponse
     }
 }
 ```
@@ -13660,7 +13660,7 @@ catch (SdkException<SetdeactivateUsingPostError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[ESimrequestResponse](Models/ESimrequestResponse.cs)</code>
+**OnSuccess**: <code>[ESimRequestResponse](Models/ESimRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[SetdeactivateUsingPostError](Errors/SetdeactivateUsingPostError.cs)&gt;</code>
 
@@ -13705,9 +13705,9 @@ try
 }
 catch (SdkException<AssignLicenseToDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetSecurityResult(out var error))
     {
-        // TODO: Handle 'error' of type AssignLicenseToDevicesError
+        // TODO: Handle 'error' of type SecurityResult
     }
 }
 ```
@@ -13774,9 +13774,9 @@ try
 }
 catch (SdkException<UnassignLicenseToDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetSecurityResult(out var error))
     {
-        // TODO: Handle 'error' of type UnassignLicenseToDevicesError
+        // TODO: Handle 'error' of type SecurityResult
     }
 }
 ```
@@ -13818,7 +13818,7 @@ catch (SdkException<UnassignLicenseToDevicesError> ex)
 > Source: [Sms](Api/Sms.cs)
 
 <details>
-<summary><code>Task&lt;SmsmessagesQueryResult&gt; ListDevicesSmsmessages(string aname, long? next, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;SmsMessagesQueryResult&gt; ListDevicesSmsMessages(string aname, long? next, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -13841,14 +13841,14 @@ When HTTP status is 202, a URL will be returned in the Location header of the fo
 ```csharp
 try
 {
-    var response = await client.Sms.ListDevicesSmsmessages(aname, next);
-    // TODO: Handle 'response' of type SmsmessagesQueryResult
+    var response = await client.Sms.ListDevicesSmsMessages(aname, next);
+    // TODO: Handle 'response' of type SmsMessagesQueryResult
 }
-catch (SdkException<ListDevicesSmsmessagesError> ex)
+catch (SdkException<ListDevicesSmsMessagesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListDevicesSmsmessagesError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -13874,9 +13874,9 @@ catch (SdkException<ListDevicesSmsmessagesError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[SmsmessagesQueryResult](Models/SmsmessagesQueryResult.cs)</code>
+**OnSuccess**: <code>[SmsMessagesQueryResult](Models/SmsMessagesQueryResult.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[ListDevicesSmsmessagesError](Errors/ListDevicesSmsmessagesError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[ListDevicesSmsMessagesError](Errors/ListDevicesSmsMessagesError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -13887,7 +13887,7 @@ catch (SdkException<ListDevicesSmsmessagesError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;DeviceManagementResult&gt; SendSmstoDevice(SmssendRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;DeviceManagementResult&gt; SendSmsToDevice(SmsSendRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -13910,14 +13910,14 @@ The messages are queued on the ThingSpace Platform and sent as soon as possible,
 ```csharp
 try
 {
-    var response = await client.Sms.SendSmstoDevice(body);
+    var response = await client.Sms.SendSmsToDevice(body);
     // TODO: Handle 'response' of type DeviceManagementResult
 }
-catch (SdkException<SendSmstoDeviceError> ex)
+catch (SdkException<SendSmsToDeviceError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type SendSmstoDeviceError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -13932,7 +13932,7 @@ catch (SdkException<SendSmstoDeviceError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[SmssendRequest](Models/SmssendRequest.cs)</code> | - |
+| <code>body</code> | <code>[SmsSendRequest](Models/SmsSendRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -13944,7 +13944,7 @@ catch (SdkException<SendSmstoDeviceError> ex)
 
 **OnSuccess**: <code>[DeviceManagementResult](Models/DeviceManagementResult.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[SendSmstoDeviceError](Errors/SendSmstoDeviceError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[SendSmsToDeviceError](Errors/SendSmsToDeviceError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -13955,7 +13955,7 @@ catch (SdkException<SendSmstoDeviceError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;ConnectivityManagementSuccessResult&gt; StartQueuedSmsdelivery(string aname, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;ConnectivityManagementSuccessResult&gt; StartQueuedSmsDelivery(string aname, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -13978,14 +13978,14 @@ Tells the ThingSpace Platform to start sending mobile-originated SMS messages th
 ```csharp
 try
 {
-    var response = await client.Sms.StartQueuedSmsdelivery(aname);
+    var response = await client.Sms.StartQueuedSmsDelivery(aname);
     // TODO: Handle 'response' of type ConnectivityManagementSuccessResult
 }
-catch (SdkException<StartQueuedSmsdeliveryError> ex)
+catch (SdkException<StartQueuedSmsDeliveryError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type StartQueuedSmsdeliveryError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -14012,7 +14012,7 @@ catch (SdkException<StartQueuedSmsdeliveryError> ex)
 
 **OnSuccess**: <code>[ConnectivityManagementSuccessResult](Models/ConnectivityManagementSuccessResult.cs)</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[StartQueuedSmsdeliveryError](Errors/StartQueuedSmsdeliveryError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[StartQueuedSmsDeliveryError](Errors/StartQueuedSmsDeliveryError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -14027,7 +14027,7 @@ catch (SdkException<StartQueuedSmsdeliveryError> ex)
 > Source: [SensorInsightsDeviceProfile](Api/SensorInsightsDeviceProfile.cs)
 
 <details>
-<summary><code>Task&lt;IReadOnlyList&lt;DtoProfileResponse&gt;&gt; CreateAprofile(DtoConfigurationProfile body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;IReadOnlyList&lt;DtoProfileResponse&gt;&gt; CreateAProfile(DtoConfigurationProfile body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -14050,14 +14050,14 @@ Create a device profile
 ```csharp
 try
 {
-    var response = await client.SensorInsightsDeviceProfile.CreateAprofile(body);
+    var response = await client.SensorInsightsDeviceProfile.CreateAProfile(body);
     // TODO: Handle 'response' of type IReadOnlyList<DtoProfileResponse>
 }
-catch (SdkException<CreateAprofileError> ex)
+catch (SdkException<CreateAProfileError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type CreateAprofileError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14084,7 +14084,7 @@ catch (SdkException<CreateAprofileError> ex)
 
 **OnSuccess**: <code>IReadOnlyList&lt;[DtoProfileResponse](Models/DtoProfileResponse.cs)&gt;</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[CreateAprofileError](Errors/CreateAprofileError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[CreateAProfileError](Errors/CreateAProfileError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -14095,7 +14095,7 @@ catch (SdkException<CreateAprofileError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;IReadOnlyList&lt;DtoProfileResponse&gt;&gt; DeleteAprofile(DtoConfigurationProfileDelete deleterequest, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;IReadOnlyList&lt;DtoProfileResponse&gt;&gt; DeleteAProfile(DtoConfigurationProfileDelete deleterequest, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -14118,14 +14118,14 @@ Delete a device profile
 ```csharp
 try
 {
-    var response = await client.SensorInsightsDeviceProfile.DeleteAprofile(deleterequest);
+    var response = await client.SensorInsightsDeviceProfile.DeleteAProfile(deleterequest);
     // TODO: Handle 'response' of type IReadOnlyList<DtoProfileResponse>
 }
-catch (SdkException<DeleteAprofileError> ex)
+catch (SdkException<DeleteAProfileError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type DeleteAprofileError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14152,7 +14152,7 @@ catch (SdkException<DeleteAprofileError> ex)
 
 **OnSuccess**: <code>IReadOnlyList&lt;[DtoProfileResponse](Models/DtoProfileResponse.cs)&gt;</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[DeleteAprofileError](Errors/DeleteAprofileError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[DeleteAProfileError](Errors/DeleteAProfileError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -14163,7 +14163,7 @@ catch (SdkException<DeleteAprofileError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;IReadOnlyList&lt;DtoProfileResponse&gt;&gt; QueryAprofile(ResourceResourceQuery body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;IReadOnlyList&lt;DtoProfileResponse&gt;&gt; QueryAProfile(ResourceResourceQuery body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -14186,14 +14186,14 @@ Query a device profile for an individual device
 ```csharp
 try
 {
-    var response = await client.SensorInsightsDeviceProfile.QueryAprofile(body);
+    var response = await client.SensorInsightsDeviceProfile.QueryAProfile(body);
     // TODO: Handle 'response' of type IReadOnlyList<DtoProfileResponse>
 }
-catch (SdkException<QueryAprofileError> ex)
+catch (SdkException<QueryAProfileError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type QueryAprofileError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14220,7 +14220,7 @@ catch (SdkException<QueryAprofileError> ex)
 
 **OnSuccess**: <code>IReadOnlyList&lt;[DtoProfileResponse](Models/DtoProfileResponse.cs)&gt;</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[QueryAprofileError](Errors/QueryAprofileError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[QueryAProfileError](Errors/QueryAProfileError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -14231,7 +14231,7 @@ catch (SdkException<QueryAprofileError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;IReadOnlyList&lt;DtoProfileResponse&gt;&gt; UpdateAprofile(DtoConfigurationProfilePath body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;IReadOnlyList&lt;DtoProfileResponse&gt;&gt; UpdateAProfile(DtoConfigurationProfilePath body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -14254,14 +14254,14 @@ Partially update a device profile
 ```csharp
 try
 {
-    var response = await client.SensorInsightsDeviceProfile.UpdateAprofile(body);
+    var response = await client.SensorInsightsDeviceProfile.UpdateAProfile(body);
     // TODO: Handle 'response' of type IReadOnlyList<DtoProfileResponse>
 }
-catch (SdkException<UpdateAprofileError> ex)
+catch (SdkException<UpdateAProfileError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type UpdateAprofileError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14288,7 +14288,7 @@ catch (SdkException<UpdateAprofileError> ex)
 
 **OnSuccess**: <code>IReadOnlyList&lt;[DtoProfileResponse](Models/DtoProfileResponse.cs)&gt;</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[UpdateAprofileError](Errors/UpdateAprofileError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[UpdateAProfileError](Errors/UpdateAProfileError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -14321,9 +14321,9 @@ try
 }
 catch (SdkException<SensorInsightsDeviceActionSetRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsDeviceActionSetRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14338,7 +14338,7 @@ catch (SdkException<SensorInsightsDeviceActionSetRequestError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[DmV1DevicesActionsSetRequest](Models/DmV1DevicesActionsSetRequest.cs)</code> | - |
+| <code>body</code> | <code>[DmV1DevicesActionsSetRequest](Models/AnyOf/DmV1DevicesActionsSetRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -14379,9 +14379,9 @@ try
 }
 catch (SdkException<SensorInsightsLastReportedTimeRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsLastReportedTimeRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14437,9 +14437,9 @@ try
 }
 catch (SdkException<SensorInsightsListDeviceExperienceHistoryRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsListDeviceExperienceHistoryRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14495,9 +14495,9 @@ try
 }
 catch (SdkException<SensorInsightsListDevicesRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsListDevicesRequestError
+        // TODO: Handle 'error' of type ManagementError
     }
 }
 ```
@@ -14553,9 +14553,9 @@ try
 }
 catch (SdkException<SensorInsightsListNetworkExperienceHistoryRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsListNetworkExperienceHistoryRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14611,9 +14611,9 @@ try
 }
 catch (SdkException<SensorInsightsPatchDeviceRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsPatchDeviceRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14673,9 +14673,9 @@ try
 }
 catch (SdkException<SensorInsightsListGatewayDevicesRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsListGatewayDevicesRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14735,9 +14735,9 @@ try
 }
 catch (SdkException<SensorInsightsGetNetworkHealthScoreResponseError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsGetNetworkHealthScoreResponseError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14781,9 +14781,9 @@ try
 }
 catch (SdkException<SensorInsightsHealthScoreSummaryError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsHealthScoreSummaryError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14830,9 +14830,9 @@ try
 }
 catch (SdkException<SensorInsightsAddUsersToNotificationGroupRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsAddUsersToNotificationGroupRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14888,9 +14888,9 @@ try
 }
 catch (SdkException<SensorInsightsCreateNotificationGroupRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsCreateNotificationGroupRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -14945,9 +14945,9 @@ try
 }
 catch (SdkException<SensorInsightsDeleteNotificationGroupError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsDeleteNotificationGroupError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15003,9 +15003,9 @@ try
 }
 catch (SdkException<SensorInsightsListNotificationGroupRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsListNotificationGroupRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15060,9 +15060,9 @@ try
 }
 catch (SdkException<SensorInsightsRemoveUsersFromNotificationGroupRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsRemoveUsersFromNotificationGroupRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15118,9 +15118,9 @@ try
 }
 catch (SdkException<SensorInsightsUpdateNotificationGroupRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsUpdateNotificationGroupRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15180,9 +15180,9 @@ try
 }
 catch (SdkException<SensorInsightsListRulesRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsListRulesRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15238,9 +15238,9 @@ try
 }
 catch (SdkException<SensorInsightsOverwriteRuleRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsOverwriteRuleRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15300,9 +15300,9 @@ try
 }
 catch (SdkException<SensorInsightsListSensorDevicesRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsListSensorDevicesRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15357,9 +15357,9 @@ try
 }
 catch (SdkException<SensorInsightsOffBoardSensorRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsOffBoardSensorRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15414,9 +15414,9 @@ try
 }
 catch (SdkException<SensorInsightsOnBoardSensorRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsOnBoardSensorRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15472,9 +15472,9 @@ try
 }
 catch (SdkException<SensorInsightsSensorOffBoardingStatusRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsSensorOffBoardingStatusRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15530,9 +15530,9 @@ try
 }
 catch (SdkException<SensorInsightsSensorOnBoardStatusRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsSensorOnBoardStatusRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15602,9 +15602,9 @@ try
 }
 catch (SdkException<SensorinsightsmetricsqueryError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorinsightsmetricsqueryError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15664,9 +15664,9 @@ try
 }
 catch (SdkException<SensorInsightsBulkUpdateError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsBulkUpdateError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15722,9 +15722,9 @@ try
 }
 catch (SdkException<SensorInsightsListSmartAlertsRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsListSmartAlertsRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15780,9 +15780,9 @@ try
 }
 catch (SdkException<SensorInsightsPatchSmartAlertRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsPatchSmartAlertRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15842,9 +15842,9 @@ try
 }
 catch (SdkException<SensorInsightsCreateUserRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsCreateUserRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15899,9 +15899,9 @@ try
 }
 catch (SdkException<SensorInsightsDeleteUserError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsDeleteUserError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -15957,9 +15957,9 @@ try
 }
 catch (SdkException<SensorInsightsListUserRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsListUserRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -16015,9 +16015,9 @@ try
 }
 catch (SdkException<SensorInsightsUpdateUserRequestError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetManagementError400(out var error))
     {
-        // TODO: Handle 'error' of type SensorInsightsUpdateUserRequestError
+        // TODO: Handle 'error' of type ManagementError400
     }
 }
 ```
@@ -16087,9 +16087,9 @@ try
 }
 catch (SdkException<GetDeviceCheckInHistoryError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type GetDeviceCheckInHistoryError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -16160,9 +16160,9 @@ try
 }
 catch (SdkException<ListAccountServicePlansError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ListAccountServicePlansError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -16232,9 +16232,9 @@ try
 }
 catch (SdkException<EndConnectivityManagementSessionError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type EndConnectivityManagementSessionError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -16288,9 +16288,9 @@ try
 }
 catch (SdkException<ResetConnectivityManagementPasswordError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type ResetConnectivityManagementPasswordError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -16356,9 +16356,9 @@ try
 }
 catch (SdkException<StartConnectivityManagementSessionError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type StartConnectivityManagementSessionError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -16427,9 +16427,9 @@ try
 }
 catch (SdkException<DeregisterCallback3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetNoContent(out var error))
     {
-        // TODO: Handle 'error' of type DeregisterCallback3Error
+        // TODO: Handle 'error' of type RawError
     }
 }
 ```
@@ -16496,9 +16496,9 @@ try
 }
 catch (SdkException<ListRegisteredCallbacks3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type ListRegisteredCallbacks3Error
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -16564,9 +16564,9 @@ try
 }
 catch (SdkException<RegisterCallback3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type RegisterCallback3Error
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -16637,9 +16637,9 @@ try
 }
 catch (SdkException<DeregisterCallback4Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type DeregisterCallback4Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -16705,9 +16705,9 @@ try
 }
 catch (SdkException<ListRegisteredCallbacks4Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type ListRegisteredCallbacks4Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -16773,9 +16773,9 @@ try
 }
 catch (SdkException<RegisterCallback4Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type RegisterCallback4Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -16841,9 +16841,9 @@ try
 }
 catch (SdkException<UpdateCallbackError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type UpdateCallbackError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -16913,9 +16913,9 @@ try
 }
 catch (SdkException<DeregisterCallback5Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type DeregisterCallback5Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -16981,9 +16981,9 @@ try
 }
 catch (SdkException<ListRegisteredCallbacks5Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type ListRegisteredCallbacks5Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -17049,9 +17049,9 @@ try
 }
 catch (SdkException<RegisterCallback5Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type RegisterCallback5Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -17118,9 +17118,9 @@ try
 }
 catch (SdkException<UpdateCallback2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type UpdateCallback2Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -17191,9 +17191,9 @@ try
 }
 catch (SdkException<AssignLicensesToDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type AssignLicensesToDevicesError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -17260,9 +17260,9 @@ try
 }
 catch (SdkException<CreateListOfLicensesToRemoveError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type CreateListOfLicensesToRemoveError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -17328,9 +17328,9 @@ try
 }
 catch (SdkException<DeleteListOfLicensesToRemoveError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetNoContent(out var error))
     {
-        // TODO: Handle 'error' of type DeleteListOfLicensesToRemoveError
+        // TODO: Handle 'error' of type RawError
     }
 }
 ```
@@ -17396,9 +17396,9 @@ try
 }
 catch (SdkException<ListLicensesToRemoveError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type ListLicensesToRemoveError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -17465,9 +17465,9 @@ try
 }
 catch (SdkException<RemoveLicensesFromDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type RemoveLicensesFromDevicesError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -17538,9 +17538,9 @@ try
 }
 catch (SdkException<AssignLicensesToDevices2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type AssignLicensesToDevices2Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -17606,9 +17606,9 @@ try
 }
 catch (SdkException<CreateListOfLicensesToRemove2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type CreateListOfLicensesToRemove2Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -17674,9 +17674,9 @@ try
 }
 catch (SdkException<DeleteListOfLicensesToRemove2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type DeleteListOfLicensesToRemove2Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -17742,9 +17742,9 @@ try
 }
 catch (SdkException<GetAccountLicenseStatus2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountLicenseStatus2Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -17811,9 +17811,9 @@ try
 }
 catch (SdkException<ListLicensesToRemove2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type ListLicensesToRemove2Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -17880,9 +17880,9 @@ try
 }
 catch (SdkException<RemoveLicensesFromDevices2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type RemoveLicensesFromDevices2Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -17952,9 +17952,9 @@ try
 }
 catch (SdkException<AssignLicensesToDevices3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type AssignLicensesToDevices3Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -18021,9 +18021,9 @@ try
 }
 catch (SdkException<GetAccountLicensesStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountLicensesStatusError
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -18090,9 +18090,9 @@ try
 }
 catch (SdkException<RemoveLicensesFromDevices3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type RemoveLicensesFromDevices3Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -18163,9 +18163,9 @@ try
 }
 catch (SdkException<GetDeviceFirmwareUpgradeHistoryError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type GetDeviceFirmwareUpgradeHistoryError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -18232,9 +18232,9 @@ try
 }
 catch (SdkException<ListAccountDevicesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type ListAccountDevicesError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -18303,9 +18303,9 @@ try
 }
 catch (SdkException<ListUpgradesForSpecifiedStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type ListUpgradesForSpecifiedStatusError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -18379,9 +18379,9 @@ try
 }
 catch (SdkException<GetCampaignDeviceStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type GetCampaignDeviceStatusError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -18451,9 +18451,9 @@ try
 }
 catch (SdkException<GetCampaignHistoryByStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type GetCampaignHistoryByStatusError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -18521,9 +18521,9 @@ try
 }
 catch (SdkException<GetDeviceFirmwareUpgradeHistory2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type GetDeviceFirmwareUpgradeHistory2Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -18592,9 +18592,9 @@ try
 }
 catch (SdkException<ListAccountDevices2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type ListAccountDevices2Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -18662,9 +18662,9 @@ try
 }
 catch (SdkException<ListAvailableSoftwareError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type ListAvailableSoftwareError
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -18735,9 +18735,9 @@ try
 }
 catch (SdkException<GetCampaignDeviceStatus2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type GetCampaignDeviceStatus2Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -18807,9 +18807,9 @@ try
 }
 catch (SdkException<GetCampaignHistoryByStatus2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type GetCampaignHistoryByStatus2Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -18877,9 +18877,9 @@ try
 }
 catch (SdkException<GetDeviceFirmwareUpgradeHistory3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type GetDeviceFirmwareUpgradeHistory3Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -18950,9 +18950,9 @@ try
 }
 catch (SdkException<GetAccountLicenseStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountLicenseStatusError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -19019,9 +19019,9 @@ try
 }
 catch (SdkException<GetAccountSubscriptionStatusError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV1Result(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountSubscriptionStatusError
+        // TODO: Handle 'error' of type FotaV1Result
     }
 }
 ```
@@ -19091,9 +19091,9 @@ try
 }
 catch (SdkException<GetAccountSubscriptionStatus2Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV2Result(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountSubscriptionStatus2Error
+        // TODO: Handle 'error' of type FotaV2Result
     }
 }
 ```
@@ -19163,9 +19163,9 @@ try
 }
 catch (SdkException<GetAccountSubscriptionStatus3Error> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetFotaV3Result(out var error))
     {
-        // TODO: Handle 'error' of type GetAccountSubscriptionStatus3Error
+        // TODO: Handle 'error' of type FotaV3Result
     }
 }
 ```
@@ -19207,7 +19207,7 @@ catch (SdkException<GetAccountSubscriptionStatus3Error> ex)
 > Source: [Targets](Api/Targets.cs)
 
 <details>
-<summary><code>Task&lt;CreateIoTapplicationResponse&gt; CreateAzureCentralIoTapplication(string billingaccountId, CreateIoTapplicationRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;CreateIoTApplicationResponse&gt; CreateAzureCentralIoTApplication(string billingaccountId, CreateIoTApplicationRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -19230,8 +19230,8 @@ Deploy a new Azure IoT Central application based on the Verizon ARM template wit
 ```csharp
 try
 {
-    var response = await client.Targets.CreateAzureCentralIoTapplication(billingaccountId, body);
-    // TODO: Handle 'response' of type CreateIoTapplicationResponse
+    var response = await client.Targets.CreateAzureCentralIoTApplication(billingaccountId, body);
+    // TODO: Handle 'response' of type CreateIoTApplicationResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -19250,7 +19250,7 @@ catch (SdkException<RawError> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>billingaccountId</code> | <code>string</code> | TThe ThingSpace ID of the authenticating billing account. |
-| <code>body</code> | <code>[CreateIoTapplicationRequest](Models/CreateIoTapplicationRequest.cs)</code> | - |
+| <code>body</code> | <code>[CreateIoTApplicationRequest](Models/CreateIoTApplicationRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -19260,7 +19260,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[CreateIoTapplicationResponse](Models/CreateIoTapplicationResponse.cs)</code>
+**OnSuccess**: <code>[CreateIoTApplicationResponse](Models/CreateIoTApplicationResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -19402,7 +19402,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;GenerateExternalIdresult&gt; GenerateTargetExternalId(GenerateExternalIdrequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;GenerateExternalIdResult&gt; GenerateTargetExternalId(GenerateExternalIdRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -19426,7 +19426,7 @@ Create a unique string that ThingSpace will pass to AWS for increased security.
 try
 {
     var response = await client.Targets.GenerateTargetExternalId(body);
-    // TODO: Handle 'response' of type GenerateExternalIdresult
+    // TODO: Handle 'response' of type GenerateExternalIdResult
 }
 catch (SdkException<RawError> ex)
 {
@@ -19444,7 +19444,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[GenerateExternalIdrequest](Models/GenerateExternalIdrequest.cs)</code> | - |
+| <code>body</code> | <code>[GenerateExternalIdRequest](Models/GenerateExternalIdRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -19454,7 +19454,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[GenerateExternalIdresult](Models/GenerateExternalIdresult.cs)</code>
+**OnSuccess**: <code>[GenerateExternalIdResult](Models/GenerateExternalIdResult.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -19536,7 +19536,7 @@ catch (SdkException<RawError> ex)
 > Source: [ThingSpaceQualityOfServiceApiActions](Api/ThingSpaceQualityOfServiceApiActions.cs)
 
 <details>
-<summary><code>Task&lt;Success201&gt; CreateAthingSpaceQualityOfServiceApisubscription(SubscribeRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;Success201&gt; CreateAThingSpaceQualityOfServiceApiSubscription(SubscribeRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -19559,7 +19559,7 @@ Creates a QoS elevation subscription ID and activates the subscription.
 ```csharp
 try
 {
-    var response = await client.ThingSpaceQualityOfServiceApiActions.CreateAthingSpaceQualityOfServiceApisubscription(body);
+    var response = await client.ThingSpaceQualityOfServiceApiActions.CreateAThingSpaceQualityOfServiceApiSubscription(body);
     // TODO: Handle 'response' of type Success201
 }
 catch (SdkException<RawError> ex)
@@ -19601,7 +19601,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;Success201&gt; StopAthingSpaceQualityOfServiceApisubscription(string accountName, string qosSubscriptionId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;Success201&gt; StopAThingSpaceQualityOfServiceApiSubscription(string accountName, string qosSubscriptionId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -19624,7 +19624,7 @@ Stops an active ThingSpace Quality of Service API subscription using the account
 ```csharp
 try
 {
-    var response = await client.ThingSpaceQualityOfServiceApiActions.StopAthingSpaceQualityOfServiceApisubscription(accountName,
+    var response = await client.ThingSpaceQualityOfServiceApiActions.StopAThingSpaceQualityOfServiceApiSubscription(accountName,
         qosSubscriptionId);
     // TODO: Handle 'response' of type Success201
 }
@@ -19714,7 +19714,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[V2TriggersRequest1](Models/V2TriggersRequest1.cs)</code> | - |
+| <code>body</code> | <code>[V2TriggersRequest1](Models/AnyOf/V2TriggersRequest1.cs)</code> | - |
 
 </dd>
 </dl>
@@ -19839,9 +19839,9 @@ try
 }
 catch (SdkException<CreateNewTriggerError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type CreateNewTriggerError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -19907,9 +19907,9 @@ try
 }
 catch (SdkException<DeleteTriggerError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type DeleteTriggerError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -19977,9 +19977,9 @@ try
 }
 catch (SdkException<UpdateTriggerError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetDeviceLocationResult(out var error))
     {
-        // TODO: Handle 'error' of type UpdateTriggerError
+        // TODO: Handle 'error' of type DeviceLocationResult
     }
 }
 ```
@@ -20022,7 +20022,7 @@ catch (SdkException<UpdateTriggerError> ex)
 > Source: [WirelessNetworkPerformance](Api/WirelessNetworkPerformance.cs)
 
 <details>
-<summary><code>Task&lt;WnprequestResponse&gt; DeviceExperience30DaysHistory(GetDeviceExperienceScoreHistoryRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;WnpRequestResponse&gt; DeviceExperience30DaysHistory(GetDeviceExperienceScoreHistoryRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -20046,7 +20046,7 @@ A report of a specific device's service scores over a 30 day period.
 try
 {
     var response = await client.WirelessNetworkPerformance.DeviceExperience30DaysHistory(body);
-    // TODO: Handle 'response' of type WnprequestResponse
+    // TODO: Handle 'response' of type WnpRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -20074,7 +20074,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[WnprequestResponse](Models/WnprequestResponse.cs)</code>
+**OnSuccess**: <code>[WnpRequestResponse](Models/WnpRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -20087,7 +20087,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;WnprequestResponse&gt; DeviceExperienceBulkLatest(GetDeviceExperienceScoreBulkRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;WnpRequestResponse&gt; DeviceExperienceBulkLatest(GetDeviceExperienceScoreBulkRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -20111,7 +20111,7 @@ Run a report to view the latest device experience score for specific devices.
 try
 {
     var response = await client.WirelessNetworkPerformance.DeviceExperienceBulkLatest(body);
-    // TODO: Handle 'response' of type WnprequestResponse
+    // TODO: Handle 'response' of type WnpRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -20139,7 +20139,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[WnprequestResponse](Models/WnprequestResponse.cs)</code>
+**OnSuccess**: <code>[WnpRequestResponse](Models/WnpRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -20152,7 +20152,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;WnprequestResponse&gt; Domestic4Gand5GnationwideNetworkCoverage(M2MV1IntelligenceWirelessCoverageRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;WnpRequestResponse&gt; Domestic4GAnd5GNationwideNetworkCoverage(M2MV1IntelligenceWirelessCoverageRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -20175,8 +20175,8 @@ Run a report for FWA Address qualification or to determine network types availab
 ```csharp
 try
 {
-    var response = await client.WirelessNetworkPerformance.Domestic4Gand5GnationwideNetworkCoverage(body);
-    // TODO: Handle 'response' of type WnprequestResponse
+    var response = await client.WirelessNetworkPerformance.Domestic4GAnd5GNationwideNetworkCoverage(body);
+    // TODO: Handle 'response' of type WnpRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -20194,7 +20194,7 @@ catch (SdkException<RawError> ex)
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>body</code> | <code>[M2MV1IntelligenceWirelessCoverageRequest](Models/M2MV1IntelligenceWirelessCoverageRequest.cs)</code> | - |
+| <code>body</code> | <code>[M2MV1IntelligenceWirelessCoverageRequest](Models/AnyOf/M2MV1IntelligenceWirelessCoverageRequest.cs)</code> | - |
 
 </dd>
 </dl>
@@ -20204,7 +20204,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[WnprequestResponse](Models/WnprequestResponse.cs)</code>
+**OnSuccess**: <code>[WnpRequestResponse](Models/WnpRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -20217,7 +20217,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;WnprequestResponse&gt; NearRealTimeNetworkConditions(GetNetworkConditionsRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;WnpRequestResponse&gt; NearRealTimeNetworkConditions(GetNetworkConditionsRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -20241,7 +20241,7 @@ WNP Query for current network condition.
 try
 {
     var response = await client.WirelessNetworkPerformance.NearRealTimeNetworkConditions(body);
-    // TODO: Handle 'response' of type WnprequestResponse
+    // TODO: Handle 'response' of type WnpRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -20269,7 +20269,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[WnprequestResponse](Models/WnprequestResponse.cs)</code>
+**OnSuccess**: <code>[WnpRequestResponse](Models/WnpRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -20282,7 +20282,7 @@ catch (SdkException<RawError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;WnprequestResponse&gt; SiteProximity(GetNetworkConditionsRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;WnpRequestResponse&gt; SiteProximity(GetNetworkConditionsRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -20306,7 +20306,7 @@ Identify the direction and general distance of nearby cell sites and the technol
 try
 {
     var response = await client.WirelessNetworkPerformance.SiteProximity(body);
-    // TODO: Handle 'response' of type WnprequestResponse
+    // TODO: Handle 'response' of type WnpRequestResponse
 }
 catch (SdkException<RawError> ex)
 {
@@ -20334,7 +20334,7 @@ catch (SdkException<RawError> ex)
 <dl>
 <dd>
 
-**OnSuccess**: <code>[WnprequestResponse](Models/WnprequestResponse.cs)</code>
+**OnSuccess**: <code>[WnpRequestResponse](Models/WnpRequestResponse.cs)</code>
 
 **OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[RawError](Core/ErrorResponse/RawError.cs)&gt;</code>
 
@@ -20351,7 +20351,7 @@ catch (SdkException<RawError> ex)
 > Source: [DeviceRoleController](Api/DeviceRoleController.cs)
 
 <details>
-<summary><code>Task&lt;IReadOnlyList&lt;DeviceRole&gt;&gt; GetAclrulesByVendorId(string vendorId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;IReadOnlyList&lt;DeviceRole&gt;&gt; GetAclRulesByVendorId(string vendorId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -20374,14 +20374,14 @@ This API allows the user to get the access control rules defined for them.
 ```csharp
 try
 {
-    var response = await client.DeviceRoleController.GetAclrulesByVendorId(vendorId);
+    var response = await client.DeviceRoleController.GetAclRulesByVendorId(vendorId);
     // TODO: Handle 'response' of type IReadOnlyList<DeviceRole>
 }
-catch (SdkException<GetAclrulesByVendorIdError> ex)
+catch (SdkException<GetAclRulesByVendorIdError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetString(out var error))
     {
-        // TODO: Handle 'error' of type GetAclrulesByVendorIdError
+        // TODO: Handle 'error' of type string
     }
 }
 ```
@@ -20408,7 +20408,7 @@ catch (SdkException<GetAclrulesByVendorIdError> ex)
 
 **OnSuccess**: <code>IReadOnlyList&lt;[DeviceRole](Models/DeviceRole.cs)&gt;</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetAclrulesByVendorIdError](Errors/GetAclrulesByVendorIdError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[GetAclRulesByVendorIdError](Errors/GetAclRulesByVendorIdError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -20451,9 +20451,9 @@ try
 }
 catch (SdkException<DeleteLocalProfileError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type DeleteLocalProfileError
+        // TODO: Handle 'error' of type RestErrorResponse
     }
 }
 ```
@@ -20519,9 +20519,9 @@ try
 }
 catch (SdkException<DisableLocalProfileError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type DisableLocalProfileError
+        // TODO: Handle 'error' of type RestErrorResponse
     }
 }
 ```
@@ -20587,9 +20587,9 @@ try
 }
 catch (SdkException<DownloadLocalProfileToDisableError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type DownloadLocalProfileToDisableError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -20655,9 +20655,9 @@ try
 }
 catch (SdkException<DownloadLocalProfileToEnableError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetConnectivityManagementResult(out var error))
     {
-        // TODO: Handle 'error' of type DownloadLocalProfileToEnableError
+        // TODO: Handle 'error' of type ConnectivityManagementResult
     }
 }
 ```
@@ -20723,9 +20723,9 @@ try
 }
 catch (SdkException<EnableLocalProfileError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetRestErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type EnableLocalProfileError
+        // TODO: Handle 'error' of type RestErrorResponse
     }
 }
 ```
@@ -20794,9 +20794,9 @@ try
 }
 catch (SdkException<DeleteMapMessageError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetMdmErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type DeleteMapMessageError
+        // TODO: Handle 'error' of type MdmErrorResponse
     }
 }
 ```
@@ -20835,7 +20835,7 @@ catch (SdkException<DeleteMapMessageError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;string&gt; DownloadMapmessages(GeofencePolygon geofence, string vendorId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;string&gt; DownloadMapMessages(GeofencePolygon geofence, string vendorId, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -20865,14 +20865,14 @@ This endpoint allows user to download SAE J2735 or ETSI MAP messages in ASN.1 UP
 ```csharp
 try
 {
-    var response = await client.MapMessageController.DownloadMapmessages(geofence, vendorId);
+    var response = await client.MapMessageController.DownloadMapMessages(geofence, vendorId);
     // TODO: Handle 'response' of type string
 }
-catch (SdkException<DownloadMapmessagesError> ex)
+catch (SdkException<DownloadMapMessagesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetMdmErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type DownloadMapmessagesError
+        // TODO: Handle 'error' of type MdmErrorResponse
     }
 }
 ```
@@ -20900,7 +20900,7 @@ catch (SdkException<DownloadMapmessagesError> ex)
 
 **OnSuccess**: <code>string</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[DownloadMapmessagesError](Errors/DownloadMapmessagesError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[DownloadMapMessagesError](Errors/DownloadMapMessagesError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -20911,7 +20911,7 @@ catch (SdkException<DownloadMapmessagesError> ex)
 </details>
 
 <details>
-<summary><code>Task&lt;string&gt; IngestMapmessages(string vendorId, EtxmessageStandardEnum mapDataMessageStandard, EtxMapDataIngestRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
+<summary><code>Task&lt;string&gt; IngestMapMessages(string vendorId, EtxMessageStandardEnum mapDataMessageStandard, EtxMapDataIngestRequest body, RequestOptions? requestOptions = null, CancellationToken ct = default);</code></summary>
 
 <dl>
 <dd>
@@ -20942,14 +20942,14 @@ Note: The user needs to authenticate with their ThingSpace credentials using the
 ```csharp
 try
 {
-    var response = await client.MapMessageController.IngestMapmessages(vendorId, mapDataMessageStandard, body);
+    var response = await client.MapMessageController.IngestMapMessages(vendorId, mapDataMessageStandard, body);
     // TODO: Handle 'response' of type string
 }
-catch (SdkException<IngestMapmessagesError> ex)
+catch (SdkException<IngestMapMessagesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetMdmErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type IngestMapmessagesError
+        // TODO: Handle 'error' of type MdmErrorResponse
     }
 }
 ```
@@ -20965,7 +20965,7 @@ catch (SdkException<IngestMapmessagesError> ex)
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>vendorId</code> | <code>string</code> | The VendorID set during the Vendor registration call. |
-| <code>mapDataMessageStandard</code> | <code>[EtxmessageStandardEnum](Models/Enums/EtxmessageStandardEnum.cs)</code> | Select which V2X messaging standard will be used for the message generation. The following options are supported:<br>- "etsi": The message will be generated using the ETSI (European) standard (e.g. MAPEM).<br>- "sae": The message will be generated using the SAE J2735 (North American) standard (e.g. MAP).<br>- if not sent while POST, defaults to "sae" |
+| <code>mapDataMessageStandard</code> | <code>[EtxMessageStandardEnum](Models/Enums/EtxMessageStandardEnum.cs)</code> | Select which V2X messaging standard will be used for the message generation. The following options are supported:<br>- "etsi": The message will be generated using the ETSI (European) standard (e.g. MAPEM).<br>- "sae": The message will be generated using the SAE J2735 (North American) standard (e.g. MAP).<br>- if not sent while POST, defaults to "sae" |
 | <code>body</code> | <code>[EtxMapDataIngestRequest](Models/EtxMapDataIngestRequest.cs)</code> | - |
 
 </dd>
@@ -20978,7 +20978,7 @@ catch (SdkException<IngestMapmessagesError> ex)
 
 **OnSuccess**: <code>string</code>
 
-**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[IngestMapmessagesError](Errors/IngestMapmessagesError.cs)&gt;</code>
+**OnError**: <code>[SdkException](Core/Exceptions/SdkException.cs)&lt;[IngestMapMessagesError](Errors/IngestMapMessagesError.cs)&gt;</code>
 
 </dd>
 </dl>
@@ -21021,9 +21021,9 @@ try
 }
 catch (SdkException<QueryMapMessagesError> ex)
 {
-    if (ex.Error.TryGetError(out var error))
+    if (ex.Error.TryGetMdmErrorResponse(out var error))
     {
-        // TODO: Handle 'error' of type QueryMapMessagesError
+        // TODO: Handle 'error' of type MdmErrorResponse
     }
 }
 ```

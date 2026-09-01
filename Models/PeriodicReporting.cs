@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.Enums;
 
 namespace Verizon.Models;
@@ -25,4 +26,7 @@ public record PeriodicReporting
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("minutes")]
     public int? Minutes { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

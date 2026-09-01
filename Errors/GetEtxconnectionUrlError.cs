@@ -7,41 +7,41 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class GetEtxconnectionUrlError : ApiError
+public sealed class GetEtxConnectionUrlError : ApiError
 {
-    private readonly Optional<EtxrespondingError> _etxrespondingErrorValue;
+    private readonly Optional<EtxRespondingError> _etxRespondingErrorValue;
 
-    private GetEtxconnectionUrlError(Optional<EtxrespondingError> etxrespondingErrorValue,
+    private GetEtxConnectionUrlError(Optional<EtxRespondingError> etxRespondingErrorValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _etxrespondingErrorValue = etxrespondingErrorValue;
+        _etxRespondingErrorValue = etxRespondingErrorValue;
     }
 
-    private static GetEtxconnectionUrlError AsEtxrespondingError(EtxrespondingError value) =>
-        new(Optional<EtxrespondingError>.Some(value), default);
+    private static GetEtxConnectionUrlError AsEtxRespondingError(EtxRespondingError value) =>
+        new(Optional<EtxRespondingError>.Some(value), default);
 
-    private static GetEtxconnectionUrlError AsFallback(RawError value) =>
+    private static GetEtxConnectionUrlError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetEtxrespondingError(out EtxrespondingError value) =>
-        _etxrespondingErrorValue.TryGetValue(out value);
+    public bool TryGetEtxRespondingError(out EtxRespondingError value) =>
+        _etxRespondingErrorValue.TryGetValue(out value);
 
-    internal static Task<GetEtxconnectionUrlError> Create(HttpResponseMessage response, CancellationToken ct) =>
+    internal static Task<GetEtxConnectionUrlError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 or 401 or 403 or 429 or 503 => FromJson<EtxrespondingError>(response, ct).As(AsEtxrespondingError),
+            400 or 401 or 403 or 429 or 503 => FromJson<EtxRespondingError>(response, ct).As(AsEtxRespondingError),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }
 
-internal sealed class GetEtxconnectionUrlErrorResponse : IErrorResponse<GetEtxconnectionUrlError>
+internal sealed class GetEtxConnectionUrlErrorResponse : IErrorResponse<GetEtxConnectionUrlError>
 {
-    public static GetEtxconnectionUrlErrorResponse Instance { get; } = new();
+    public static GetEtxConnectionUrlErrorResponse Instance { get; } = new();
 
-    private GetEtxconnectionUrlErrorResponse()
+    private GetEtxConnectionUrlErrorResponse()
     {
     }
 
-    public Task<GetEtxconnectionUrlError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        GetEtxconnectionUrlError.Create(response, ct);
+    public Task<GetEtxConnectionUrlError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        GetEtxConnectionUrlError.Create(response, ct);
 }

@@ -40,7 +40,7 @@ public record CreateTriggerRequest
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("smsTriggerRequest")]
-    public SmstriggerRequest? SmsTriggerRequest { get; init; }
+    public SmsTriggerRequest? SmsTriggerRequest { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("triggerCategory")]

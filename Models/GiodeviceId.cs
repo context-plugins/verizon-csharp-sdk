@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record GiodeviceId
+public record GioDeviceId
 {
     [JsonPropertyName("kind")]
     public required string Kind { get; init; }

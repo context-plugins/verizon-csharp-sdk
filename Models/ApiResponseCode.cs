@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.Enums;
 
 namespace Verizon.Models;
@@ -19,4 +20,7 @@ public record ApiResponseCode
     /// </summary>
     [JsonPropertyName("message")]
     public required string Message { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

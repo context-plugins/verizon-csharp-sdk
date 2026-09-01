@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -17,4 +18,7 @@ public record FurtherInfoMsgId
     [JsonPropertyName("furtherInfoID")]
     [RegularExpression("^[0-9A-Fa-f]{4}$")]
     public required string FurtherInfoId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -32,5 +32,5 @@ public record GetDeviceListWithProfilesRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deviceFilter")]
     [MaxLength(50)]
-    public IReadOnlyList<GiodeviceId>? DeviceFilter { get; init; }
+    public IReadOnlyList<GioDeviceId>? DeviceFilter { get; init; }
 }

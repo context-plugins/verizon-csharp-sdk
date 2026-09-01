@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -24,4 +25,7 @@ public record V3SoftwareInfo
     /// </summary>
     [JsonPropertyName("upgradeTime")]
     public required string UpgradeTime { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

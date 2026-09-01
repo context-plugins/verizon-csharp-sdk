@@ -7,7 +7,7 @@ namespace Verizon.Models;
 /// <summary>
 /// Lookup object for identifying an ETX client. One of the following IDs is required: DeviceID, IMEI, ICCID, or IMSI. If more than one ID is provided, the API will use the first ID found in the following order: DeviceID, IMEI, ICCID, IMSI.
 /// </summary>
-public record EtxclientIdlookup
+public record EtxClientIdLookup
 {
     /// <summary>
     /// The generated ID (UUID v4) for the device. It can be used as:

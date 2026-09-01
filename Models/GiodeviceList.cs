@@ -4,10 +4,10 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record GiodeviceList
+public record GioDeviceList
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deviceIds")]
     [MaxLength(100)]
-    public IReadOnlyList<GiodeviceId>? DeviceIds { get; init; }
+    public IReadOnlyList<GioDeviceId>? DeviceIds { get; init; }
 }

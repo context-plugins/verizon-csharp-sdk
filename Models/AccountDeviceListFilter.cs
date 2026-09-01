@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -13,4 +14,7 @@ public record AccountDeviceListFilter
     /// </summary>
     [JsonPropertyName("deviceIdentifierFilters")]
     public required IReadOnlyList<DeviceIdSearch> DeviceIdentifierFilters { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

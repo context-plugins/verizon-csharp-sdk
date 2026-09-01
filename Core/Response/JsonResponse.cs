@@ -3,17 +3,15 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
+using Verizon.Core.Extensions;
 
 namespace Verizon.Core.Response;
 
 internal sealed class JsonResponse<TResponse> : IResponse<TResponse>
 {
-    private readonly JsonSerializerOptions? _options;
+    private readonly JsonSerializerOptions _options;
 
-    public JsonResponse(JsonConverter? jsonConverter) =>
-        _options = jsonConverter is null
-            ? null
-            : new JsonSerializerOptions { Converters = { jsonConverter } };
+    public JsonResponse(JsonConverter? jsonConverter) => _options = jsonConverter.ToWebOptions();
 
     public async ValueTask<TResponse> Map(HttpResponseMessage httpResponseMessage, CancellationToken cancellationToken)
     {
@@ -24,8 +22,8 @@ internal sealed class JsonResponse<TResponse> : IResponse<TResponse>
 #else
             var responseStream = await httpResponseMessage.Content.ReadAsStreamAsync().ConfigureAwait(false);
 #endif
-            if (_options is null) return (await JsonSerializer.DeserializeAsync<TResponse>(responseStream, cancellationToken: cancellationToken).ConfigureAwait(false))!;
-            return (await JsonSerializer.DeserializeAsync<TResponse>(responseStream, _options, cancellationToken).ConfigureAwait(false))!;
+            return (await JsonSerializer.DeserializeAsync<TResponse>(responseStream, _options, cancellationToken)
+                .ConfigureAwait(false))!;
         }
     }
 }

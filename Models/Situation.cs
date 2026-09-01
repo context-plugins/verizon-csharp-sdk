@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Core.Validation.Attributes;
 
 namespace Verizon.Models;
@@ -21,4 +22,7 @@ public record Situation
     /// </summary>
     [JsonPropertyName("eventType")]
     public required EventType EventType { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

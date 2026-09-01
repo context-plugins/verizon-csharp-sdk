@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.Enums;
 
 namespace Verizon.Models;
@@ -56,4 +57,7 @@ public record FirmwarePackage
     /// </summary>
     [JsonPropertyName("protocol")]
     public CampaignMetaInfoProtocol Protocol { get; init; } = CampaignMetaInfoProtocol.Lwm2M;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -12,7 +13,7 @@ public record FallBack
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("devices")]
     [MaxLength(100)]
-    public IReadOnlyList<IReadOnlyList<Device>>? Devices { get; init; }
+    public IReadOnlyList<IReadOnlyList<DeviceIdarray>>? Devices { get; init; }
 
     /// <summary>
     /// The numeric name of the account, in the format "0000123456-00001". Leading zeros must be included.
@@ -22,4 +23,7 @@ public record FallBack
     [StringLength(32, MinimumLength = 3)]
     [RegularExpression("^[0-9]{3,32}$")]
     public string? AccountName { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

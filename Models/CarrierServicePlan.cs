@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -40,4 +41,7 @@ public record CarrierServicePlan
     [StringLength(32, MinimumLength = 3)]
     [RegularExpression("^[0-9]{3,32}$")]
     public string? CarrierServicePlanCode { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

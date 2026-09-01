@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -47,4 +48,7 @@ public record V3DeviceStatus
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("nextAttemptTime")]
     public DateTimeOffset? NextAttemptTime { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

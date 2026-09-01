@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -15,4 +16,7 @@ public record FirmwareImei
     [JsonPropertyName("deviceList")]
     [MaxLength(1000)]
     public required IReadOnlyList<string> DeviceList { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

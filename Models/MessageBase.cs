@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.AnyOf;
 using Verizon.Models.Enums;
 
@@ -57,4 +58,7 @@ public record MessageBase
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("distributionSchedule")]
     public DistributionSchedule? DistributionSchedule { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

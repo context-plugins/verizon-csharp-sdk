@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record GiorequestResponse
+public record GioRequestResponse
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("requestId")]

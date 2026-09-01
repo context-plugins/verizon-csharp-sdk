@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
 /// <summary>
 /// IP pool that is available to the account.
 /// </summary>
-public record Ippool
+public record IpPool
 {
     /// <summary>
     /// The name of the IP pool.
@@ -27,4 +28,7 @@ public record Ippool
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("isDefaultPool")]
     public bool? IsDefaultPool { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

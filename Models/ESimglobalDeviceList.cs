@@ -4,7 +4,7 @@ using Verizon.Models.Enums;
 
 namespace Verizon.Models;
 
-public record ESimglobalDeviceList
+public record ESimGlobalDeviceList
 {
     /// <summary>
     /// The numeric name of the account.

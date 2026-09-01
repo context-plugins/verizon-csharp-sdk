@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -13,4 +14,7 @@ public record V1LicensesAssignedRemovedRequest
     /// </summary>
     [JsonPropertyName("deviceList")]
     public required IReadOnlyList<string> DeviceList { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

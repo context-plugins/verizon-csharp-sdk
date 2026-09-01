@@ -9,7 +9,7 @@ public record DeviceProfileRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("devices")]
     [MaxLength(100)]
-    public IReadOnlyList<GiodeviceList>? Devices { get; init; }
+    public IReadOnlyList<GioDeviceList>? Devices { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("accountName")]

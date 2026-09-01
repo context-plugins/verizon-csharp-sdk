@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.AnyOf;
 
 namespace Verizon.Models;
@@ -26,4 +27,7 @@ public record AccountSharePricePlanTrigger
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("changePlanDetails")]
     public ChangePlanDetails? ChangePlanDetails { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

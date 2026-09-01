@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.Enums;
 
 namespace Verizon.Models;
@@ -20,4 +21,7 @@ public record FirmwareUpgradeChangeRequest
     /// </summary>
     [JsonPropertyName("deviceList")]
     public required IReadOnlyList<string> DeviceList { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

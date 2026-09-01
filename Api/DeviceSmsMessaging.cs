@@ -62,12 +62,12 @@ public sealed class DeviceSmsMessaging
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Returns a list of sms history for a given device during a specified time frame.
     /// </remarks>
-    public Task<GiorequestResponse> ListSmsMessageHistory(SmseventHistoryRequest body,
+    public Task<GioRequestResponse> ListSmsMessageHistory(SmsEventHistoryRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/sms/history/actions/list"),
@@ -76,7 +76,7 @@ public sealed class DeviceSmsMessaging
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -88,12 +88,12 @@ public sealed class DeviceSmsMessaging
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Sends an SMS message to one device. Messages are queued on the M2M MC Platform and sent as soon as possible, but they may be delayed due to traffic and routing considerations.
     /// </remarks>
-    public Task<GiorequestResponse> SendAnSmsMessage(GiosmssendRequest body,
+    public Task<GioRequestResponse> SendAnSmsMessage(GiosmsSendRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/sms"),
@@ -102,7 +102,7 @@ public sealed class DeviceSmsMessaging
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,

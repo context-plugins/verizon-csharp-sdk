@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -26,4 +27,7 @@ public record V3CampaignHistory
     /// </summary>
     [JsonPropertyName("campaignList")]
     public required IReadOnlyList<V3CampaignMetaInfo?> CampaignList { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

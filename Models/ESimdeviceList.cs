@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record ESimdeviceList
+public record ESimDeviceList
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deviceIds")]

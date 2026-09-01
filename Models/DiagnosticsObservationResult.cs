@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -25,4 +26,7 @@ public record DiagnosticsObservationResult
     /// </summary>
     [JsonPropertyName("createdOn")]
     public required DateTimeOffset CreatedOn { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

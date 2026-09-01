@@ -20,10 +20,10 @@ internal sealed class AuthSchemes
         ThingspaceOauth =
             OAuth2Scheme<OAuth2ClientCredentials>.Create(options.ThingspaceOauth,
                 options.ThingspaceOauthTokenStrategy ??
-                    OAuth2ClientCredentialsStrategy.ForBasicAuthRequest(server.OauthServer("/oauth2/token"), rawClient));
+                    OAuth2ClientCredentialsStrategy.ForBasicAuthRequest(server.OAuthServer("/oauth2/token"), rawClient));
         ThingspaceOauth1 =
             OAuth2Scheme<OAuth2ClientCredentials>.Create(options.ThingspaceOauth1,
                 options.ThingspaceOauth1TokenStrategy ??
-                    OAuth2ClientCredentialsStrategy.ForBasicAuthRequest(server.OauthServer("/"), rawClient));
+                    OAuth2ClientCredentialsStrategy.ForBasicAuthRequest(server.OAuthServer("/"), rawClient));
     }
 }

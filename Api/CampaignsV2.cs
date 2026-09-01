@@ -146,11 +146,11 @@ public sealed class CampaignsV2
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="UploadAndScheduleFileResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="ScheduleSwupgradeHttpDevicesError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="ScheduleSwUpgradeHttpDevicesError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Campaign time windows for downloading and installing software are available as long as the device OEM supports this.
     /// </remarks>
-    public Task<UploadAndScheduleFileResponse> ScheduleSwupgradeHttpDevices(string acc,
+    public Task<UploadAndScheduleFileResponse> ScheduleSwUpgradeHttpDevices(string acc,
         SchedulesSoftwareUpgradeRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
@@ -161,7 +161,7 @@ public sealed class CampaignsV2
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<UploadAndScheduleFileResponse>(),
-            ScheduleSwupgradeHttpDevicesErrorResponse.Instance,
+            ScheduleSwUpgradeHttpDevicesErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
             ct);

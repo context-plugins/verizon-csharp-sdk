@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.Enums;
 
 namespace Verizon.Models;
@@ -29,4 +30,7 @@ public record ManagedAccountsAddRequest
     /// </summary>
     [JsonPropertyName("managedAccList")]
     public required IReadOnlyList<string> ManagedAccList { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

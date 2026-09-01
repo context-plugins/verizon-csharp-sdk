@@ -28,7 +28,13 @@ public sealed class VerizonClient
         var resiliencePipelineFactory = new ResiliencePipelineFactory(options.Retry);
         var httpLogger = new HttpLogger(options.Logging, "VerizonClient");
         var rawClient =
-            new RawClient(httpClient, urlFactory, httpStatusPolicy, headersFactory, resiliencePipelineFactory, httpLogger);
+            new RawClient(httpClient,
+                urlFactory,
+                httpStatusPolicy,
+                headersFactory,
+                resiliencePipelineFactory,
+                httpLogger,
+                options.Hooks);
         var auth = new AuthSchemes(options, server, rawClient);
         GbiDeviceActions5 = new GbiDeviceActions5(rawClient, server, auth);
         AccountDevices = new AccountDevices(rawClient, server, auth);
@@ -67,8 +73,8 @@ public sealed class VerizonClient
         DiagnosticsObservations = new DiagnosticsObservations(rawClient, server, auth);
         DiagnosticsSettings = new DiagnosticsSettings(rawClient, server, auth);
         DiagnosticsSubscriptions = new DiagnosticsSubscriptions(rawClient, server, auth);
-        EtxappConfiguration = new EtxappConfiguration(rawClient, server, auth);
-        Etxregistration = new Etxregistration(rawClient, server, auth);
+        EtxAppConfiguration = new EtxAppConfiguration(rawClient, server, auth);
+        EtxRegistration = new EtxRegistration(rawClient, server, auth);
         Exclusions = new Exclusions(rawClient, server, auth);
         FirmwareV1 = new FirmwareV1(rawClient, server, auth);
         FirmwareV3 = new FirmwareV3(rawClient, server, auth);
@@ -269,12 +275,12 @@ public sealed class VerizonClient
     /// <summary>
     /// Manage geofence-based application configurations.
     /// </summary>
-    public EtxappConfiguration EtxappConfiguration { get; }
+    public EtxAppConfiguration EtxAppConfiguration { get; }
 
     /// <summary>
     /// Manage device registration and connection.
     /// </summary>
-    public Etxregistration Etxregistration { get; }
+    public EtxRegistration EtxRegistration { get; }
 
     /// <summary>
     /// Exclude devices from location services.

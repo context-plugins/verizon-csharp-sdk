@@ -6,16 +6,16 @@ namespace Verizon.Models.Enums;
 /// <summary>
 /// The format of the payload in the response body.
 /// </summary>
-[JsonConverter(typeof(StringEnumConverter<EtxexpectedTypeEnum>))]
-public sealed record EtxexpectedTypeEnum : StringEnum<EtxexpectedTypeEnum>
+[JsonConverter(typeof(StringEnumConverter<EtxExpectedTypeEnum>))]
+public sealed record EtxExpectedTypeEnum : StringEnum<EtxExpectedTypeEnum>
 {
-    private EtxexpectedTypeEnum(string value) : base(value)
+    private EtxExpectedTypeEnum(string value) : base(value)
     {
     }
 
-    public static readonly EtxexpectedTypeEnum Base64 = new("BASE64");
+    public static readonly EtxExpectedTypeEnum Base64 = new("BASE64");
 
-    public static readonly EtxexpectedTypeEnum Json = new("JSON");
+    public static readonly EtxExpectedTypeEnum Json = new("JSON");
 
-    public static EtxexpectedTypeEnum FromValue(string value) => FromValueCore(value);
+    public static EtxExpectedTypeEnum FromValue(string value) => FromValueCore(value);
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -43,4 +44,7 @@ public record DeviceLog
     /// </summary>
     [JsonPropertyName("binaryLogFilename")]
     public required string BinaryLogFilename { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

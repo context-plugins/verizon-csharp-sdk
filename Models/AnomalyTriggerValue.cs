@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
+using Verizon.Models.AnyOf;
 
 namespace Verizon.Models;
 
@@ -56,4 +58,7 @@ public record AnomalyTriggerValue
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("modifiedAt")]
     public string? ModifiedAt { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

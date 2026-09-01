@@ -6,7 +6,7 @@ namespace Verizon.Models;
 /// <summary>
 /// UUID of the Wireless network performance request response.
 /// </summary>
-public record WnprequestResponse
+public record WnpRequestResponse
 {
     /// <summary>
     /// Request id.

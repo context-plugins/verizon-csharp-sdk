@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -103,4 +104,7 @@ public record Campaign
     /// </summary>
     [JsonPropertyName("autoAddDevicesFlag")]
     public required bool AutoAddDevicesFlag { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

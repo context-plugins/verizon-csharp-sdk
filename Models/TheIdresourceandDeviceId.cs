@@ -1,8 +1,9 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
-public record TheIdresourceandDeviceId
+public record TheIDresourceandDeviceId
 {
     /// <summary>
     /// UUID of the user record, assigned at creation
@@ -17,4 +18,7 @@ public record TheIdresourceandDeviceId
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deviceid")]
     public string? Deviceid { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

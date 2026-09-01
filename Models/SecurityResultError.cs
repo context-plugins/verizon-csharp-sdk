@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -25,4 +26,7 @@ public record SecurityResultError
     [StringLength(64, MinimumLength = 3)]
     [RegularExpression("^https://[A-Za-z0-9].[A-Za-z]{3,64}$")]
     public string? ErrorUrl { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

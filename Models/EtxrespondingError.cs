@@ -6,7 +6,7 @@ namespace Verizon.Models;
 /// <summary>
 /// error response structure
 /// </summary>
-public record EtxrespondingError
+public record EtxRespondingError
 {
     /// <summary>
     /// The short summary of the error

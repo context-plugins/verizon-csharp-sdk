@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Core.Validation.Attributes;
 
 namespace Verizon.Models;
@@ -26,4 +27,7 @@ public record EventPosition
 
     [JsonPropertyName("altitude")]
     public required Altitude Altitude { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

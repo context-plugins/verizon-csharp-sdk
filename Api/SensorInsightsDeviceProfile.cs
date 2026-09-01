@@ -36,11 +36,11 @@ public sealed class SensorInsightsDeviceProfile
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="DtoProfileResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="CreateAprofileError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="CreateAProfileError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Create a device profile
     /// </remarks>
-    public Task<IReadOnlyList<DtoProfileResponse>> CreateAprofile(DtoConfigurationProfile body,
+    public Task<IReadOnlyList<DtoProfileResponse>> CreateAProfile(DtoConfigurationProfile body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/dm/v1/deviceConfigurationProfiles"),
@@ -50,7 +50,7 @@ public sealed class SensorInsightsDeviceProfile
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<IReadOnlyList<DtoProfileResponse>>(),
-            CreateAprofileErrorResponse.Instance,
+            CreateAProfileErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
             ct);
@@ -62,11 +62,11 @@ public sealed class SensorInsightsDeviceProfile
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="DtoProfileResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="DeleteAprofileError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="DeleteAProfileError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Delete a device profile
     /// </remarks>
-    public Task<IReadOnlyList<DtoProfileResponse>> DeleteAprofile(DtoConfigurationProfileDelete deleterequest,
+    public Task<IReadOnlyList<DtoProfileResponse>> DeleteAProfile(DtoConfigurationProfileDelete deleterequest,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/dm/v1/deviceConfigurationProfiles"),
@@ -76,7 +76,7 @@ public sealed class SensorInsightsDeviceProfile
             HttpMethod.Delete,
             EmptyBody.Instance,
             JsonResponse.Create<IReadOnlyList<DtoProfileResponse>>(),
-            DeleteAprofileErrorResponse.Instance,
+            DeleteAProfileErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
             ct);
@@ -88,11 +88,11 @@ public sealed class SensorInsightsDeviceProfile
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="DtoProfileResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="QueryAprofileError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="QueryAProfileError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Query a device profile for an individual device
     /// </remarks>
-    public Task<IReadOnlyList<DtoProfileResponse>> QueryAprofile(ResourceResourceQuery body,
+    public Task<IReadOnlyList<DtoProfileResponse>> QueryAProfile(ResourceResourceQuery body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/dm/v1/deviceConfigurationProfiles/actions/query"),
@@ -102,7 +102,7 @@ public sealed class SensorInsightsDeviceProfile
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<IReadOnlyList<DtoProfileResponse>>(),
-            QueryAprofileErrorResponse.Instance,
+            QueryAProfileErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
             ct);
@@ -114,11 +114,11 @@ public sealed class SensorInsightsDeviceProfile
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="DtoProfileResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="UpdateAprofileError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="UpdateAProfileError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Partially update a device profile
     /// </remarks>
-    public Task<IReadOnlyList<DtoProfileResponse>> UpdateAprofile(DtoConfigurationProfilePath body,
+    public Task<IReadOnlyList<DtoProfileResponse>> UpdateAProfile(DtoConfigurationProfilePath body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/dm/v1/deviceConfigurationProfiles"),
@@ -128,7 +128,7 @@ public sealed class SensorInsightsDeviceProfile
             new HttpMethod("PATCH"),
             JsonRequest.Create(body),
             JsonResponse.Create<IReadOnlyList<DtoProfileResponse>>(),
-            UpdateAprofileErrorResponse.Instance,
+            UpdateAProfileErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
             ct);

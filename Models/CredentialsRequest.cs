@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -25,4 +26,7 @@ public record CredentialsRequest
     [MinLength(1)]
     [MaxLength(50)]
     public required IReadOnlyList<DeviceCredentialRequestItem> Items { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

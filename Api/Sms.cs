@@ -35,12 +35,12 @@ public sealed class Sms
     /// <param name="next">Continue the previous query from the URL in Location Header.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="SmsmessagesQueryResult"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="ListDevicesSmsmessagesError"/> when the server returns an error response.</exception>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="SmsMessagesQueryResult"/> instance.</returns>
+    /// <exception cref="SdkException{TResult}"> of <see cref="ListDevicesSmsMessagesError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// When HTTP status is 202, a URL will be returned in the Location header of the form /sms/{aname}/history?next={token}. This URL can be used to request the next set of messages.
     /// </remarks>
-    public Task<SmsmessagesQueryResult> ListDevicesSmsmessages(string aname,
+    public Task<SmsMessagesQueryResult> ListDevicesSmsMessages(string aname,
         long? next,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
@@ -50,8 +50,8 @@ public sealed class Sms
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<SmsmessagesQueryResult>(),
-            ListDevicesSmsmessagesErrorResponse.Instance,
+            JsonResponse.Create<SmsMessagesQueryResult>(),
+            ListDevicesSmsMessagesErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
             ct);
@@ -63,11 +63,11 @@ public sealed class Sms
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeviceManagementResult"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="SendSmstoDeviceError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="SendSmsToDeviceError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// The messages are queued on the ThingSpace Platform and sent as soon as possible, but they may be delayed due to traffic and routing considerations.
     /// </remarks>
-    public Task<DeviceManagementResult> SendSmstoDevice(SmssendRequest body,
+    public Task<DeviceManagementResult> SendSmsToDevice(SmsSendRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/sms"),
@@ -77,7 +77,7 @@ public sealed class Sms
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<DeviceManagementResult>(),
-            SendSmstoDeviceErrorResponse.Instance,
+            SendSmsToDeviceErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
             ct);
@@ -89,11 +89,11 @@ public sealed class Sms
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ConnectivityManagementSuccessResult"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="StartQueuedSmsdeliveryError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="StartQueuedSmsDeliveryError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Tells the ThingSpace Platform to start sending mobile-originated SMS messages through the EnhancedConnectivityService callback service. SMS messages from devices are queued until they are retrieved by your application, either by callback or synchronously with GET /sms/{accountName}/history.
     /// </remarks>
-    public Task<ConnectivityManagementSuccessResult> StartQueuedSmsdelivery(string aname,
+    public Task<ConnectivityManagementSuccessResult> StartQueuedSmsDelivery(string aname,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/sms/{aname}/startCallbacks"),
@@ -103,7 +103,7 @@ public sealed class Sms
             HttpMethod.Put,
             EmptyBody.Instance,
             JsonResponse.Create<ConnectivityManagementSuccessResult>(),
-            StartQueuedSmsdeliveryErrorResponse.Instance,
+            StartQueuedSmsDeliveryErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
             ct);

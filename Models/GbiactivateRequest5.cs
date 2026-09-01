@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
+using Verizon.Models.AnyOf;
 
 namespace Verizon.Models;
 
@@ -32,4 +34,7 @@ public record GbiactivateRequest5
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("mdnZipCode")]
     public string? MdnZipCode { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

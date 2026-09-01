@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -27,4 +28,7 @@ public record DeviceListResult
     [JsonPropertyName("deviceList")]
     [MaxLength(1000)]
     public required IReadOnlyList<V3Device> DeviceList { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

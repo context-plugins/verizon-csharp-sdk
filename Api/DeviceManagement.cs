@@ -322,11 +322,11 @@ public sealed class DeviceManagement
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="DeviceManagementResult"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="ListCurrentDevicesPrlversionError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="ListCurrentDevicesPrlVersionError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// 4G and GSM devices do not have a PRL.
     /// </remarks>
-    public Task<DeviceManagementResult> ListCurrentDevicesPrlversion(DevicePrlListRequest body,
+    public Task<DeviceManagementResult> ListCurrentDevicesPrlVersion(DevicePrlListRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/prl/actions/list"),
@@ -336,7 +336,7 @@ public sealed class DeviceManagement
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<DeviceManagementResult>(),
-            ListCurrentDevicesPrlversionErrorResponse.Instance,
+            ListCurrentDevicesPrlVersionErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
             ct);

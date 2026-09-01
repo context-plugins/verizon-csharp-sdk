@@ -112,13 +112,8 @@ internal sealed class OAuth2AuthorizationCodeStrategy
         return [new HeaderParam("Authorization", $"Basic {encoded}")];
     }
 
-    private static IReadOnlyList<Param> BodyParams(string clientId, string? clientSecret)
-    {
-        List<Param> parameters = [new("client_id", clientId)];
-        if (clientSecret is not null)
-            parameters.Add(new Param("client_secret", clientSecret));
-        return parameters;
-    }
+    private static IReadOnlyList<Param> BodyParams(string clientId, string? clientSecret) =>
+        [new("client_id", clientId), new("client_secret", clientSecret)];
 
     private static IReadOnlyCollection<Param> BuildAuthorizationQueryParams(
         OAuth2AuthorizationCodeCredentials credentials, PkceValues? pkce)

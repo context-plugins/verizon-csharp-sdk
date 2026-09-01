@@ -67,7 +67,7 @@ public sealed class MapMessageController
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="string"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="DownloadMapmessagesError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="DownloadMapMessagesError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// This endpoint is deprecated. (Use /api/v2/mapdata/query for new integrations).
     /// <para>
@@ -80,7 +80,7 @@ public sealed class MapMessageController
     /// - <c>application/json</c> — JSON-encoded MAP messages
     /// </para>
     /// </remarks>
-    public Task<string> DownloadMapmessages(GeofencePolygon geofence,
+    public Task<string> DownloadMapMessages(GeofencePolygon geofence,
         string vendorId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
@@ -91,7 +91,7 @@ public sealed class MapMessageController
             HttpMethod.Get,
             EmptyBody.Instance,
             PlainTextResponse.CreateString(),
-            DownloadMapmessagesErrorResponse.Instance,
+            DownloadMapMessagesErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.SessionToken],
             requestOptions,
             ct);
@@ -105,7 +105,7 @@ public sealed class MapMessageController
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="string"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="IngestMapmessagesError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="IngestMapMessagesError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// This endpoint allows the user to upload map messages in ASN.1 UPER base64 encoded format or JER (JSON) formats. The MAP data message can have more than one intersections in it.
     /// Both SAE and ETSI defined MAP messages are supported. The SAE type MAP messages have to be wrapped in a MessageFrame, as defined in the SAE J2735 standard.
@@ -118,8 +118,8 @@ public sealed class MapMessageController
     /// - <c>application/json</c> — JSON representation of the MAP message
     /// </para>
     /// </remarks>
-    public Task<string> IngestMapmessages(string vendorId,
-        EtxmessageStandardEnum mapDataMessageStandard,
+    public Task<string> IngestMapMessages(string vendorId,
+        EtxMessageStandardEnum mapDataMessageStandard,
         EtxMapDataIngestRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
@@ -132,7 +132,7 @@ public sealed class MapMessageController
             HttpMethod.Post,
             JsonRequest.Create(body),
             PlainTextResponse.CreateString(),
-            IngestMapmessagesErrorResponse.Instance,
+            IngestMapMessagesErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.SessionToken],
             requestOptions,
             ct);

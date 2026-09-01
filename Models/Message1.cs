@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.AnyOf;
 using Verizon.Models.Enums;
 
@@ -62,4 +63,7 @@ public record Message1
     /// </summary>
     [JsonPropertyName("saeAlert")]
     public required SaeAlertPayload SaeAlert { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Core.Validation.Attributes;
 using Verizon.Models.Enums;
 
@@ -66,4 +67,7 @@ public record Management
     [Minimum(0)]
     [Maximum(255)]
     public required int StationType { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

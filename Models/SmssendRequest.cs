@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
 /// <summary>
 /// Request to send SMS.
 /// </summary>
-public record SmssendRequest
+public record SmsSendRequest
 {
     /// <summary>
     /// The name of a billing account.
@@ -61,4 +62,7 @@ public record SmssendRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("timeToLive")]
     public string? TimeToLive { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

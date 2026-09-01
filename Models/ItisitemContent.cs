@@ -6,7 +6,7 @@ namespace Verizon.Models;
 /// <summary>
 /// An item object wrapping an ITIS code value.
 /// </summary>
-public record ItisitemContent
+public record ItisItemContent
 {
     /// <summary>
     /// The ITIS Code that describes the alert/danger/hazard. All ITS standards use the same types here to explain the type of the alert/danger/hazard involved.

@@ -34,12 +34,12 @@ public sealed class ManagingESimProfiles
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Activate a device with either a lead or local profile.
     /// </remarks>
-    public Task<GiorequestResponse> ActivateAdeviceProfile(GioprofileRequest body,
+    public Task<GioRequestResponse> ActivateADeviceProfile(GioProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/activate"),
@@ -48,7 +48,7 @@ public sealed class ManagingESimProfiles
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -60,12 +60,12 @@ public sealed class ManagingESimProfiles
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Deactivate the lead or local profile. <b>Note:</b> to reactivate the profile, use the <b>Activate</b> endpoint above.
     /// </remarks>
-    public Task<GiorequestResponse> DeactivateAdeviceProfile(GiodeactivateDeviceProfileRequest body,
+    public Task<GioRequestResponse> DeactivateADeviceProfile(GioDeactivateDeviceProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/deactivate"),
@@ -74,7 +74,7 @@ public sealed class ManagingESimProfiles
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -86,12 +86,12 @@ public sealed class ManagingESimProfiles
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Delete a device profile for Global IoT Orchestration. <b>Note:</b> the profile must be deactivated first!
     /// </remarks>
-    public Task<GiorequestResponse> DeleteAdeviceProfile(DeviceProfileRequest body,
+    public Task<GioRequestResponse> DeleteADeviceProfile(DeviceProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/delete"),
@@ -100,7 +100,7 @@ public sealed class ManagingESimProfiles
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -112,12 +112,12 @@ public sealed class ManagingESimProfiles
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Suspend all service to an eUICC device, including the lead and local profile.
     /// </remarks>
-    public Task<GiorequestResponse> DeviceSuspend(GioprofileRequest body,
+    public Task<GioRequestResponse> DeviceSuspend(GioProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/device_suspend"),
@@ -126,7 +126,7 @@ public sealed class ManagingESimProfiles
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -138,12 +138,12 @@ public sealed class ManagingESimProfiles
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Download a Global IoT Orchestration device profile.
     /// </remarks>
-    public Task<GiorequestResponse> DownloadAdeviceProfile(DeviceProfileRequest body,
+    public Task<GioRequestResponse> DownloadADeviceProfile(DeviceProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/download"),
@@ -152,7 +152,7 @@ public sealed class ManagingESimProfiles
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -164,12 +164,12 @@ public sealed class ManagingESimProfiles
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Enable a device lead or local profile.
     /// </remarks>
-    public Task<GiorequestResponse> EnableAdeviceProfile(DeviceProfileRequest body,
+    public Task<GioRequestResponse> EnableADeviceProfile(DeviceProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/enable"),
@@ -178,7 +178,7 @@ public sealed class ManagingESimProfiles
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -190,12 +190,12 @@ public sealed class ManagingESimProfiles
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Enable the Global IoT Orchestration device profile for download.
     /// </remarks>
-    public Task<GiorequestResponse> EnableAdeviceProfileForDownload(DeviceProfileRequest body,
+    public Task<GioRequestResponse> EnableADeviceProfileForDownload(DeviceProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/download_enable"),
@@ -204,7 +204,7 @@ public sealed class ManagingESimProfiles
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -216,12 +216,12 @@ public sealed class ManagingESimProfiles
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Suspend a device's Global profile.
     /// </remarks>
-    public Task<GiorequestResponse> ProfileSuspend(GioprofileRequest body,
+    public Task<GioRequestResponse> ProfileSuspend(GioProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/profile_suspend"),
@@ -230,7 +230,7 @@ public sealed class ManagingESimProfiles
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -242,12 +242,12 @@ public sealed class ManagingESimProfiles
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Resume service to a device with either a lead or local profile.
     /// </remarks>
-    public Task<GiorequestResponse> ResumeProfile(GioprofileRequest body,
+    public Task<GioRequestResponse> ResumeProfile(GioProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/profile_resume"),
@@ -256,7 +256,7 @@ public sealed class ManagingESimProfiles
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -268,12 +268,12 @@ public sealed class ManagingESimProfiles
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Enable a fallback profile to be set.
     /// </remarks>
-    public Task<GiorequestResponse> SetFallback(FallBack body,
+    public Task<GioRequestResponse> SetFallback(FallBack body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/v1/devices/profile/actions/setfallbackattribute"),
@@ -282,7 +282,7 @@ public sealed class ManagingESimProfiles
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -9,5 +10,8 @@ public record SubscribeRequest
     public required string AccountName { get; init; }
 
     [JsonPropertyName("deviceInfo")]
-    public required IReadOnlyList<QosdeviceInfo> DeviceInfo { get; init; }
+    public required IReadOnlyList<QoSdeviceInfo> DeviceInfo { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

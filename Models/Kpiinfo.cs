@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
 /// <summary>
 /// KPI Info Object
 /// </summary>
-public record Kpiinfo
+public record KpiInfo
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("name")]
@@ -38,4 +39,7 @@ public record Kpiinfo
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("timeOfLastUpdate")]
     public string? TimeOfLastUpdate { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -14,9 +15,12 @@ public record DtoBulkUpdate
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("resourceidentifiers")]
-    public IReadOnlyList<TheIdresourceandDeviceId>? Resourceidentifiers { get; init; }
+    public IReadOnlyList<TheIDresourceandDeviceId>? Resourceidentifiers { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("smartalert")]
     public BulkUpdateSmartalert? Smartalert { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -7,42 +7,42 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class GetEtxconnectionUrlMultiMecError : ApiError
+public sealed class GetEtxConnectionUrlMultiMecError : ApiError
 {
-    private readonly Optional<EtxrespondingError> _etxrespondingErrorValue;
+    private readonly Optional<EtxRespondingError> _etxRespondingErrorValue;
 
-    private GetEtxconnectionUrlMultiMecError(Optional<EtxrespondingError> etxrespondingErrorValue,
+    private GetEtxConnectionUrlMultiMecError(Optional<EtxRespondingError> etxRespondingErrorValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _etxrespondingErrorValue = etxrespondingErrorValue;
+        _etxRespondingErrorValue = etxRespondingErrorValue;
     }
 
-    private static GetEtxconnectionUrlMultiMecError AsEtxrespondingError(EtxrespondingError value) =>
-        new(Optional<EtxrespondingError>.Some(value), default);
+    private static GetEtxConnectionUrlMultiMecError AsEtxRespondingError(EtxRespondingError value) =>
+        new(Optional<EtxRespondingError>.Some(value), default);
 
-    private static GetEtxconnectionUrlMultiMecError AsFallback(RawError value) =>
+    private static GetEtxConnectionUrlMultiMecError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetEtxrespondingError(out EtxrespondingError value) =>
-        _etxrespondingErrorValue.TryGetValue(out value);
+    public bool TryGetEtxRespondingError(out EtxRespondingError value) =>
+        _etxRespondingErrorValue.TryGetValue(out value);
 
-    internal static Task<GetEtxconnectionUrlMultiMecError> Create(HttpResponseMessage response,
+    internal static Task<GetEtxConnectionUrlMultiMecError> Create(HttpResponseMessage response,
         CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 or 401 or 403 or 429 or 503 => FromJson<EtxrespondingError>(response, ct).As(AsEtxrespondingError),
+            400 or 401 or 403 or 429 or 503 => FromJson<EtxRespondingError>(response, ct).As(AsEtxRespondingError),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }
 
-internal sealed class GetEtxconnectionUrlMultiMecErrorResponse : IErrorResponse<GetEtxconnectionUrlMultiMecError>
+internal sealed class GetEtxConnectionUrlMultiMecErrorResponse : IErrorResponse<GetEtxConnectionUrlMultiMecError>
 {
-    public static GetEtxconnectionUrlMultiMecErrorResponse Instance { get; } = new();
+    public static GetEtxConnectionUrlMultiMecErrorResponse Instance { get; } = new();
 
-    private GetEtxconnectionUrlMultiMecErrorResponse()
+    private GetEtxConnectionUrlMultiMecErrorResponse()
     {
     }
 
-    public Task<GetEtxconnectionUrlMultiMecError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        GetEtxconnectionUrlMultiMecError.Create(response, ct);
+    public Task<GetEtxConnectionUrlMultiMecError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        GetEtxConnectionUrlMultiMecError.Create(response, ct);
 }

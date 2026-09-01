@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -16,4 +17,7 @@ public record NotificationReportRequest
 
     [JsonPropertyName("monitorExpirationTime")]
     public required string MonitorExpirationTime { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

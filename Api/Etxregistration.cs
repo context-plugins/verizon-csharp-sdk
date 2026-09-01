@@ -16,13 +16,13 @@ namespace Verizon.Api;
 /// <summary>
 /// Manage device registration and connection.
 /// </summary>
-public sealed class Etxregistration
+public sealed class EtxRegistration
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
     private readonly AuthSchemes _auth;
 
-    internal Etxregistration(RawClient rawClient, Server server, AuthSchemes auth)
+    internal EtxRegistration(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;
@@ -38,14 +38,14 @@ public sealed class Etxregistration
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ClientPersistenceResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="GetEtxclientCertificateError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="GetEtxClientCertificateError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// With this API call the user can check the certificate of the device. At least one of the DeviceID, IMEI, ICCID or IMSI is required to make the call.
     /// <para>
     /// Note: The user needs to authenticate with their ThingSpace credentials using the Access/Bearer and Session/M2M tokens in order to call this API.
     /// </para>
     /// </remarks>
-    public Task<ClientPersistenceResponse> GetEtxclientCertificate(EtxclientIdlookup id,
+    public Task<ClientPersistenceResponse> GetEtxClientCertificate(EtxClientIdLookup id,
         string vendorId,
         Guid? xTransactionId,
         RequestOptions? requestOptions = null,
@@ -57,7 +57,7 @@ public sealed class Etxregistration
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<ClientPersistenceResponse>(),
-            GetEtxclientCertificateErrorResponse.Instance,
+            GetEtxClientCertificateErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.SessionToken],
             requestOptions,
             ct);
@@ -71,14 +71,14 @@ public sealed class Etxregistration
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ConnectionResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="GetEtxconnectionUrlError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="GetEtxConnectionUrlError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// With this API call the device or software service requests the MQTT URL for the location that it needs to connect. To determine the proper URL the device or software service needs to provide its ID (the one that was provided in the registration request), location (GPS coordinates), and whether it is on the Verizon cellular network or not.
     /// <para>
     /// Note: The user needs to authenticate with their ThingSpace credentials using the Access/Bearer and Session/M2M tokens in order to call this API.
     /// </para>
     /// </remarks>
-    public Task<ConnectionResponse> GetEtxconnectionUrl(string vendorId,
+    public Task<ConnectionResponse> GetEtxConnectionUrl(string vendorId,
         Guid? xTransactionId,
         ConnectionRequest body,
         RequestOptions? requestOptions = null,
@@ -92,7 +92,7 @@ public sealed class Etxregistration
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<ConnectionResponse>(),
-            GetEtxconnectionUrlErrorResponse.Instance,
+            GetEtxConnectionUrlErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.SessionToken],
             requestOptions,
             ct);
@@ -106,7 +106,7 @@ public sealed class Etxregistration
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ConnectionResponseV3"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="GetEtxconnectionUrlMultiMecError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="GetEtxConnectionUrlMultiMecError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// With this API call the device or software service requests the MQTT URL for the location that it needs to connect. To determine the proper URL the device or software service needs to provide its ID (the one that was provided in the registration request), location (GPS coordinates), and whether it is on the Verizon cellular network or not.
     /// <para>
@@ -116,7 +116,7 @@ public sealed class Etxregistration
     /// Note: The user needs to authenticate with their ThingSpace credentials using the Access/Bearer and Session/M2M tokens in order to call this API.
     /// </para>
     /// </remarks>
-    public Task<ConnectionResponseV3> GetEtxconnectionUrlMultiMec(string vendorId,
+    public Task<ConnectionResponseV3> GetEtxConnectionUrlMultiMec(string vendorId,
         Guid? xTransactionId,
         ConnectionRequest body,
         RequestOptions? requestOptions = null,
@@ -130,7 +130,7 @@ public sealed class Etxregistration
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<ConnectionResponseV3>(),
-            GetEtxconnectionUrlMultiMecErrorResponse.Instance,
+            GetEtxConnectionUrlMultiMecErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.SessionToken],
             requestOptions,
             ct);
@@ -143,11 +143,11 @@ public sealed class Etxregistration
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="DevicesResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="QueryEtxdevicesError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="QueryEtxDevicesError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// This API allows retrieving devices by vendor ID and optional filters. The request should include the VendorID and any filters to apply.
     /// </remarks>
-    public Task<IReadOnlyList<DevicesResponse>> QueryEtxdevices(Guid? xTransactionId,
+    public Task<IReadOnlyList<DevicesResponse>> QueryEtxDevices(Guid? xTransactionId,
         DevicesRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
@@ -159,7 +159,7 @@ public sealed class Etxregistration
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<IReadOnlyList<DevicesResponse>>(),
-            QueryEtxdevicesErrorResponse.Instance,
+            QueryEtxDevicesErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.SessionToken],
             requestOptions,
             ct);
@@ -172,7 +172,7 @@ public sealed class Etxregistration
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ClientRegistrationResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RegisterEtxclientError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="RegisterEtxClientError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// With this API call the user (client) registers its device or software service to the ETX system. Therefore, when a connection is initiated from the device or software service to the ETX system along with the credential provided by this registration call, then the connection will be authorized.
     /// <list type="bullet">
@@ -184,7 +184,7 @@ public sealed class Etxregistration
     /// Note: The user needs to authenticate with their ThingSpace credentials using the Access/Bearer and Session/M2M tokens in order to call this API.
     /// </para>
     /// </remarks>
-    public Task<ClientRegistrationResponse> RegisterEtxclient(Guid? xTransactionId,
+    public Task<ClientRegistrationResponse> RegisterEtxClient(Guid? xTransactionId,
         ClientRegistrationRequestV2 body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
@@ -196,7 +196,7 @@ public sealed class Etxregistration
             HttpMethod.Post,
             JsonRequest.Create(body),
             JsonResponse.Create<ClientRegistrationResponse>(),
-            RegisterEtxclientErrorResponse.Instance,
+            RegisterEtxClientErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.SessionToken],
             requestOptions,
             ct);
@@ -211,7 +211,7 @@ public sealed class Etxregistration
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="ClientRegistrationResponse"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="RenewEtxclientCertificateError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="RenewEtxClientCertificateError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// With this API call the user (client) can:
     /// - renew the certificate of a device or software service in the ETX system if the original certificate has expired. If the client's certificate expired or going to expire within 30 days and new certificate will be issued. If the certificate expires more than 30 days, the current certificate will be returned to the client.
@@ -220,7 +220,7 @@ public sealed class Etxregistration
     /// Note: The user needs to authenticate with their ThingSpace credentials using the Access/Bearer and Session/M2M tokens in order to call this API.
     /// </para>
     /// </remarks>
-    public Task<ClientRegistrationResponse> RenewEtxclientCertificate(Guid deviceId,
+    public Task<ClientRegistrationResponse> RenewEtxClientCertificate(Guid deviceId,
         string vendorId,
         Guid? xTransactionId,
         object? body,
@@ -236,7 +236,7 @@ public sealed class Etxregistration
             HttpMethod.Put,
             JsonRequest.Create(body),
             JsonResponse.Create<ClientRegistrationResponse>(),
-            RenewEtxclientCertificateErrorResponse.Instance,
+            RenewEtxClientCertificateErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.SessionToken],
             requestOptions,
             ct);
@@ -244,34 +244,34 @@ public sealed class Etxregistration
     /// <summary>
     /// Unregister a list of devices and software services from the ETX system.
     /// </summary>
-    /// <param name="deviceIds">The list of device IDs and software service IDs to be unregistered</param>
+    /// <param name="deviceIDs">The list of device IDs and software service IDs to be unregistered</param>
     /// <param name="vendorId">The VendorID set during the Vendor registration call.</param>
     /// <param name="xTransactionId">Optional transaction identifier for tracing requests. If not provided, the application will generate one.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="UnregisterEtxclientsError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="UnregisterEtxClientsError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// With this API call the user (client) can unregister its devices and software services from the ETX system. The unregistered devices and services will no longer be able to use the ETX Message Exchange.
     /// <para>
     /// Note: The user needs to authenticate with their ThingSpace credentials using the Access/Bearer and Session/M2M tokens in order to call this API.
     /// </para>
     /// </remarks>
-    public Task UnregisterEtxclients(IReadOnlyList<Guid> deviceIds,
+    public Task UnregisterEtxClients(IReadOnlyList<Guid> deviceIDs,
         string vendorId,
         Guid? xTransactionId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.ImpServer("/api/v2/clients/registration"),
             [],
-            [new Param("DeviceIDs", deviceIds)],
+            [new Param("DeviceIDs", deviceIDs)],
             [new HeaderParam("VendorID", vendorId),
                 new HeaderParam("X-Transaction-Id", xTransactionId),
                 new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Delete,
             EmptyBody.Instance,
             VoidResponse.Instance,
-            UnregisterEtxclientsErrorResponse.Instance,
+            UnregisterEtxClientsErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.SessionToken],
             requestOptions,
             ct);

@@ -7,7 +7,7 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class CreateAprofileError : ApiError
+public sealed class CreateAProfileError : ApiError
 {
     private readonly Optional<ManagementError400> _managementError400Value;
 
@@ -17,7 +17,7 @@ public sealed class CreateAprofileError : ApiError
 
     private readonly Optional<ManagementError500> _managementError500Value;
 
-    private CreateAprofileError(Optional<ManagementError400> managementError400Value,
+    private CreateAProfileError(Optional<ManagementError400> managementError400Value,
         Optional<ManagementError> managementErrorValue,
         Optional<ManagementError403> managementError403Value,
         Optional<ManagementError500> managementError500Value,
@@ -29,19 +29,19 @@ public sealed class CreateAprofileError : ApiError
         _managementError500Value = managementError500Value;
     }
 
-    private static CreateAprofileError AsManagementError400(ManagementError400 value) =>
+    private static CreateAProfileError AsManagementError400(ManagementError400 value) =>
         new(Optional<ManagementError400>.Some(value), default, default, default, default);
 
-    private static CreateAprofileError AsManagementError(ManagementError value) =>
+    private static CreateAProfileError AsManagementError(ManagementError value) =>
         new(default, Optional<ManagementError>.Some(value), default, default, default);
 
-    private static CreateAprofileError AsManagementError403(ManagementError403 value) =>
+    private static CreateAProfileError AsManagementError403(ManagementError403 value) =>
         new(default, default, Optional<ManagementError403>.Some(value), default, default);
 
-    private static CreateAprofileError AsManagementError500(ManagementError500 value) =>
+    private static CreateAProfileError AsManagementError500(ManagementError500 value) =>
         new(default, default, default, Optional<ManagementError500>.Some(value), default);
 
-    private static CreateAprofileError AsFallback(RawError value) =>
+    private static CreateAProfileError AsFallback(RawError value) =>
         new(default, default, default, default, Optional<RawError>.Some(value));
 
     public bool TryGetManagementError400(out ManagementError400 value) =>
@@ -56,7 +56,7 @@ public sealed class CreateAprofileError : ApiError
     public bool TryGetManagementError500(out ManagementError500 value) =>
         _managementError500Value.TryGetValue(out value);
 
-    internal static Task<CreateAprofileError> Create(HttpResponseMessage response, CancellationToken ct) =>
+    internal static Task<CreateAProfileError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
             400 => FromJson<ManagementError400>(response, ct).As(AsManagementError400),
@@ -67,14 +67,14 @@ public sealed class CreateAprofileError : ApiError
         };
 }
 
-internal sealed class CreateAprofileErrorResponse : IErrorResponse<CreateAprofileError>
+internal sealed class CreateAProfileErrorResponse : IErrorResponse<CreateAProfileError>
 {
-    public static CreateAprofileErrorResponse Instance { get; } = new();
+    public static CreateAProfileErrorResponse Instance { get; } = new();
 
-    private CreateAprofileErrorResponse()
+    private CreateAProfileErrorResponse()
     {
     }
 
-    public Task<CreateAprofileError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        CreateAprofileError.Create(response, ct);
+    public Task<CreateAProfileError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        CreateAProfileError.Create(response, ct);
 }

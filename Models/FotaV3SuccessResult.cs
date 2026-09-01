@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -12,4 +13,7 @@ public record FotaV3SuccessResult
     /// </summary>
     [JsonPropertyName("success")]
     public required bool Success { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

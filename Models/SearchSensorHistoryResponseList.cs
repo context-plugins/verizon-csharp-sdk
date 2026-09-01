@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -13,4 +14,7 @@ public record SearchSensorHistoryResponseList
     [JsonPropertyName("SearchSensorHistory")]
     [MaxLength(100)]
     public IReadOnlyList<SearchDeviceResponse>? SearchSensorHistory { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

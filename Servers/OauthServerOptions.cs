@@ -2,7 +2,7 @@ using Verizon.Core.Models;
 
 namespace Verizon.Servers;
 
-public class OauthServerOptions
+public class OAuthServerOptions
 {
     public ProductionOptions Production { get; set; } = new();
     public StagingOptions Staging { get; set; } = new();

@@ -9,6 +9,7 @@ using Polly.Timeout;
 using Verizon.Core.Authentication;
 using Verizon.Core.ErrorResponse;
 using Verizon.Core.Extensions;
+using Verizon.Core.Hooks;
 using Verizon.Core.Logging;
 using Verizon.Core.Models;
 using Verizon.Core.Pagination;
@@ -31,10 +32,12 @@ internal sealed class RawClient
     private readonly UriFactory _uriFactory;
     private readonly ResiliencePipelineFactory _resiliencePipelineFactory;
     private readonly HttpLogger _httpLogger;
+    private readonly IReadOnlyList<SdkHook> _hooks;
 
     public RawClient(HttpClient httpClient, UriFactory uriFactory,
-        HttpStatusPolicy statusPolicy, HeadersFactory headerFactory, 
-        ResiliencePipelineFactory resiliencePipelineFactory, HttpLogger httpLogger)
+        HttpStatusPolicy statusPolicy, HeadersFactory headerFactory,
+        ResiliencePipelineFactory resiliencePipelineFactory, HttpLogger httpLogger,
+        IReadOnlyList<SdkHook> hooks)
     {
         _httpClient = httpClient;
         _uriFactory = uriFactory;
@@ -42,6 +45,7 @@ internal sealed class RawClient
         _headerFactory = headerFactory;
         _resiliencePipelineFactory = resiliencePipelineFactory;
         _httpLogger = httpLogger;
+        _hooks = hooks;
     }
 
     public Task<ApiResult<TResponse, TError>> ExecuteResult<TResponse, TError>(
@@ -175,6 +179,11 @@ internal sealed class RawClient
         context.Properties.Set(ResiliencePipelineFactory.LogScopeKey, log);
         context.Properties.Set(ResiliencePipelineFactory.MethodKey, request.HttpMethod);
 
+        var hooks = requestOptions?.Hooks is { Count: > 0 } perCallHooks
+            ? [.. _hooks, .. perCallHooks]
+            : _hooks;
+        var hookContext = new HookContext { Method = request.HttpMethod, Uri = uri, RequestOptions = requestOptions };
+
         // The response is not disposed of here: on success its lifetime is owned by IResponse.Map
         // (buffered responses dispose it immediately, streaming ones hand it to their iterator);
         // the error path below owns disposal explicitly.
@@ -190,6 +199,7 @@ internal sealed class RawClient
                     httpRequest.Content = request.Request.Get();
                     httpRequest.Headers.AddRange(headers);
                     await request.AuthPolicies.Apply(httpRequest, ctx.CancellationToken).ConfigureAwait(false);
+                    await hooks.BeforeRequest(httpRequest, hookContext, ctx.CancellationToken).ConfigureAwait(false);
 
                     await log.RequestSending(httpRequest).ConfigureAwait(false);
 
@@ -197,12 +207,21 @@ internal sealed class RawClient
                         .SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, ctx.CancellationToken)
                         .ConfigureAwait(false);
 
-                    log.ResponseReceived(httpResponse, _statusPolicy.IsSuccess(httpResponse.StatusCode));
+                    try
+                    {
+                        log.ResponseReceived(httpResponse, _statusPolicy.IsSuccess(httpResponse.StatusCode));
+                        await hooks.AfterResponse(httpResponse, hookContext, ctx.CancellationToken).ConfigureAwait(false);
 
-                    if (_statusPolicy.IsUnauthorized(httpResponse.StatusCode))
-                        request.AuthPolicies.InvalidateRevocable();
+                        if (_statusPolicy.IsUnauthorized(httpResponse.StatusCode))
+                            request.AuthPolicies.InvalidateRevocable();
 
-                    return httpResponse;
+                        return httpResponse;
+                    }
+                    catch
+                    {
+                        httpResponse.Dispose();
+                        throw;
+                    }
                 }
                 finally
                 {

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -31,4 +32,7 @@ public record V3LicenseAssignedRemovedResult
     /// </summary>
     [JsonPropertyName("deviceList")]
     public required IReadOnlyList<V3DeviceStatus> DeviceList { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

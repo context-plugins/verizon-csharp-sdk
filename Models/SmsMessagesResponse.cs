@@ -9,7 +9,7 @@ public record SmsMessagesResponse
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("messages")]
     [MaxLength(5)]
-    public IReadOnlyList<Message>? Messages { get; init; }
+    public IReadOnlyList<GioSmsMessage>? Messages { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("hasMoreData")]

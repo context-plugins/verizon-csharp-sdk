@@ -4,7 +4,7 @@ using Verizon.Core.Validation.Attributes;
 
 namespace Verizon.Models;
 
-public record SmstriggerRequest
+public record SmsTriggerRequest
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("comparator")]

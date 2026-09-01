@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record SmsoptionsSendRequest
+public record SmsOptionsSendRequest
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("servicePlan")]

@@ -6,7 +6,7 @@ namespace Verizon.Models;
 /// <summary>
 /// Wireless network performance rest error response.
 /// </summary>
-public record WnprestErrorResponse
+public record WnpRestErrorResponse
 {
     /// <summary>
     /// Rest error response.

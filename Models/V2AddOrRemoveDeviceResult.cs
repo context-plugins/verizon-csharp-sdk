@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -24,4 +25,7 @@ public record V2AddOrRemoveDeviceResult
     /// </summary>
     [JsonPropertyName("requestId")]
     public required string RequestId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

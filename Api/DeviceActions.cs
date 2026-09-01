@@ -60,12 +60,12 @@ public sealed class DeviceActions
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieve the aggregate usage for a device or a number of devices.
     /// </remarks>
-    public Task<GiorequestResponse> AggregateUsage(AggregateUsage body,
+    public Task<GioRequestResponse> AggregateUsage(AggregateUsage body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/v1/devices/usage/actions/list/aggregate"),
@@ -74,7 +74,7 @@ public sealed class DeviceActions
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -140,12 +140,12 @@ public sealed class DeviceActions
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieve the provisioning history of a specific device or devices.
     /// </remarks>
-    public Task<GiorequestResponse> RetrieveDeviceProvisioningHistory(ProvhistoryRequest body,
+    public Task<GioRequestResponse> RetrieveDeviceProvisioningHistory(ProvhistoryRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v2/devices/history/actions/list"),
@@ -154,7 +154,7 @@ public sealed class DeviceActions
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -166,12 +166,12 @@ public sealed class DeviceActions
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GiorequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GioRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Allows the profile to fetch the complete device list. This works with Verizon US and Global profiles.
     /// </remarks>
-    public Task<GiorequestResponse> RetrieveTheGlobalDeviceList(GetDeviceListWithProfilesRequest body,
+    public Task<GioRequestResponse> RetrieveTheGlobalDeviceList(GetDeviceListWithProfilesRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v2/devices/actions/list"),
@@ -180,7 +180,7 @@ public sealed class DeviceActions
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GiorequestResponse>(),
+            JsonResponse.Create<GioRequestResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,

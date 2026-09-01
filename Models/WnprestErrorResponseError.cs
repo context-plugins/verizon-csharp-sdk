@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
 /// <summary>
 /// Wireless network performance rest error response.
 /// </summary>
-public record WnprestErrorResponseError
+public record WnpRestErrorResponseError
 {
     /// <summary>
     /// Rest error response.
@@ -25,4 +26,7 @@ public record WnprestErrorResponseError
     [StringLength(64, MinimumLength = 3)]
     [RegularExpression("^[A-Za-z0-9 ]{3,64}$")]
     public string? ErrorMessage { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

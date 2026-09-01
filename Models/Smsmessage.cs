@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
 /// <summary>
 /// SMS messages sent by all M2M devices associated with a billing account.
 /// </summary>
-public record Smsmessage
+public record SmsMessage
 {
     /// <summary>
     /// One or more IDs of the device that sent the message.
@@ -28,4 +29,7 @@ public record Smsmessage
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("timestamp")]
     public string? Timestamp { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

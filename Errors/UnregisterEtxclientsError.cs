@@ -7,41 +7,41 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class UnregisterEtxclientsError : ApiError
+public sealed class UnregisterEtxClientsError : ApiError
 {
-    private readonly Optional<EtxrespondingError> _etxrespondingErrorValue;
+    private readonly Optional<EtxRespondingError> _etxRespondingErrorValue;
 
-    private UnregisterEtxclientsError(Optional<EtxrespondingError> etxrespondingErrorValue,
+    private UnregisterEtxClientsError(Optional<EtxRespondingError> etxRespondingErrorValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _etxrespondingErrorValue = etxrespondingErrorValue;
+        _etxRespondingErrorValue = etxRespondingErrorValue;
     }
 
-    private static UnregisterEtxclientsError AsEtxrespondingError(EtxrespondingError value) =>
-        new(Optional<EtxrespondingError>.Some(value), default);
+    private static UnregisterEtxClientsError AsEtxRespondingError(EtxRespondingError value) =>
+        new(Optional<EtxRespondingError>.Some(value), default);
 
-    private static UnregisterEtxclientsError AsFallback(RawError value) =>
+    private static UnregisterEtxClientsError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetEtxrespondingError(out EtxrespondingError value) =>
-        _etxrespondingErrorValue.TryGetValue(out value);
+    public bool TryGetEtxRespondingError(out EtxRespondingError value) =>
+        _etxRespondingErrorValue.TryGetValue(out value);
 
-    internal static Task<UnregisterEtxclientsError> Create(HttpResponseMessage response, CancellationToken ct) =>
+    internal static Task<UnregisterEtxClientsError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 or 401 or 403 or 429 or 503 => FromJson<EtxrespondingError>(response, ct).As(AsEtxrespondingError),
+            400 or 401 or 403 or 429 or 503 => FromJson<EtxRespondingError>(response, ct).As(AsEtxRespondingError),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }
 
-internal sealed class UnregisterEtxclientsErrorResponse : IErrorResponse<UnregisterEtxclientsError>
+internal sealed class UnregisterEtxClientsErrorResponse : IErrorResponse<UnregisterEtxClientsError>
 {
-    public static UnregisterEtxclientsErrorResponse Instance { get; } = new();
+    public static UnregisterEtxClientsErrorResponse Instance { get; } = new();
 
-    private UnregisterEtxclientsErrorResponse()
+    private UnregisterEtxClientsErrorResponse()
     {
     }
 
-    public Task<UnregisterEtxclientsError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        UnregisterEtxclientsError.Create(response, ct);
+    public Task<UnregisterEtxClientsError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        UnregisterEtxClientsError.Create(response, ct);
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -19,4 +20,7 @@ public record DeviceLoggingStatus
     /// </summary>
     [JsonPropertyName("expiryDate")]
     public required DateTimeOffset ExpiryDate { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

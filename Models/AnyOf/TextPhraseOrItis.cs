@@ -12,30 +12,30 @@ namespace Verizon.Models.AnyOf;
 [JsonConverter(typeof(TextPhraseOrItisConverter))]
 public record TextPhraseOrItis
 {
-    private readonly Optional<ItisitemWrapper> _itisitemWrapperValue;
+    private readonly Optional<ItisItemWrapper> _itisItemWrapperValue;
 
     private readonly Optional<TextPhraseItemWrapper> _textPhraseItemWrapperValue;
 
-    private TextPhraseOrItis(Optional<ItisitemWrapper> itisitemWrapperValue,
+    private TextPhraseOrItis(Optional<ItisItemWrapper> itisItemWrapperValue,
         Optional<TextPhraseItemWrapper> textPhraseItemWrapperValue)
     {
-        _itisitemWrapperValue = itisitemWrapperValue;
+        _itisItemWrapperValue = itisItemWrapperValue;
         _textPhraseItemWrapperValue = textPhraseItemWrapperValue;
     }
 
-    public static TextPhraseOrItis ItisitemWrapper(ItisitemWrapper value) =>
-        new(Optional<ItisitemWrapper>.Some(value), default);
+    public static TextPhraseOrItis ItisItemWrapper(ItisItemWrapper value) =>
+        new(Optional<ItisItemWrapper>.Some(value), default);
 
     public static TextPhraseOrItis TextPhraseItemWrapper(TextPhraseItemWrapper value) =>
         new(default, Optional<TextPhraseItemWrapper>.Some(value));
 
-    public bool TryGetItisitemWrapper(out ItisitemWrapper value) =>
-        _itisitemWrapperValue.TryGetValue(out value);
+    public bool TryGetItisItemWrapper(out ItisItemWrapper value) =>
+        _itisItemWrapperValue.TryGetValue(out value);
 
     public bool TryGetTextPhraseItemWrapper(out TextPhraseItemWrapper value) =>
         _textPhraseItemWrapperValue.TryGetValue(out value);
 
-    public static implicit operator TextPhraseOrItis(ItisitemWrapper value) => ItisitemWrapper(value);
+    public static implicit operator TextPhraseOrItis(ItisItemWrapper value) => ItisItemWrapper(value);
 
     public static implicit operator TextPhraseOrItis(TextPhraseItemWrapper value) =>
         TextPhraseItemWrapper(value);
@@ -49,22 +49,22 @@ file sealed class TextPhraseOrItisConverter : JsonConverter<TextPhraseOrItis>
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<ItisitemWrapper>(root, options, out var itisitemWrapperValue))
+        if (JsonSerializer.TryDeserialize<ItisItemWrapper>(root, options, out var itisItemWrapperValue))
         {
-            return TextPhraseOrItis.ItisitemWrapper(itisitemWrapperValue);
+            return TextPhraseOrItis.ItisItemWrapper(itisItemWrapperValue);
         }
         if (JsonSerializer.TryDeserialize<TextPhraseItemWrapper>(root, options, out var textPhraseItemWrapperValue))
         {
             return TextPhraseOrItis.TextPhraseItemWrapper(textPhraseItemWrapperValue);
         }
-        throw new JsonException($"JSON does not match ItisitemWrapper or TextPhraseItemWrapper schemas: {root.ToString()}");
+        throw new JsonException($"JSON does not match ItisItemWrapper or TextPhraseItemWrapper schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, TextPhraseOrItis value, JsonSerializerOptions options)
     {
-        if (value.TryGetItisitemWrapper(out var itisitemWrapperValue))
+        if (value.TryGetItisItemWrapper(out var itisItemWrapperValue))
         {
-            JsonSerializer.Serialize(writer, itisitemWrapperValue, options);
+            JsonSerializer.Serialize(writer, itisItemWrapperValue, options);
         }
         else if (value.TryGetTextPhraseItemWrapper(out var textPhraseItemWrapperValue))
         {

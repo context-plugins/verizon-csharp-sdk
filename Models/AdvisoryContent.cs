@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.AnyOf;
 
 namespace Verizon.Models;
@@ -17,4 +18,7 @@ public record AdvisoryContent
     [MinLength(1)]
     [MaxLength(100)]
     public required IReadOnlyList<AdvisoryItem> Advisory { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -55,7 +56,7 @@ public record Account
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("iPPools")]
-    public IReadOnlyList<Ippool>? IPpools { get; init; }
+    public IReadOnlyList<IpPool>? IpPools { get; init; }
 
     /// <summary>
     /// Array of service plans that are available to the account.
@@ -63,4 +64,7 @@ public record Account
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("servicePlans")]
     public IReadOnlyList<ServicePlan>? ServicePlans { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

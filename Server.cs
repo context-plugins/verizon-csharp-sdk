@@ -18,7 +18,7 @@ public class Server
         _options.HyperPreciseCredentials.Resolve(_environment, path);
     internal UrlTemplate ImpServer(string path) => _options.ImpServer.Resolve(_environment, path);
     internal UrlTemplate Thingspace(string path) => _options.Thingspace.Resolve(_environment, path);
-    internal UrlTemplate OauthServer(string path) => _options.OauthServer.Resolve(_environment, path);
+    internal UrlTemplate OAuthServer(string path) => _options.OAuthServer.Resolve(_environment, path);
     internal UrlTemplate M2M(string path) => _options.M2M.Resolve(_environment, path);
     internal UrlTemplate DeviceLocation(string path) => _options.DeviceLocation.Resolve(_environment, path);
     internal UrlTemplate SubscriptionServer(string path) =>

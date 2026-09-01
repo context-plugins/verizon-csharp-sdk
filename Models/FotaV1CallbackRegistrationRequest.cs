@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Core.Validation;
 using Verizon.Core.Validation.Attributes;
 
@@ -35,4 +36,7 @@ public record FotaV1CallbackRegistrationRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("password")]
     public string? Password { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

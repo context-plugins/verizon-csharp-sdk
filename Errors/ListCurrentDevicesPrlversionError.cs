@@ -7,26 +7,26 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class ListCurrentDevicesPrlversionError : ApiError
+public sealed class ListCurrentDevicesPrlVersionError : ApiError
 {
     private readonly Optional<ConnectivityManagementResult> _connectivityManagementResultValue;
 
-    private ListCurrentDevicesPrlversionError(Optional<ConnectivityManagementResult> connectivityManagementResultValue,
+    private ListCurrentDevicesPrlVersionError(Optional<ConnectivityManagementResult> connectivityManagementResultValue,
         Optional<RawError> fallback) : base(fallback)
     {
         _connectivityManagementResultValue = connectivityManagementResultValue;
     }
 
-    private static ListCurrentDevicesPrlversionError AsConnectivityManagementResult(ConnectivityManagementResult value) =>
+    private static ListCurrentDevicesPrlVersionError AsConnectivityManagementResult(ConnectivityManagementResult value) =>
         new(Optional<ConnectivityManagementResult>.Some(value), default);
 
-    private static ListCurrentDevicesPrlversionError AsFallback(RawError value) =>
+    private static ListCurrentDevicesPrlVersionError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
     public bool TryGetConnectivityManagementResult(out ConnectivityManagementResult value) =>
         _connectivityManagementResultValue.TryGetValue(out value);
 
-    internal static Task<ListCurrentDevicesPrlversionError> Create(HttpResponseMessage response,
+    internal static Task<ListCurrentDevicesPrlVersionError> Create(HttpResponseMessage response,
         CancellationToken ct) =>
         (int)response.StatusCode switch
         {
@@ -35,14 +35,14 @@ public sealed class ListCurrentDevicesPrlversionError : ApiError
         };
 }
 
-internal sealed class ListCurrentDevicesPrlversionErrorResponse : IErrorResponse<ListCurrentDevicesPrlversionError>
+internal sealed class ListCurrentDevicesPrlVersionErrorResponse : IErrorResponse<ListCurrentDevicesPrlVersionError>
 {
-    public static ListCurrentDevicesPrlversionErrorResponse Instance { get; } = new();
+    public static ListCurrentDevicesPrlVersionErrorResponse Instance { get; } = new();
 
-    private ListCurrentDevicesPrlversionErrorResponse()
+    private ListCurrentDevicesPrlVersionErrorResponse()
     {
     }
 
-    public Task<ListCurrentDevicesPrlversionError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        ListCurrentDevicesPrlversionError.Create(response, ct);
+    public Task<ListCurrentDevicesPrlVersionError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        ListCurrentDevicesPrlVersionError.Create(response, ct);
 }

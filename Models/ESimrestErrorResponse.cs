@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record ESimrestErrorResponse
+public record ESimRestErrorResponse
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("errorCode")]

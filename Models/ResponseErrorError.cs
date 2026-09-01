@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -23,4 +24,7 @@ public record ResponseErrorError
     [StringLength(8192, MinimumLength = 0)]
     [RegularExpression("^[\\w~\\+\\-!@#$%^&*()\\`\\[\\]{=};\\\"':,.\\\\\\/<>?|\\s]*$")]
     public required string Description { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

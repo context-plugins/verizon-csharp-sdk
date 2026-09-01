@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.AnyOf;
 
 namespace Verizon.Models;
@@ -17,4 +18,7 @@ public record WorkZoneContent
     [MinLength(1)]
     [MaxLength(16)]
     public required IReadOnlyList<TextPhraseOrItis> WorkZone { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

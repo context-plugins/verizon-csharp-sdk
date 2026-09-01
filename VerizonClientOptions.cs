@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using Verizon.Core.Authentication.OAuth2;
 using Verizon.Core.Authentication.OAuth2.ClientCredentials;
 using Verizon.Core.Configuration;
+using Verizon.Core.Hooks;
 using Verizon.Servers;
 
 namespace Verizon;
@@ -11,6 +13,7 @@ public class VerizonClientOptions
     public RetryOptions Retry { get; set; } = RetryOptions.Default();
     public LoggingOptions Logging { get; set; } = new();
     public ServerOptions Server { get; set; } = new();
+    public IReadOnlyList<SdkHook> Hooks { get; set; } = [];
     /// <summary>
     /// This is the ThingSpace token, from <see href="https://thingspace.verizon.com/documentation/api-documentation.html#/http/quick-start/credentials-and-tokens">Credentials and Tokens</see>
     ///   is used

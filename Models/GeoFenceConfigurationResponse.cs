@@ -66,7 +66,7 @@ public record GeoFenceConfigurationResponse
     [JsonPropertyName("messages")]
     [MinLength(1)]
     [MaxLength(10)]
-    public required IReadOnlyList<Message1> Messages { get; init; }
+    public required IReadOnlyList<Message> Messages { get; init; }
 
     [JsonPropertyName("isActive")]
     public required bool IsActive { get; init; }

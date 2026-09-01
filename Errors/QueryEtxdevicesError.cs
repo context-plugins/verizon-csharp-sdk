@@ -7,40 +7,40 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class QueryEtxdevicesError : ApiError
+public sealed class QueryEtxDevicesError : ApiError
 {
-    private readonly Optional<EtxrespondingError> _etxrespondingErrorValue;
+    private readonly Optional<EtxRespondingError> _etxRespondingErrorValue;
 
-    private QueryEtxdevicesError(Optional<EtxrespondingError> etxrespondingErrorValue, Optional<RawError> fallback) : base(fallback)
+    private QueryEtxDevicesError(Optional<EtxRespondingError> etxRespondingErrorValue, Optional<RawError> fallback) : base(fallback)
     {
-        _etxrespondingErrorValue = etxrespondingErrorValue;
+        _etxRespondingErrorValue = etxRespondingErrorValue;
     }
 
-    private static QueryEtxdevicesError AsEtxrespondingError(EtxrespondingError value) =>
-        new(Optional<EtxrespondingError>.Some(value), default);
+    private static QueryEtxDevicesError AsEtxRespondingError(EtxRespondingError value) =>
+        new(Optional<EtxRespondingError>.Some(value), default);
 
-    private static QueryEtxdevicesError AsFallback(RawError value) =>
+    private static QueryEtxDevicesError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetEtxrespondingError(out EtxrespondingError value) =>
-        _etxrespondingErrorValue.TryGetValue(out value);
+    public bool TryGetEtxRespondingError(out EtxRespondingError value) =>
+        _etxRespondingErrorValue.TryGetValue(out value);
 
-    internal static Task<QueryEtxdevicesError> Create(HttpResponseMessage response, CancellationToken ct) =>
+    internal static Task<QueryEtxDevicesError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 or 401 or 500 => FromJson<EtxrespondingError>(response, ct).As(AsEtxrespondingError),
+            400 or 401 or 500 => FromJson<EtxRespondingError>(response, ct).As(AsEtxRespondingError),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }
 
-internal sealed class QueryEtxdevicesErrorResponse : IErrorResponse<QueryEtxdevicesError>
+internal sealed class QueryEtxDevicesErrorResponse : IErrorResponse<QueryEtxDevicesError>
 {
-    public static QueryEtxdevicesErrorResponse Instance { get; } = new();
+    public static QueryEtxDevicesErrorResponse Instance { get; } = new();
 
-    private QueryEtxdevicesErrorResponse()
+    private QueryEtxDevicesErrorResponse()
     {
     }
 
-    public Task<QueryEtxdevicesError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        QueryEtxdevicesError.Create(response, ct);
+    public Task<QueryEtxDevicesError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        QueryEtxDevicesError.Create(response, ct);
 }

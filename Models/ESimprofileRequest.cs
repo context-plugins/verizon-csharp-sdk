@@ -4,12 +4,12 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record ESimprofileRequest
+public record ESimProfileRequest
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("devices")]
     [MaxLength(100)]
-    public IReadOnlyList<ESimdeviceList>? Devices { get; init; }
+    public IReadOnlyList<ESimDeviceList>? Devices { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("carrierName")]

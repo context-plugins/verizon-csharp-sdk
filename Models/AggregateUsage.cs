@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -7,7 +8,7 @@ public record AggregateUsage
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deviceId")]
-    public GiodeviceId? DeviceId { get; init; }
+    public GioDeviceId? DeviceId { get; init; }
 
     /// <summary>
     /// The numeric name of the account, in the format "0000123456-00001". Leading zeros must be included.
@@ -35,4 +36,7 @@ public record AggregateUsage
     [StringLength(32, MinimumLength = 3)]
     [RegularExpression("^[A-Za-z0-9]{3,32}$")]
     public string? EndTime { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

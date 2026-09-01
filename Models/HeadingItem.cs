@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -15,4 +16,7 @@ public record HeadingItem
     /// </summary>
     [JsonPropertyName("heading")]
     public required HeadingRange? Heading { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

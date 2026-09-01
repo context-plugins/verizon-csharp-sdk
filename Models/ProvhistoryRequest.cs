@@ -16,7 +16,7 @@ public record ProvhistoryRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("deviceFilter")]
     [MaxLength(100)]
-    public IReadOnlyList<GiodeviceId>? DeviceFilter { get; init; }
+    public IReadOnlyList<GioDeviceId>? DeviceFilter { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("earliest")]

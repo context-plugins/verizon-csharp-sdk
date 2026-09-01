@@ -7,25 +7,25 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class DownloadMapmessagesError : ApiError
+public sealed class DownloadMapMessagesError : ApiError
 {
     private readonly Optional<MdmErrorResponse> _mdmErrorResponseValue;
 
-    private DownloadMapmessagesError(Optional<MdmErrorResponse> mdmErrorResponseValue, Optional<RawError> fallback) : base(fallback)
+    private DownloadMapMessagesError(Optional<MdmErrorResponse> mdmErrorResponseValue, Optional<RawError> fallback) : base(fallback)
     {
         _mdmErrorResponseValue = mdmErrorResponseValue;
     }
 
-    private static DownloadMapmessagesError AsMdmErrorResponse(MdmErrorResponse value) =>
+    private static DownloadMapMessagesError AsMdmErrorResponse(MdmErrorResponse value) =>
         new(Optional<MdmErrorResponse>.Some(value), default);
 
-    private static DownloadMapmessagesError AsFallback(RawError value) =>
+    private static DownloadMapMessagesError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
     public bool TryGetMdmErrorResponse(out MdmErrorResponse value) =>
         _mdmErrorResponseValue.TryGetValue(out value);
 
-    internal static Task<DownloadMapmessagesError> Create(HttpResponseMessage response, CancellationToken ct) =>
+    internal static Task<DownloadMapMessagesError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
             400 or 401 or 403 or 404 or 429 or 503 => FromJson<MdmErrorResponse>(response, ct).As(AsMdmErrorResponse),
@@ -33,14 +33,14 @@ public sealed class DownloadMapmessagesError : ApiError
         };
 }
 
-internal sealed class DownloadMapmessagesErrorResponse : IErrorResponse<DownloadMapmessagesError>
+internal sealed class DownloadMapMessagesErrorResponse : IErrorResponse<DownloadMapMessagesError>
 {
-    public static DownloadMapmessagesErrorResponse Instance { get; } = new();
+    public static DownloadMapMessagesErrorResponse Instance { get; } = new();
 
-    private DownloadMapmessagesErrorResponse()
+    private DownloadMapMessagesErrorResponse()
     {
     }
 
-    public Task<DownloadMapmessagesError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        DownloadMapmessagesError.Create(response, ct);
+    public Task<DownloadMapMessagesError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        DownloadMapMessagesError.Create(response, ct);
 }

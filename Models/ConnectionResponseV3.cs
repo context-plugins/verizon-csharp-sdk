@@ -15,7 +15,7 @@ public record ConnectionResponseV3
     [JsonPropertyName("MqttURLs")]
     [MinLength(1)]
     [MaxLength(20)]
-    public required IReadOnlyList<string> MqttUrls { get; init; }
+    public required IReadOnlyList<string> MqttUrLs { get; init; }
 
     /// <summary>
     /// Array of hostnames corresponding to each MQTT URL.

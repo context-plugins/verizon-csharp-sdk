@@ -34,12 +34,12 @@ public sealed class GlobalReporting
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ESimrequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ESimRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RetrieveGlobalListError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieve a list of all devices associated with an account.
     /// </remarks>
-    public Task<ESimrequestResponse> RetrieveGlobalList(ESimglobalDeviceList body,
+    public Task<ESimRequestResponse> RetrieveGlobalList(ESimGlobalDeviceList body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v2/devices/actions/list"),
@@ -48,7 +48,7 @@ public sealed class GlobalReporting
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<ESimrequestResponse>(),
+            JsonResponse.Create<ESimRequestResponse>(),
             RetrieveGlobalListErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -60,12 +60,12 @@ public sealed class GlobalReporting
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ESimrequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ESimRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="DeviceprovhistoryUsingPostError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Retrieve the provisioning history of a specific device or devices.
     /// </remarks>
-    public Task<ESimrequestResponse> DeviceprovhistoryUsingPost(ESimprovhistoryRequest body,
+    public Task<ESimRequestResponse> DeviceprovhistoryUsingPost(ESimProvhistoryRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v2/devices/history/actions/list"),
@@ -74,7 +74,7 @@ public sealed class GlobalReporting
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<ESimrequestResponse>(),
+            JsonResponse.Create<ESimRequestResponse>(),
             DeviceprovhistoryUsingPostErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,

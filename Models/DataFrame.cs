@@ -107,5 +107,5 @@ public record DataFrame
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("contentNew")]
-    public ContentNew? ContentNew { get; init; }
+    public ContentFrictionInfo? ContentNew { get; init; }
 }

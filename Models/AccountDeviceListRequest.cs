@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Core.Validation.Attributes;
 
 namespace Verizon.Models;
@@ -83,4 +84,7 @@ public record AccountDeviceListRequest
     [Minimum(0)]
     [Maximum(0)]
     public long? LargestDeviceIdSeen { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

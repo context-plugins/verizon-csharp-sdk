@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
 /// <summary>
 /// The request body must include the UUID of the subscription that you want to update plus any properties that you want to change.
 /// </summary>
-public record CreateIoTapplicationRequest
+public record CreateIoTApplicationRequest
 {
     /// <summary>
     /// A user defined name for the application being deployed in Azure IoT Central.
@@ -40,7 +41,7 @@ public record CreateIoTapplicationRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("emailIDs")]
-    public string? EmailIds { get; init; }
+    public string? EmailIDs { get; init; }
 
     /// <summary>
     /// The Azure Resource group of the associated Azure target account
@@ -54,7 +55,7 @@ public record CreateIoTapplicationRequest
     /// </summary>
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("sampleIOTcApp")]
-    public string? SampleIotcApp { get; init; }
+    public string? SampleIoTcApp { get; init; }
 
     /// <summary>
     /// The Azure Subscription ID of the associated Azure target account
@@ -69,4 +70,7 @@ public record CreateIoTapplicationRequest
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("tenantID")]
     public string? TenantId { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

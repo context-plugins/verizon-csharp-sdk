@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace Verizon.Core.Enum;
@@ -40,6 +41,6 @@ public abstract record StringEnum<TEnum> : TypedEnum<string, TEnum> where TEnum 
     /// <summary>
     /// Tries to get a known value, returns false if value is not predefined
     /// </summary>
-    public static bool TryGetKnownValue(string value, out TEnum? result) =>
+    public static bool TryGetKnownValue(string value, [NotNullWhen(true)] out TEnum? result) =>
         KnownValues.TryGetValue(value, out result);
 }

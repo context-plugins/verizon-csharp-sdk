@@ -8,12 +8,13 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using Verizon.Core.Exceptions;
+using Verizon.Core.Extensions;
 
 namespace Verizon.Core.Response;
 
 internal sealed class JsonSseResponse<TResponse> : IResponse<IAsyncEnumerable<TResponse>>
 {
-    private readonly JsonSerializerOptions? _options;
+    private readonly JsonSerializerOptions _options;
     private readonly byte[]? _sentinelBytes;
     private readonly TimeSpan? _idleTimeout;
 
@@ -21,9 +22,7 @@ internal sealed class JsonSseResponse<TResponse> : IResponse<IAsyncEnumerable<TR
     {
         _sentinelBytes = sentinel is null ? null : Encoding.UTF8.GetBytes(sentinel);
         _idleTimeout = idleTimeout;
-        _options = jsonConverter is null
-            ? null
-            : new JsonSerializerOptions { Converters = { jsonConverter } };
+        _options = jsonConverter.ToWebOptions();
     }
 
     public ValueTask<IAsyncEnumerable<TResponse>> Map(

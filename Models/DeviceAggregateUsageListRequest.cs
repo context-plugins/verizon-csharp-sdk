@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -46,4 +47,7 @@ public record DeviceAggregateUsageListRequest
     [JsonPropertyName("label")]
     [MaxLength(50)]
     public IReadOnlyList<Label>? Label { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -7,41 +7,41 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class GetEtxclientCertificateError : ApiError
+public sealed class GetEtxClientCertificateError : ApiError
 {
-    private readonly Optional<EtxrespondingError> _etxrespondingErrorValue;
+    private readonly Optional<EtxRespondingError> _etxRespondingErrorValue;
 
-    private GetEtxclientCertificateError(Optional<EtxrespondingError> etxrespondingErrorValue,
+    private GetEtxClientCertificateError(Optional<EtxRespondingError> etxRespondingErrorValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _etxrespondingErrorValue = etxrespondingErrorValue;
+        _etxRespondingErrorValue = etxRespondingErrorValue;
     }
 
-    private static GetEtxclientCertificateError AsEtxrespondingError(EtxrespondingError value) =>
-        new(Optional<EtxrespondingError>.Some(value), default);
+    private static GetEtxClientCertificateError AsEtxRespondingError(EtxRespondingError value) =>
+        new(Optional<EtxRespondingError>.Some(value), default);
 
-    private static GetEtxclientCertificateError AsFallback(RawError value) =>
+    private static GetEtxClientCertificateError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetEtxrespondingError(out EtxrespondingError value) =>
-        _etxrespondingErrorValue.TryGetValue(out value);
+    public bool TryGetEtxRespondingError(out EtxRespondingError value) =>
+        _etxRespondingErrorValue.TryGetValue(out value);
 
-    internal static Task<GetEtxclientCertificateError> Create(HttpResponseMessage response, CancellationToken ct) =>
+    internal static Task<GetEtxClientCertificateError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 or 401 or 403 or 404 or 429 or 500 => FromJson<EtxrespondingError>(response, ct).As(AsEtxrespondingError),
+            400 or 401 or 403 or 404 or 429 or 500 => FromJson<EtxRespondingError>(response, ct).As(AsEtxRespondingError),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }
 
-internal sealed class GetEtxclientCertificateErrorResponse : IErrorResponse<GetEtxclientCertificateError>
+internal sealed class GetEtxClientCertificateErrorResponse : IErrorResponse<GetEtxClientCertificateError>
 {
-    public static GetEtxclientCertificateErrorResponse Instance { get; } = new();
+    public static GetEtxClientCertificateErrorResponse Instance { get; } = new();
 
-    private GetEtxclientCertificateErrorResponse()
+    private GetEtxClientCertificateErrorResponse()
     {
     }
 
-    public Task<GetEtxclientCertificateError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        GetEtxclientCertificateError.Create(response, ct);
+    public Task<GetEtxClientCertificateError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        GetEtxClientCertificateError.Create(response, ct);
 }

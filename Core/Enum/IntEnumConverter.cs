@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Core.Enum;
 
-public sealed class IntEnumConverter<TEnum> : JsonConverter<TEnum>
+internal sealed class IntEnumConverter<TEnum> : JsonConverter<TEnum>
     where TEnum : IntEnum<TEnum>
 {
     private static readonly ConcurrentDictionary<Type, Func<int, TEnum>> FromValueCoreCache = new();

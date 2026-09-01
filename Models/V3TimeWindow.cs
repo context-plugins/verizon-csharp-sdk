@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -18,4 +19,7 @@ public record V3TimeWindow
     /// </summary>
     [JsonPropertyName("endTime")]
     public required int EndTime { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

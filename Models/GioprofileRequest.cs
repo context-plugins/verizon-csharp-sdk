@@ -4,11 +4,11 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record GioprofileRequest
+public record GioProfileRequest
 {
     [JsonPropertyName("devices")]
     [MaxLength(100)]
-    public required IReadOnlyList<GiodeviceList> Devices { get; init; }
+    public required IReadOnlyList<GioDeviceList> Devices { get; init; }
 
     [JsonPropertyName("accountName")]
     [StringLength(32, MinimumLength = 3)]

@@ -33,10 +33,10 @@ public sealed class Targets
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateIoTapplicationResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="CreateIoTApplicationResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<CreateIoTapplicationResponse> CreateAzureCentralIoTapplication(string billingaccountId,
-        CreateIoTapplicationRequest body,
+    public Task<CreateIoTApplicationResponse> CreateAzureCentralIoTApplication(string billingaccountId,
+        CreateIoTApplicationRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.CloudConnector("/targets/actions/newaic"),
@@ -46,7 +46,7 @@ public sealed class Targets
                 new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<CreateIoTapplicationResponse>(),
+            JsonResponse.Create<CreateIoTApplicationResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -104,9 +104,9 @@ public sealed class Targets
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GenerateExternalIdresult"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GenerateExternalIdResult"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<GenerateExternalIdresult> GenerateTargetExternalId(GenerateExternalIdrequest body,
+    public Task<GenerateExternalIdResult> GenerateTargetExternalId(GenerateExternalIdRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.CloudConnector("/targets/actions/newextid"),
@@ -115,7 +115,7 @@ public sealed class Targets
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<GenerateExternalIdresult>(),
+            JsonResponse.Create<GenerateExternalIdResult>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,

@@ -12,29 +12,29 @@ namespace Verizon.Models.AnyOf;
 [JsonConverter(typeof(AdvisoryConverter))]
 public record Advisory
 {
-    private readonly Optional<ItisitemWrapper> _itisitemWrapperValue;
+    private readonly Optional<ItisItemWrapper> _itisItemWrapperValue;
 
     private readonly Optional<TextItemWrapper> _textItemWrapperValue;
 
-    private Advisory(Optional<ItisitemWrapper> itisitemWrapperValue, Optional<TextItemWrapper> textItemWrapperValue)
+    private Advisory(Optional<ItisItemWrapper> itisItemWrapperValue, Optional<TextItemWrapper> textItemWrapperValue)
     {
-        _itisitemWrapperValue = itisitemWrapperValue;
+        _itisItemWrapperValue = itisItemWrapperValue;
         _textItemWrapperValue = textItemWrapperValue;
     }
 
-    public static Advisory ItisitemWrapper(ItisitemWrapper value) =>
-        new(Optional<ItisitemWrapper>.Some(value), default);
+    public static Advisory ItisItemWrapper(ItisItemWrapper value) =>
+        new(Optional<ItisItemWrapper>.Some(value), default);
 
     public static Advisory TextItemWrapper(TextItemWrapper value) =>
         new(default, Optional<TextItemWrapper>.Some(value));
 
-    public bool TryGetItisitemWrapper(out ItisitemWrapper value) =>
-        _itisitemWrapperValue.TryGetValue(out value);
+    public bool TryGetItisItemWrapper(out ItisItemWrapper value) =>
+        _itisItemWrapperValue.TryGetValue(out value);
 
     public bool TryGetTextItemWrapper(out TextItemWrapper value) =>
         _textItemWrapperValue.TryGetValue(out value);
 
-    public static implicit operator Advisory(ItisitemWrapper value) => ItisitemWrapper(value);
+    public static implicit operator Advisory(ItisItemWrapper value) => ItisItemWrapper(value);
 
     public static implicit operator Advisory(TextItemWrapper value) => TextItemWrapper(value);
 }
@@ -45,22 +45,22 @@ file sealed class AdvisoryConverter : JsonConverter<Advisory>
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<ItisitemWrapper>(root, options, out var itisitemWrapperValue))
+        if (JsonSerializer.TryDeserialize<ItisItemWrapper>(root, options, out var itisItemWrapperValue))
         {
-            return Advisory.ItisitemWrapper(itisitemWrapperValue);
+            return Advisory.ItisItemWrapper(itisItemWrapperValue);
         }
         if (JsonSerializer.TryDeserialize<TextItemWrapper>(root, options, out var textItemWrapperValue))
         {
             return Advisory.TextItemWrapper(textItemWrapperValue);
         }
-        throw new JsonException($"JSON does not match ItisitemWrapper or TextItemWrapper schemas: {root.ToString()}");
+        throw new JsonException($"JSON does not match ItisItemWrapper or TextItemWrapper schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, Advisory value, JsonSerializerOptions options)
     {
-        if (value.TryGetItisitemWrapper(out var itisitemWrapperValue))
+        if (value.TryGetItisItemWrapper(out var itisItemWrapperValue))
         {
-            JsonSerializer.Serialize(writer, itisitemWrapperValue, options);
+            JsonSerializer.Serialize(writer, itisItemWrapperValue, options);
         }
         else if (value.TryGetTextItemWrapper(out var textItemWrapperValue))
         {

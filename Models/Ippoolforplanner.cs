@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record Ippoolforplanner
+public record IpPoolforplanner
 {
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("isDefaultPool")]

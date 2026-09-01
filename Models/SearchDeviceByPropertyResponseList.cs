@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -13,4 +14,7 @@ public record SearchDeviceByPropertyResponseList
     [JsonPropertyName("DeviceProperty")]
     [MaxLength(100)]
     public IReadOnlyList<SearchDeviceByPropertyResponse>? DeviceProperty { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.Enums;
 
 namespace Verizon.Models;
@@ -16,4 +17,7 @@ public record SynchronousLocationRequestResult
     /// </summary>
     [JsonPropertyName("status")]
     public required ReportStatus Status { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

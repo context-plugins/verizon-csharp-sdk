@@ -32,11 +32,11 @@ public sealed class DeviceRoleController
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
     /// <returns>A <see cref="Task{TResult}"/> of <see cref="IReadOnlyList{T}"/> of <see cref="DeviceRole"/> instance.</returns>
-    /// <exception cref="SdkException{TResult}"> of <see cref="GetAclrulesByVendorIdError"/> when the server returns an error response.</exception>
+    /// <exception cref="SdkException{TResult}"> of <see cref="GetAclRulesByVendorIdError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// This API allows the user to get the access control rules defined for them.
     /// </remarks>
-    public Task<IReadOnlyList<DeviceRole>> GetAclrulesByVendorId(string vendorId,
+    public Task<IReadOnlyList<DeviceRole>> GetAclRulesByVendorId(string vendorId,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.ImpServer("/api/v1/device-roles/vendor"),
@@ -46,7 +46,7 @@ public sealed class DeviceRoleController
             HttpMethod.Get,
             EmptyBody.Instance,
             JsonResponse.Create<IReadOnlyList<DeviceRole>>(),
-            GetAclrulesByVendorIdErrorResponse.Instance,
+            GetAclRulesByVendorIdErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.SessionToken],
             requestOptions,
             ct);

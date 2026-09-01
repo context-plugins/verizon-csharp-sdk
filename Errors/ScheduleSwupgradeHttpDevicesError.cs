@@ -7,24 +7,24 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class ScheduleSwupgradeHttpDevicesError : ApiError
+public sealed class ScheduleSwUpgradeHttpDevicesError : ApiError
 {
     private readonly Optional<FotaV2Result> _fotaV2ResultValue;
 
-    private ScheduleSwupgradeHttpDevicesError(Optional<FotaV2Result> fotaV2ResultValue, Optional<RawError> fallback) : base(fallback)
+    private ScheduleSwUpgradeHttpDevicesError(Optional<FotaV2Result> fotaV2ResultValue, Optional<RawError> fallback) : base(fallback)
     {
         _fotaV2ResultValue = fotaV2ResultValue;
     }
 
-    private static ScheduleSwupgradeHttpDevicesError AsFotaV2Result(FotaV2Result value) =>
+    private static ScheduleSwUpgradeHttpDevicesError AsFotaV2Result(FotaV2Result value) =>
         new(Optional<FotaV2Result>.Some(value), default);
 
-    private static ScheduleSwupgradeHttpDevicesError AsFallback(RawError value) =>
+    private static ScheduleSwUpgradeHttpDevicesError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
     public bool TryGetFotaV2Result(out FotaV2Result value) => _fotaV2ResultValue.TryGetValue(out value);
 
-    internal static Task<ScheduleSwupgradeHttpDevicesError> Create(HttpResponseMessage response,
+    internal static Task<ScheduleSwUpgradeHttpDevicesError> Create(HttpResponseMessage response,
         CancellationToken ct) =>
         (int)response.StatusCode switch
         {
@@ -33,14 +33,14 @@ public sealed class ScheduleSwupgradeHttpDevicesError : ApiError
         };
 }
 
-internal sealed class ScheduleSwupgradeHttpDevicesErrorResponse : IErrorResponse<ScheduleSwupgradeHttpDevicesError>
+internal sealed class ScheduleSwUpgradeHttpDevicesErrorResponse : IErrorResponse<ScheduleSwUpgradeHttpDevicesError>
 {
-    public static ScheduleSwupgradeHttpDevicesErrorResponse Instance { get; } = new();
+    public static ScheduleSwUpgradeHttpDevicesErrorResponse Instance { get; } = new();
 
-    private ScheduleSwupgradeHttpDevicesErrorResponse()
+    private ScheduleSwUpgradeHttpDevicesErrorResponse()
     {
     }
 
-    public Task<ScheduleSwupgradeHttpDevicesError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        ScheduleSwupgradeHttpDevicesError.Create(response, ct);
+    public Task<ScheduleSwUpgradeHttpDevicesError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        ScheduleSwUpgradeHttpDevicesError.Create(response, ct);
 }

@@ -9,29 +9,27 @@ namespace Verizon.Models.AnyOf;
 [JsonConverter(typeof(Id1Converter))]
 public record Id1
 {
-    private readonly Optional<DeviceId> _deviceIdValue;
+    private readonly Optional<ESimDeviceId> _eSimDeviceIdValue;
 
-    private readonly Optional<PropertyDeviceId> _propertyDeviceIdValue;
+    private readonly Optional<DeviceId2> _deviceId2Value;
 
-    private Id1(Optional<DeviceId> deviceIdValue, Optional<PropertyDeviceId> propertyDeviceIdValue)
+    private Id1(Optional<ESimDeviceId> eSimDeviceIdValue, Optional<DeviceId2> deviceId2Value)
     {
-        _deviceIdValue = deviceIdValue;
-        _propertyDeviceIdValue = propertyDeviceIdValue;
+        _eSimDeviceIdValue = eSimDeviceIdValue;
+        _deviceId2Value = deviceId2Value;
     }
 
-    public static Id1 DeviceId(DeviceId value) => new(Optional<DeviceId>.Some(value), default);
+    public static Id1 ESimDeviceId(ESimDeviceId value) => new(Optional<ESimDeviceId>.Some(value), default);
 
-    public static Id1 PropertyDeviceId(PropertyDeviceId value) =>
-        new(default, Optional<PropertyDeviceId>.Some(value));
+    public static Id1 DeviceId2(DeviceId2 value) => new(default, Optional<DeviceId2>.Some(value));
 
-    public bool TryGetDeviceId(out DeviceId value) => _deviceIdValue.TryGetValue(out value);
+    public bool TryGetESimDeviceId(out ESimDeviceId value) => _eSimDeviceIdValue.TryGetValue(out value);
 
-    public bool TryGetPropertyDeviceId(out PropertyDeviceId value) =>
-        _propertyDeviceIdValue.TryGetValue(out value);
+    public bool TryGetDeviceId2(out DeviceId2 value) => _deviceId2Value.TryGetValue(out value);
 
-    public static implicit operator Id1(DeviceId value) => DeviceId(value);
+    public static implicit operator Id1(ESimDeviceId value) => ESimDeviceId(value);
 
-    public static implicit operator Id1(PropertyDeviceId value) => PropertyDeviceId(value);
+    public static implicit operator Id1(DeviceId2 value) => DeviceId2(value);
 }
 
 file sealed class Id1Converter : JsonConverter<Id1>
@@ -40,26 +38,26 @@ file sealed class Id1Converter : JsonConverter<Id1>
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<DeviceId>(root, options, out var deviceIdValue))
+        if (JsonSerializer.TryDeserialize<ESimDeviceId>(root, options, out var eSimDeviceIdValue))
         {
-            return Id1.DeviceId(deviceIdValue);
+            return Id1.ESimDeviceId(eSimDeviceIdValue);
         }
-        if (JsonSerializer.TryDeserialize<PropertyDeviceId>(root, options, out var propertyDeviceIdValue))
+        if (JsonSerializer.TryDeserialize<DeviceId2>(root, options, out var deviceId2Value))
         {
-            return Id1.PropertyDeviceId(propertyDeviceIdValue);
+            return Id1.DeviceId2(deviceId2Value);
         }
-        throw new JsonException($"JSON does not match DeviceId or PropertyDeviceId schemas: {root.ToString()}");
+        throw new JsonException($"JSON does not match ESimDeviceId or DeviceId2 schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, Id1 value, JsonSerializerOptions options)
     {
-        if (value.TryGetDeviceId(out var deviceIdValue))
+        if (value.TryGetESimDeviceId(out var eSimDeviceIdValue))
         {
-            JsonSerializer.Serialize(writer, deviceIdValue, options);
+            JsonSerializer.Serialize(writer, eSimDeviceIdValue, options);
         }
-        else if (value.TryGetPropertyDeviceId(out var propertyDeviceIdValue))
+        else if (value.TryGetDeviceId2(out var deviceId2Value))
         {
-            JsonSerializer.Serialize(writer, propertyDeviceIdValue, options);
+            JsonSerializer.Serialize(writer, deviceId2Value, options);
         }
         else
         {

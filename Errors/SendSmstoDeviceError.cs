@@ -7,26 +7,26 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class SendSmstoDeviceError : ApiError
+public sealed class SendSmsToDeviceError : ApiError
 {
     private readonly Optional<ConnectivityManagementResult> _connectivityManagementResultValue;
 
-    private SendSmstoDeviceError(Optional<ConnectivityManagementResult> connectivityManagementResultValue,
+    private SendSmsToDeviceError(Optional<ConnectivityManagementResult> connectivityManagementResultValue,
         Optional<RawError> fallback) : base(fallback)
     {
         _connectivityManagementResultValue = connectivityManagementResultValue;
     }
 
-    private static SendSmstoDeviceError AsConnectivityManagementResult(ConnectivityManagementResult value) =>
+    private static SendSmsToDeviceError AsConnectivityManagementResult(ConnectivityManagementResult value) =>
         new(Optional<ConnectivityManagementResult>.Some(value), default);
 
-    private static SendSmstoDeviceError AsFallback(RawError value) =>
+    private static SendSmsToDeviceError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
     public bool TryGetConnectivityManagementResult(out ConnectivityManagementResult value) =>
         _connectivityManagementResultValue.TryGetValue(out value);
 
-    internal static Task<SendSmstoDeviceError> Create(HttpResponseMessage response, CancellationToken ct) =>
+    internal static Task<SendSmsToDeviceError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
             400 => FromJson<ConnectivityManagementResult>(response, ct).As(AsConnectivityManagementResult),
@@ -34,14 +34,14 @@ public sealed class SendSmstoDeviceError : ApiError
         };
 }
 
-internal sealed class SendSmstoDeviceErrorResponse : IErrorResponse<SendSmstoDeviceError>
+internal sealed class SendSmsToDeviceErrorResponse : IErrorResponse<SendSmsToDeviceError>
 {
-    public static SendSmstoDeviceErrorResponse Instance { get; } = new();
+    public static SendSmsToDeviceErrorResponse Instance { get; } = new();
 
-    private SendSmstoDeviceErrorResponse()
+    private SendSmsToDeviceErrorResponse()
     {
     }
 
-    public Task<SendSmstoDeviceError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        SendSmstoDeviceError.Create(response, ct);
+    public Task<SendSmsToDeviceError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        SendSmsToDeviceError.Create(response, ct);
 }

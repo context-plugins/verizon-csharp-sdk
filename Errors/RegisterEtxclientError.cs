@@ -7,41 +7,41 @@ using Verizon.Models;
 
 namespace Verizon.Errors;
 
-public sealed class RegisterEtxclientError : ApiError
+public sealed class RegisterEtxClientError : ApiError
 {
-    private readonly Optional<EtxrespondingError> _etxrespondingErrorValue;
+    private readonly Optional<EtxRespondingError> _etxRespondingErrorValue;
 
-    private RegisterEtxclientError(Optional<EtxrespondingError> etxrespondingErrorValue,
+    private RegisterEtxClientError(Optional<EtxRespondingError> etxRespondingErrorValue,
         Optional<RawError> fallback) : base(fallback)
     {
-        _etxrespondingErrorValue = etxrespondingErrorValue;
+        _etxRespondingErrorValue = etxRespondingErrorValue;
     }
 
-    private static RegisterEtxclientError AsEtxrespondingError(EtxrespondingError value) =>
-        new(Optional<EtxrespondingError>.Some(value), default);
+    private static RegisterEtxClientError AsEtxRespondingError(EtxRespondingError value) =>
+        new(Optional<EtxRespondingError>.Some(value), default);
 
-    private static RegisterEtxclientError AsFallback(RawError value) =>
+    private static RegisterEtxClientError AsFallback(RawError value) =>
         new(default, Optional<RawError>.Some(value));
 
-    public bool TryGetEtxrespondingError(out EtxrespondingError value) =>
-        _etxrespondingErrorValue.TryGetValue(out value);
+    public bool TryGetEtxRespondingError(out EtxRespondingError value) =>
+        _etxRespondingErrorValue.TryGetValue(out value);
 
-    internal static Task<RegisterEtxclientError> Create(HttpResponseMessage response, CancellationToken ct) =>
+    internal static Task<RegisterEtxClientError> Create(HttpResponseMessage response, CancellationToken ct) =>
         (int)response.StatusCode switch
         {
-            400 or 401 or 403 or 429 or 503 => FromJson<EtxrespondingError>(response, ct).As(AsEtxrespondingError),
+            400 or 401 or 403 or 429 or 503 => FromJson<EtxRespondingError>(response, ct).As(AsEtxRespondingError),
             _ => FromRawBody(response, ct).As(AsFallback)
         };
 }
 
-internal sealed class RegisterEtxclientErrorResponse : IErrorResponse<RegisterEtxclientError>
+internal sealed class RegisterEtxClientErrorResponse : IErrorResponse<RegisterEtxClientError>
 {
-    public static RegisterEtxclientErrorResponse Instance { get; } = new();
+    public static RegisterEtxClientErrorResponse Instance { get; } = new();
 
-    private RegisterEtxclientErrorResponse()
+    private RegisterEtxClientErrorResponse()
     {
     }
 
-    public Task<RegisterEtxclientError> Map(HttpResponseMessage response, CancellationToken ct) =>
-        RegisterEtxclientError.Create(response, ct);
+    public Task<RegisterEtxClientError> Map(HttpResponseMessage response, CancellationToken ct) =>
+        RegisterEtxClientError.Create(response, ct);
 }

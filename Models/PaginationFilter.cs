@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 
 namespace Verizon.Models;
 
@@ -17,4 +18,7 @@ public record PaginationFilter
     [MaxLength(4096)]
     [RegularExpression("^[A-Za-z0-9_-]+={0,2}$")]
     public required string Page { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Models.Enums;
 
 namespace Verizon.Models;
@@ -76,4 +77,7 @@ public record UsageTriggerResponse
     /// </summary>
     [JsonPropertyName("updateDate")]
     public required string UpdateDate { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

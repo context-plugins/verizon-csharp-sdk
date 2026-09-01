@@ -34,12 +34,12 @@ public sealed class SimActions
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ESimrequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ESimRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="NewactivatecodeError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// System assign a new activation code to reactivate a deactivated device. <b>Note:</b> the previously assigned ICCID must be used to request a new activation code.
     /// </remarks>
-    public Task<ESimrequestResponse> Newactivatecode(ESimprofileRequest2 body,
+    public Task<ESimRequestResponse> Newactivatecode(ESimProfileRequest2 body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/renew_activation_code"),
@@ -48,7 +48,7 @@ public sealed class SimActions
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<ESimrequestResponse>(),
+            JsonResponse.Create<ESimRequestResponse>(),
             NewactivatecodeErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -60,12 +60,12 @@ public sealed class SimActions
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ESimrequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ESimRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="SetactivateUsingPostError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Uses the profile to activate the SIM.
     /// </remarks>
-    public Task<ESimrequestResponse> SetactivateUsingPost(ESimprofileRequest body,
+    public Task<ESimRequestResponse> SetactivateUsingPost(ESimProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/activate"),
@@ -74,7 +74,7 @@ public sealed class SimActions
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<ESimrequestResponse>(),
+            JsonResponse.Create<ESimRequestResponse>(),
             SetactivateUsingPostErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -86,12 +86,12 @@ public sealed class SimActions
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ESimrequestResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ESimRequestResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="SetdeactivateUsingPostError"/> when the server returns an error response.</exception>
     /// <remarks>
     /// Uses the profile to deactivate the SIM.
     /// </remarks>
-    public Task<ESimrequestResponse> SetdeactivateUsingPost(ProfileRequest2 body,
+    public Task<ESimRequestResponse> SetdeactivateUsingPost(ProfileRequest2 body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/profile/actions/deactivate"),
@@ -100,7 +100,7 @@ public sealed class SimActions
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<ESimrequestResponse>(),
+            JsonResponse.Create<ESimRequestResponse>(),
             SetdeactivateUsingPostErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,

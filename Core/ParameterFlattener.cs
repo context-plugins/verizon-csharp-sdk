@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text.Json;
-using Verizon.Core.Extensions;
 using Verizon.Core.Models;
 
 namespace Verizon.Core;
@@ -12,100 +10,73 @@ internal static class ParameterFlattener
 {
     public static IEnumerable<KeyValuePair<string, string>> Flatten(Param param)
     {
-        var (key, value, format) = param;
-        return Flatten(key, value, format)
-            .Select(kv => new KeyValuePair<string, string>(kv.Key, kv.Value));
+        var element = ToElement(param.Value);
+        if (param.Key is { } key)
+            return Flatten(key, element, param.SerializationFormat);
+
+        return element.ValueKind switch
+        {
+            JsonValueKind.Null => [],
+            JsonValueKind.Object => element.EnumerateObject()
+                .SelectMany(p => Flatten(p.Name, p.Value, param.SerializationFormat)),
+            var kind => throw new InvalidOperationException(
+                $"A keyless parameter must be an object; its value serialized as {kind}.")
+        };
     }
 
     public static IEnumerable<string> Flatten(object? value)
     {
-        if (value is null) return [];
-
-        var normalized = value.Normalize();
-        return normalized switch
+        var element = ToElement(value);
+        return element.ValueKind switch
         {
-            string str => [str],
-            bool b => [b.ToString().ToLowerInvariant()],
-            IEnumerable<object?> list => FlattenList(list, value),
-            IDictionary<string, object?> => [JsonSerializer.Serialize(value)],
-            _ => [normalized?.ToString() ?? string.Empty]
+            JsonValueKind.Null => [],
+            JsonValueKind.Object => [element.GetRawText()],
+            JsonValueKind.Array => element.EnumerateArray().All(IsScalar)
+                ? element.EnumerateArray().Select(Text)
+                : [element.GetRawText()],
+            _ => [Text(element)]
         };
     }
 
-    private static IEnumerable<(string Key, string Value)> Flatten(
-        string key,
-        object? value,
-        SerializationFormat format)
-    {
-        // TODO: Shield handle null or empty or default value here;
-        if (value is null) return [];
-
-        var normalized = value.Normalize();
-        return normalized switch
+    private static IEnumerable<KeyValuePair<string, string>> Flatten(
+        string key, JsonElement element, SerializationFormat format) =>
+        element.ValueKind switch
         {
-            IDictionary<string, object?> dict => FlattenDict(key, dict, format),
-            string str => [(key, str)],
-            IEnumerable<object?> list => FlattenList(key, list, format),
-            bool boolValue => [(key, boolValue.ToString().ToLowerInvariant())],
-            _ => [(key, Convert.ToString(normalized, CultureInfo.InvariantCulture) ?? string.Empty)]
+            JsonValueKind.Null => [],
+            JsonValueKind.Object => element.EnumerateObject()
+                .SelectMany(p => Flatten($"{key}[{p.Name}]", p.Value, format)),
+            JsonValueKind.Array => FlattenArray(key, element, format),
+            _ => [new KeyValuePair<string, string>(key, Text(element))]
         };
-    }
 
-    // ------------------------------------------------------
-    // Expression helpers (pure functions)
-    // ------------------------------------------------------
+    private static IEnumerable<KeyValuePair<string, string>> FlattenArray(
+        string key, JsonElement array, SerializationFormat format) =>
+        format switch
+        {
+            SerializationFormat.Indexed => array.EnumerateArray().SelectMany(
+                (item, index) => Flatten($"{key}[{index}]", item, format)),
+            SerializationFormat.UnIndexed => array.EnumerateArray().SelectMany(
+                item => Flatten($"{key}[]", item, format)),
+            SerializationFormat.Csv => [new KeyValuePair<string, string>(key, Join(array, ","))],
+            SerializationFormat.Tsv => [new KeyValuePair<string, string>(key, Join(array, "\t"))],
+            SerializationFormat.Psv => [new KeyValuePair<string, string>(key, Join(array, "|"))],
+            _ => array.EnumerateArray().SelectMany(item => Flatten(key, item, format))
+        };
 
-    private static IEnumerable<(string, string)> FlattenDict(
-        string key,
-        IDictionary<string, object?> dict,
-        SerializationFormat format)
-        =>
-            dict.SelectMany(kv =>
-                Flatten($"{key}[{kv.Key}]", kv.Value, format)
-            );
+    private static string Join(JsonElement array, string separator) =>
+        string.Join(separator, array.EnumerateArray().Select(Text));
 
-    private static IEnumerable<(string, string)> FlattenList(
-        string key,
-        IEnumerable<object?> list,
-        SerializationFormat format)
-        =>
-            format switch
-            {
-                SerializationFormat.Plain => list.SelectMany(item => Flatten(key, item, format)),
-                SerializationFormat.Indexed => Indexed(key, list),
-                SerializationFormat.UnIndexed => UnIndexed(key, list),
-                SerializationFormat.Csv => Yield(key, list, ","),
-                SerializationFormat.Tsv => Yield(key, list, "\t"),
-                SerializationFormat.Psv => Yield(key, list, "|"),
-                _ => list.SelectMany(item => Flatten(key, item, format))
-            };
+    private static bool IsScalar(JsonElement element) =>
+        element.ValueKind is not (JsonValueKind.Object or JsonValueKind.Array);
 
-    private static IEnumerable<string> FlattenList(IEnumerable<object?> list, object? original)
-    {
-        var items = list.ToList();
-        return items.All(IsScalar)
-            ? items.Select(v => v?.ToString() ?? string.Empty)
-            : [JsonSerializer.Serialize(original)];
-    }
+    private static string Text(JsonElement element) =>
+        element.ValueKind switch
+        {
+            JsonValueKind.String => element.GetString()!,
+            JsonValueKind.Null => string.Empty,
+            _ => element.GetRawText()
+        };
 
-    // ------------------------------------------------------
-    // Specific list-format handlers (each is a pure expression)
-    // ------------------------------------------------------
-    private static bool IsScalar(object? v) => v is null or string or bool or long or decimal or double;
-
-
-    private static IEnumerable<(string, string)> Indexed(string key, IEnumerable<object?> list)
-        =>
-            list.SelectMany((item, index) =>
-                Flatten($"{key}[{index}]", item, SerializationFormat.Plain)
-            );
-
-    private static IEnumerable<(string, string)> UnIndexed(string key, IEnumerable<object?> list)
-        =>
-            list.SelectMany(item =>
-                Flatten($"{key}[]", item, SerializationFormat.Plain)
-            );
-
-    private static IEnumerable<(string, string)> Yield(string key, IEnumerable<object?> list, string sep) =>
-        [(key, string.Join(sep, list.Select(v => v?.ToString() ?? "")))];
+    private static JsonElement ToElement(object? value) =>
+        value is JsonElement element ? element : JsonSerializer.SerializeToElement(value, JsonSerializerOptions.Web);
 }

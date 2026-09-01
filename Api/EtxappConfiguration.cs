@@ -16,13 +16,13 @@ namespace Verizon.Api;
 /// <summary>
 /// Manage geofence-based application configurations.
 /// </summary>
-public sealed class EtxappConfiguration
+public sealed class EtxAppConfiguration
 {
     private readonly RawClient _rawClient;
     private readonly Server _server;
     private readonly AuthSchemes _auth;
 
-    internal EtxappConfiguration(RawClient rawClient, Server server, AuthSchemes auth)
+    internal EtxAppConfiguration(RawClient rawClient, Server server, AuthSchemes auth)
     {
         _rawClient = rawClient;
         _server = server;

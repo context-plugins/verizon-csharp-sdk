@@ -12,30 +12,30 @@ namespace Verizon.Models.AnyOf;
 [JsonConverter(typeof(SpeedLimitConverter))]
 public record SpeedLimit
 {
-    private readonly Optional<ItisitemWrapper> _itisitemWrapperValue;
+    private readonly Optional<ItisItemWrapper> _itisItemWrapperValue;
 
     private readonly Optional<TextPhraseItemWrapper> _textPhraseItemWrapperValue;
 
-    private SpeedLimit(Optional<ItisitemWrapper> itisitemWrapperValue,
+    private SpeedLimit(Optional<ItisItemWrapper> itisItemWrapperValue,
         Optional<TextPhraseItemWrapper> textPhraseItemWrapperValue)
     {
-        _itisitemWrapperValue = itisitemWrapperValue;
+        _itisItemWrapperValue = itisItemWrapperValue;
         _textPhraseItemWrapperValue = textPhraseItemWrapperValue;
     }
 
-    public static SpeedLimit ItisitemWrapper(ItisitemWrapper value) =>
-        new(Optional<ItisitemWrapper>.Some(value), default);
+    public static SpeedLimit ItisItemWrapper(ItisItemWrapper value) =>
+        new(Optional<ItisItemWrapper>.Some(value), default);
 
     public static SpeedLimit TextPhraseItemWrapper(TextPhraseItemWrapper value) =>
         new(default, Optional<TextPhraseItemWrapper>.Some(value));
 
-    public bool TryGetItisitemWrapper(out ItisitemWrapper value) =>
-        _itisitemWrapperValue.TryGetValue(out value);
+    public bool TryGetItisItemWrapper(out ItisItemWrapper value) =>
+        _itisItemWrapperValue.TryGetValue(out value);
 
     public bool TryGetTextPhraseItemWrapper(out TextPhraseItemWrapper value) =>
         _textPhraseItemWrapperValue.TryGetValue(out value);
 
-    public static implicit operator SpeedLimit(ItisitemWrapper value) => ItisitemWrapper(value);
+    public static implicit operator SpeedLimit(ItisItemWrapper value) => ItisItemWrapper(value);
 
     public static implicit operator SpeedLimit(TextPhraseItemWrapper value) => TextPhraseItemWrapper(value);
 }
@@ -46,22 +46,22 @@ file sealed class SpeedLimitConverter : JsonConverter<SpeedLimit>
     {
         using var doc = JsonDocument.ParseValue(ref reader);
         var root = doc.RootElement;
-        if (JsonSerializer.TryDeserialize<ItisitemWrapper>(root, options, out var itisitemWrapperValue))
+        if (JsonSerializer.TryDeserialize<ItisItemWrapper>(root, options, out var itisItemWrapperValue))
         {
-            return SpeedLimit.ItisitemWrapper(itisitemWrapperValue);
+            return SpeedLimit.ItisItemWrapper(itisItemWrapperValue);
         }
         if (JsonSerializer.TryDeserialize<TextPhraseItemWrapper>(root, options, out var textPhraseItemWrapperValue))
         {
             return SpeedLimit.TextPhraseItemWrapper(textPhraseItemWrapperValue);
         }
-        throw new JsonException($"JSON does not match ItisitemWrapper or TextPhraseItemWrapper schemas: {root.ToString()}");
+        throw new JsonException($"JSON does not match ItisItemWrapper or TextPhraseItemWrapper schemas: {root.ToString()}");
     }
 
     public override void Write(Utf8JsonWriter writer, SpeedLimit value, JsonSerializerOptions options)
     {
-        if (value.TryGetItisitemWrapper(out var itisitemWrapperValue))
+        if (value.TryGetItisItemWrapper(out var itisItemWrapperValue))
         {
-            JsonSerializer.Serialize(writer, itisitemWrapperValue, options);
+            JsonSerializer.Serialize(writer, itisItemWrapperValue, options);
         }
         else if (value.TryGetTextPhraseItemWrapper(out var textPhraseItemWrapperValue))
         {

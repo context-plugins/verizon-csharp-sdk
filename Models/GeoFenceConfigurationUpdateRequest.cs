@@ -52,7 +52,7 @@ public record GeoFenceConfigurationUpdateRequest
     [JsonPropertyName("messages")]
     [MinLength(1)]
     [MaxLength(10)]
-    public IReadOnlyList<Message1>? Messages { get; init; }
+    public IReadOnlyList<Message>? Messages { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("isActive")]

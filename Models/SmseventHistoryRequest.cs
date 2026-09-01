@@ -3,10 +3,10 @@ using System.Text.Json.Serialization;
 
 namespace Verizon.Models;
 
-public record SmseventHistoryRequest
+public record SmsEventHistoryRequest
 {
     [JsonPropertyName("deviceId")]
-    public required GiodeviceId DeviceId { get; init; }
+    public required GioDeviceId DeviceId { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyName("earliest")]

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Core.Validation.Attributes;
 using Verizon.Models.Enums;
 
@@ -15,7 +16,7 @@ public record EtxMapMessageIntersectionCoordinates
     /// V2X messaging standard selection. Accepted values are 'sae' (SAE J2735) and 'etsi' (ETSI TS 103 301).
     /// </summary>
     [JsonPropertyName("messageStandard")]
-    public EtxmessageStandardEnum? MessageStandard { get; init; } = EtxmessageStandardEnum.Sae;
+    public EtxMessageStandardEnum? MessageStandard { get; init; } = EtxMessageStandardEnum.Sae;
 
     /// <summary>
     /// List of region and intersection ID pairs to retrieve MAP messages for.
@@ -28,7 +29,7 @@ public record EtxMapMessageIntersectionCoordinates
     /// The format of the payload in the response body.
     /// </summary>
     [JsonPropertyName("expectedType")]
-    public EtxexpectedTypeEnum? ExpectedType { get; init; } = EtxexpectedTypeEnum.Base64;
+    public EtxExpectedTypeEnum? ExpectedType { get; init; } = EtxExpectedTypeEnum.Base64;
 
     /// <summary>
     /// Base64 encoded token used to retrieve the next page of results
@@ -46,4 +47,7 @@ public record EtxMapMessageIntersectionCoordinates
     [Minimum(1)]
     [Maximum(500)]
     public int? PageSize { get; init; } = 200;
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

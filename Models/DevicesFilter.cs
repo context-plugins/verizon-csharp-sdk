@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using Verizon.Core.Models;
 using Verizon.Core.Validation.Attributes;
 using Verizon.Models.Enums;
 
@@ -70,4 +71,7 @@ public record DevicesFilter
     [Minimum(1)]
     [Maximum(500)]
     public int? PageSize { get; init; }
+
+    [JsonExtensionData]
+    public AdditionalProperties AdditionalProperties { get; init; } = [];
 }

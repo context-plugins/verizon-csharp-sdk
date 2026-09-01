@@ -7,14 +7,14 @@ namespace Verizon.Core.Request;
 
 internal sealed class FormUrlEncodedRequest : IRequest
 {
-    private readonly IReadOnlyCollection<Param> _params;
+    private readonly IReadOnlyCollection<Param> _fields;
 
-    private FormUrlEncodedRequest(IReadOnlyCollection<Param> @params) => _params = @params;
+    private FormUrlEncodedRequest(IReadOnlyCollection<Param> fields) => _fields = fields;
 
     public HttpContent Get() =>
-        new FormUrlEncodedContent(_params.SelectMany(ParameterFlattener.Flatten).ToList());
+        new FormUrlEncodedContent([.. _fields.SelectMany(ParameterFlattener.Flatten)]);
 
     public bool CanRetry => true;
 
-    public static FormUrlEncodedRequest Create(IReadOnlyCollection<Param> @params) => new(@params);
+    public static FormUrlEncodedRequest Create(params IReadOnlyCollection<Param> fields) => new(fields);
 }

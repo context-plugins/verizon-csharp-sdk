@@ -7,7 +7,7 @@ public class ServerOptions
     public HyperPreciseCredentialsOptions HyperPreciseCredentials { get; set; } = new();
     public ImpServerOptions ImpServer { get; set; } = new();
     public ThingspaceOptions Thingspace { get; set; } = new();
-    public OauthServerOptions OauthServer { get; set; } = new();
+    public OAuthServerOptions OAuthServer { get; set; } = new();
     public M2MOptions M2M { get; set; } = new();
     public DeviceLocationOptions DeviceLocation { get; set; } = new();
     public SubscriptionServerOptions SubscriptionServer { get; set; } = new();

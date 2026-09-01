@@ -31,9 +31,9 @@ public sealed class Pwn
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ChangePwndeviceIpaddressResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ChangePwnDeviceIpAddressResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<ChangePwndeviceIpaddressResponse> ChangePwndeviceIpaddress(ChangePwndeviceIpaddressRequest body,
+    public Task<ChangePwnDeviceIpAddressResponse> ChangePwnDeviceIPaddress(ChangePwnDeviceIPaddressRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/pwn/actions/ipaddress"),
@@ -42,7 +42,7 @@ public sealed class Pwn
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Put,
             JsonRequest.Create(body),
-            JsonResponse.Create<ChangePwndeviceIpaddressResponse>(),
+            JsonResponse.Create<ChangePwnDeviceIpAddressResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -54,9 +54,9 @@ public sealed class Pwn
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ChangePwndeviceProfileResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ChangePwnDeviceProfileResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<ChangePwndeviceProfileResponse> ChangePwndeviceProfile(ChangePwndeviceProfileRequest body,
+    public Task<ChangePwnDeviceProfileResponse> ChangePwnDeviceProfile(ChangePwnDeviceProfileRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/pwn/actions/profile"),
@@ -65,7 +65,7 @@ public sealed class Pwn
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<ChangePwndeviceProfileResponse>(),
+            JsonResponse.Create<ChangePwnDeviceProfileResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -77,9 +77,9 @@ public sealed class Pwn
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ChangePwndeviceStateResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ChangePwnDeviceStateResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<ChangePwndeviceStateResponse> ChangePwndeviceStateActivate(ChangePwndeviceStateActivateRequest body,
+    public Task<ChangePwnDeviceStateResponse> ChangePwnDeviceStateActivate(ChangePwnDeviceStateActivateRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/pwn/actions/state/activate"),
@@ -88,7 +88,7 @@ public sealed class Pwn
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<ChangePwndeviceStateResponse>(),
+            JsonResponse.Create<ChangePwnDeviceStateResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -100,9 +100,9 @@ public sealed class Pwn
     /// <param name="body"></param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ChangePwndeviceStateResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="ChangePwnDeviceStateResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<ChangePwndeviceStateResponse> ChangePwndeviceStateDeactivate(ChangePwndeviceStateDeactivateRequest body,
+    public Task<ChangePwnDeviceStateResponse> ChangePwnDeviceStateDeactivate(ChangePwnDeviceStateDeactivateRequest body,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/pwn/actions/state/deactivate"),
@@ -111,7 +111,7 @@ public sealed class Pwn
             [new HeaderParam("Idempotency-Key", Guid.NewGuid())],
             HttpMethod.Post,
             JsonRequest.Create(body),
-            JsonResponse.Create<ChangePwndeviceStateResponse>(),
+            JsonResponse.Create<ChangePwnDeviceStateResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -123,9 +123,9 @@ public sealed class Pwn
     /// <param name="aname">Account name.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetPwnperformanceConsentResponse"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="GetPwnPerformanceConsentResponse"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<GetPwnperformanceConsentResponse> GetPwnperformanceConsent(string aname,
+    public Task<GetPwnPerformanceConsentResponse> GetPwnPerformanceConsent(string aname,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/pwn/performance/consent/{aname}"),
@@ -134,7 +134,7 @@ public sealed class Pwn
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<GetPwnperformanceConsentResponse>(),
+            JsonResponse.Create<GetPwnPerformanceConsentResponse>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -146,9 +146,9 @@ public sealed class Pwn
     /// <param name="aname">Account name.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="PwnprofileList"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="PwnProfileList"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<PwnprofileList> GetProfileList(string aname,
+    public Task<PwnProfileList> GetProfileList(string aname,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/pwn/profiles/list/{aname}"),
@@ -157,7 +157,7 @@ public sealed class Pwn
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<PwnprofileList>(),
+            JsonResponse.Create<PwnProfileList>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
@@ -169,9 +169,9 @@ public sealed class Pwn
     /// <param name="aname">Account name.</param>
     /// <param name="requestOptions">Per-request options, such as an overriding log level for this call</param>
     /// <param name="ct">Cancellation token</param>
-    /// <returns>A <see cref="Task{TResult}"/> of <see cref="KpiinfoList"/> instance.</returns>
+    /// <returns>A <see cref="Task{TResult}"/> of <see cref="KpiInfoList"/> instance.</returns>
     /// <exception cref="SdkException{TResult}"> of <see cref="RawError"/> when the server returns an error response.</exception>
-    public Task<KpiinfoList> Kpilist(string aname,
+    public Task<KpiInfoList> KpiList(string aname,
         RequestOptions? requestOptions = null,
         CancellationToken ct = default) =>
         _rawClient.Execute(_server.HyperPreciseCredentials("/m2m/v1/devices/pwn/kpi/list/{aname}"),
@@ -180,7 +180,7 @@ public sealed class Pwn
             [],
             HttpMethod.Get,
             EmptyBody.Instance,
-            JsonResponse.Create<KpiinfoList>(),
+            JsonResponse.Create<KpiInfoList>(),
             RawErrorResponse.Instance,
             [_auth.ThingspaceOauth, _auth.VzM2MToken],
             requestOptions,
